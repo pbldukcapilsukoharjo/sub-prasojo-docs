@@ -3,11 +3,12 @@ info:
   title: Sub-Prasojo API
   version: 1.0.0
   description: API Design untuk Dashboard Kinerja dan TAMAT 
-  servers:
+servers:
   - url: 'http://localhost:8000'
     description: Local Server
   - url: 'https://6ifb537y9e5l.mock.hoppscotch.io'
     description: Mock Server
+
 paths:
   /api/v1/kinerja/operator:
     get:
