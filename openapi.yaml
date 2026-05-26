@@ -1,582 +1,64 @@
 openapi: 3.0.3
 info:
   title: Sub-Prasojo API
-  version: 1.0.0
-  description: API Design untuk Dashboard Kinerja dan TAMAT 
+  version: 1.1.2
+  description: API Design untuk Dashboard Kinerja dan TAMAT
 servers:
-  - url: 'http://localhost:8000'
+  - url: "http://localhost:8000"
     description: Local Server
-  - url: 'https://6ifb537y9e5l.mock.hoppscotch.io'
+  - url: "https://6ifb537y9e5l.mock.hoppscotch.io"
     description: Mock Server
 
 paths:
-  /api/v1/kinerja/operator:
-    get:
-      tags:
-        - Kinerja Operator
-      summary: Ranking
-      description: Mendapatkan ranking kinerja operator berdasarkan jumlah layanan yang diproses dalam rentang waktu tertentu. Data dapat difilter dengan tanggal awal, tanggal akhir, dan pagination.
-      parameters:
-        - name: tanggal_awal
-          in: query
-          schema:
-            type: string
-        - name: tanggal_akhir
-          in: query
-          schema:
-            type: string
-        - name: page
-          in: query
-          schema:
-            type: string
-            default: "1"
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              example: |
-                {
-                  "status": true,
-                  "code": 200,
-                  "message": "Berhasil mendapatkan data kinerja operator",
-                  "data": [
-                    {
-                      "rank": 1,
-                      "operator_id": 3,
-                      "fullname": "Agus Wibowo",
-                      "total_layanan": 45,
-                      "rincian": {
-                        "AKL": 18,
-                        "KK": 15,
-                        "AKM": 7,
-                        "KTP": 5
-                      }
-                    },
-                    {
-                      "rank": 2,
-                      "operator_id": 3,
-                      "fullname": "Agus Wibowo",
-                      "total_layanan": 45,
-                      "rincian": {
-                        "AKL": 18,
-                        "KK": 15,
-                        "AKM": 7,
-                        "KTP": 5
-                      }
-                    },
-                    {
-                      "rank": 3,
-                      "operator_id": 3,
-                      "fullname": "Agus Wibowo",
-                      "total_layanan": 45,
-                      "rincian": {
-                        "AKL": 18,
-                        "KK": 15,
-                        "AKM": 7,
-                        "KTP": 5
-                      }
-                    },
-                    {
-                      "rank": 4,
-                      "operator_id": 3,
-                      "fullname": "Agus Wibowo",
-                      "total_layanan": 45,
-                      "rincian": {
-                        "AKL": 18,
-                        "KK": 15,
-                        "AKM": 7,
-                        "KTP": 5
-                      }
-                    },
-                    {
-                      "rank": 5,
-                      "operator_id": 3,
-                      "fullname": "Agus Wibowo",
-                      "total_layanan": 45,
-                      "rincian": {
-                        "AKL": 18,
-                        "KK": 15,
-                        "AKM": 7,
-                        "KTP": 5
-                      }
-                    }
-                  ],
-                  "meta": {
-                    "page": 1,
-                    "per_page": 5,
-                    "total": 32,
-                    "total_page": 7
-                  }
-                }
-
-  /api/v1/kinerja/operator/{operator_id}:
-    get:
-      tags:
-        - Kinerja Operator
-      summary: Detail Operator
-      description: Mendapatkan detail kinerja operator tertentu, termasuk total layanan yang diproses, rincian per jenis layanan, dan jumlah layanan per hari.
-      parameters:
-        - name: operator_id
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              example: |
-                {
-                  "status": true,
-                  "code": 200,
-                  "message": "Berhasil mendapatkan detail operator",
-                  "data": {
-                    "operator_id": 3,
-                    "fullname": "Agus Wibowo",
-                    "total_layanan": 45,
-                    "per_hari": [
-                      { "tanggal": "2026-03-31", "jumlah": 8 }
-                    ],
-                    "per_jenis": [
-                      { "layanan_kode": "AKL", "jumlah": 18 }
-                    ]
-                  }
-                }
-
-  /api/v1/dashboard/summary:
-    get:
-      tags:
-        - Dashboard
-      summary: Dashboard Utama
-      description: Mendapatkan ringkasan data kinerja sistem.
-      parameters:
-        - name: tanggal_awal
-          in: query
-          schema:
-            type: string
-        - name: tanggal_akhir
-          in: query
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              example: |
-                {
-                  "status": true,
-                  "code": 200,
-                  "message": "Berhasil mendapatkan data terbaru",
-                  "data": {
-                    "total_ajuan": 320,
-                    "belum_diverifikasi": 45,
-                    "proses_verifikasi": 12,
-                    "disetujui": 180,
-                    "ditolak": 23,
-                    "selesai": 60,
-                    "total_tamat": 87,
-                    "layanan_terpopuler": "AKM"
-                  }
-                }
-
-  /api/v1/dashboard/statistik:
-    get:
-      tags:
-        - Dashboard
-      summary: Statistik Layanan
-      description: Mendapatkan statistik jumlah layanan berdasarkan jenis layanan.
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              example: |
-                {
-                  "status": true,
-                  "code": 200,
-                  "message": "Berhasil mendapatkan statistik layanan",
-                  "data": [
-                    { "layanan_kode": "AKL", "layanan_nama": "Akta Kelahiran", "jumlah": 120 },
-                    { "layanan_kode": "KK",  "layanan_nama": "Kartu Keluarga", "jumlah": 98 },
-                    { "layanan_kode": "AKM", "layanan_nama": "Akta Kematian", "jumlah": 14 }
-                  ]
-                }
-
-  /api/v1/dashboard/harian:
-    get:
-      tags:
-        - Dashboard
-      summary: Harian
-      description: Mendapatkan jumlah ajuan dalam rentang waktu tertentu.
-      parameters:
-        - name: tanggal_awal
-          in: query
-          schema:
-            type: string
-            default: "2026-03-25"
-        - name: tanggal_akhir
-          in: query
-          schema:
-            type: string
-            default: "2026-03-27"
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              example: |
-                {
-                  "status": true,
-                  "code": 200,
-                  "message": "Berhasil mendapatkan jumlah ajuan dalam harian",
-                  "data": [
-                    { "tanggal": "2026-03-25", "jumlah": 18 },
-                    { "tanggal": "2026-03-26", "jumlah": 22 },
-                    { "tanggal": "2026-03-27", "jumlah": 15 }
-                  ]
-                }
-
-  /api/v1/ajuan/{ajuan_id}:
-    get:
-      tags:
-        - Ajuan
-      summary: Detail Ajuan
-      description: Mendapatkan detail informasi tentang ajuan tertentu.
-      parameters:
-        - name: ajuan_id
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              example: |
-                {
-                  "status": true,
-                  "code": 200,
-                  "message": "Berhasil mendapatkan ajuan",
-                  "data": {
-                    "ajuan_id": 55,
-                    "ajuan_no_reg": "PRJ-2026-0055",
-                    "layanan_kode": "AKM",
-                    "ajuan_status": "DISETUJUI",
-                    "ajuan_keterangan": "TAMAT",
-                    "is_tamat": true,
-                    "kecamatan_name": "Grogol",
-                    "kelurahan_name": "Cemani",
-                    "ajuan_create_datetime": "2026-03-31T08:00:00+07:00",
-                    "data_spesifik": {
-                      "nama_jenazah": "Sutrisno",
-                      "nik": "3311XXXXXXXXXXXX",
-                      "tgl_kematian": "2026-03-28T06:00:00+07:00",
-                      "tempat_kematian": "RS Ortopedi Sukoharjo",
-                      "anak_ke": 2,
-                      "nama_ibu": "Siti Aminah",
-                      "nama_ayah": "Karto Wijoyo",
-                      "dokumen": ["surat_kematian_rs.pdf", "kk.pdf"]
-                    },
-                    "timeline": [
-                      {
-                        "status": "BELUM_DIVERIFIKASI",
-                        "datetime": "2026-03-31T08:00:00+07:00",
-                        "note": "Ajuan diterima dari PADUKA",
-                        "admin_id": null
-                      },
-                      {
-                        "status": "PROSES_VERIFIKASI",
-                        "datetime": "2026-03-31T09:15:00+07:00",
-                        "note": "Dokumen mulai diperiksa",
-                        "admin_id": 3
-                      },
-                      {
-                        "status": "DISETUJUI",
-                        "datetime": "2026-03-31T10:30:00+07:00",
-                        "note": "Data valid, akta diproses",
-                        "admin_id": 3
-                      }
-                    ]
-                  }
-                }
-
-  /api/v1/ajuan:
-    get:
-      tags:
-        - Ajuan
-      summary: List Ajuan
-      description: Mendapatkan daftar ajuan dengan filter dan pagination.
-      parameters:
-        - name: status
-          in: query
-          schema:
-            type: string
-        - name: page
-          in: query
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              example: |
-                {
-                  "status": true,
-                  "code": 200,
-                  "message": "Berhasil",
-                  "data": [
-                	{
-                      "ajuan_id": 55,
-                      "ajuan_no_reg": "PRJ-2026-0055",
-                      "layanan_kode": "AKM",
-                      "layanan_nama": "Akta Kematian",
-                      "is_tamat": true,
-                      "ajuan_status": "DISETUJUI",
-                      "nama_pemohon": "Budi Santoso",
-                      "pelapor_role_name": "PADUKA",
-                      "kecamatan_name": "Grogol",
-                      "kelurahan_name": "Cemani",
-                      "ajuan_create_datetime": "2026-03-31T08:00:00+07:00",
-                      "ajuan_update_datetime": "2026-03-31T10:30:00+07:00"
-                    },
-                    {
-                      "ajuan_id": 55,
-                      "ajuan_no_reg": "PRJ-2026-0055",
-                      "layanan_kode": "AKM",
-                      "layanan_nama": "Akta Kematian",
-                      "is_tamat": true,
-                      "ajuan_status": "DISETUJUI",
-                      "nama_pemohon": "Budi Santoso",
-                      "pelapor_role_name": "PADUKA",
-                      "kecamatan_name": "Grogol",
-                      "kelurahan_name": "Cemani",
-                      "ajuan_create_datetime": "2026-03-31T08:00:00+07:00",
-                      "ajuan_update_datetime": "2026-03-31T10:30:00+07:00"
-                    },
-                    {
-                      "ajuan_id": 55,
-                      "ajuan_no_reg": "PRJ-2026-0055",
-                      "layanan_kode": "AKM",
-                      "layanan_nama": "Akta Kematian",
-                      "is_tamat": true,
-                      "ajuan_status": "DISETUJUI",
-                      "nama_pemohon": "Budi Santoso",
-                      "pelapor_role_name": "PADUKA",
-                      "kecamatan_name": "Grogol",
-                      "kelurahan_name": "Cemani",
-                      "ajuan_create_datetime": "2026-03-31T08:00:00+07:00",
-                      "ajuan_update_datetime": "2026-03-31T10:30:00+07:00"
-                    },
-                    {
-                      "ajuan_id": 55,
-                      "ajuan_no_reg": "PRJ-2026-0055",
-                      "layanan_kode": "AKM",
-                      "layanan_nama": "Akta Kematian",
-                      "is_tamat": true,
-                      "ajuan_status": "DISETUJUI",
-                      "nama_pemohon": "Budi Santoso",
-                      "pelapor_role_name": "PADUKA",
-                      "kecamatan_name": "Grogol",
-                      "kelurahan_name": "Cemani",
-                      "ajuan_create_datetime": "2026-03-31T08:00:00+07:00",
-                      "ajuan_update_datetime": "2026-03-31T10:30:00+07:00"
-                    },
-                    {
-                      "ajuan_id": 55,
-                      "ajuan_no_reg": "PRJ-2026-0055",
-                      "layanan_kode": "AKM",
-                      "layanan_nama": "Akta Kematian",
-                      "is_tamat": true,
-                      "ajuan_status": "DISETUJUI",
-                      "nama_pemohon": "Budi Santoso",
-                      "pelapor_role_name": "PADUKA",
-                      "kecamatan_name": "Grogol",
-                      "kelurahan_name": "Cemani",
-                      "ajuan_create_datetime": "2026-03-31T08:00:00+07:00",
-                      "ajuan_update_datetime": "2026-03-31T10:30:00+07:00"
-                    }
-                  ],
-                  "meta": {
-                    "page": 1,
-                    "per_page": 5,
-                    "total": 20,
-                    "total_page": 4
-                  }
-                }
+  /api/v1/auth/register:
     post:
       tags:
-        - Ajuan
-      summary: Kirim Ajuan
-      description: Mengirim ajuan layanan baru dengan data lengkap. Data ajuan harus mencakup informasi umum dan data spesifik sesuai jenis layanan yang diajukan.
+        - Authentication
+      summary: Register
+      description: Mendaftarkan operator baru ke dalam sistem.
       requestBody:
-        required: true
         content:
           application/json:
             example: |
               {
-                "layanan_kode": "AKM",
-                "jenis_ajuan_id": 2,
-                "is_mandiri": 0,
-                "kecamatan_code": "331101",
-                "kelurahan_code": "3311010001",
-                "keterangan": "TAMAT",
-                "data_ajuan": {
-                  "nama_jenazah": "Sutrisno",
-                  "nik": "3311XXXXXXXXXXXX",
-                  "tgl_kematian": "2026-03-28T06:00:00+07:00",
-                  "tempat_kematian": "RS Ortopedi Sukoharjo",
-                  "anak_ke": 2,
-                  "nama_ibu": "Siti Aminah",
-                  "nama_ayah": "Karto Wijoyo",
-                  "dokumen": ["base64_surat_kematian_rs.pdf", "base64_kk.pdf"]
-                }
+                "fullname": "",
+                "email": "",
+                "password": ""
               }
       responses:
-        '201':
-          description: Created
-          content:
-            application/json:
-              example: |
-                {
-                  "status": true,
-                  "code": 201,
-                  "message": "Ajuan berhasil dikirim",
-                  "data": {
-                    "ajuan_id": 55,
-                    "ajuan_no_reg": "PRJ-2026-0055"
-                  }
-                }
-
-  /api/v1/ajuan/{ajuan_id}/timeline:
-    get:
-      tags:
-        - Ajuan
-      summary: Timeline Ajuan
-      description: Mendapatkan timeline perubahan status dan catatan terkait ajuan tertentu.
-      parameters:
-        - name: ajuan_id
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
+        "200":
           description: Success
           content:
             application/json:
               example: |
                 {
-                  "status": true,
-                  "code": 200,
-                  "message": "Berhasil mendapatkan timeline ajuan",
-                  "data": [
-                    {
-                      "log_id": 1,
-                      "status": "BELUM_DIVERIFIKASI",
-                      "datetime": "2026-03-31T08:00:00+07:00",
-                      "note": "Ajuan masuk dari PADUKA",
-                      "admin_name": null
-                    }
-                  ]
+                  "message": "Operator registered successfully",
                 }
 
-  /api/v1/ulasan:
-    get:
+  /api/v1/auth/login:
+    post:
       tags:
-        - Ulasan
-      summary: Semua Ulasan
-      description: Mendapatkan daftar ulasan layanan dengan filter berdasarkan tanggal, jenis layanan, rating, dan pagination.
-      parameters:
-        - name: tanggal_awal
-          in: query
-          schema:
-            type: string
-        - name: tanggal_akhir
-          in: query
-          schema:
-            type: string
-        - name: layanan_kode
-          in: query
-          schema:
-            type: string
-        - name: rating
-          in: query
-          schema:
-            type: string
-        - name: page
-          in: query
-          schema:
-            type: string
-            default: "1"
+        - Authentication
+      summary: Login
+      description: Login operator ke dalam sistem.
+      requestBody:
+        content:
+          application/json:
+            example: |
+              {
+                "email": "",
+                "password": ""
+              }
       responses:
-        '200':
+        "200":
           description: Success
           content:
             application/json:
               example: |
                 {
-                  "status": true,
-                  "code": 200,
-                  "message": "Berhasil mendapatkan ulasan",
+                  "message": "Login successful",
                   "data": {
-                    "rekap": {
-                      "rata_rata_rating": 4.3,
-                      "total_ulasan": 155,
-                      "distribusi": { "5": 80, "4": 40, "3": 20, "2": 10, "1": 5 }
-                    },
-                    "list": [
-                      {
-                        "review_id": 1,
-                        "ajuan_no_reg": "PRJ-2026-0055",
-                        "layanan_nama": "Akta Kematian",
-                        "rating": 5,
-                        "content": "Pelayanan cepat dan ramah",
-                        "create_datetime": "2026-03-31T14:00:00+07:00"
-                      },
-                      {
-                        "review_id": 1,
-                        "ajuan_no_reg": "PRJ-2026-0055",
-                        "layanan_nama": "Akta Kematian",
-                        "rating": 5,
-                        "content": "Pelayanan cepat dan ramah",
-                        "create_datetime": "2026-03-31T14:00:00+07:00"
-                      },
-                      {
-                        "review_id": 1,
-                        "ajuan_no_reg": "PRJ-2026-0055",
-                        "layanan_nama": "Akta Kematian",
-                        "rating": 5,
-                        "content": "Pelayanan cepat dan ramah",
-                        "create_datetime": "2026-03-31T14:00:00+07:00"
-                      },
-                      {
-                        "review_id": 1,
-                        "ajuan_no_reg": "PRJ-2026-0055",
-                        "layanan_nama": "Akta Kematian",
-                        "rating": 5,
-                        "content": "Pelayanan cepat dan ramah",
-                        "create_datetime": "2026-03-31T14:00:00+07:00"
-                      },
-                      {
-                        "review_id": 1,
-                        "ajuan_no_reg": "PRJ-2026-0055",
-                        "layanan_nama": "Akta Kematian",
-                        "rating": 5,
-                        "content": "Pelayanan cepat dan ramah",
-                        "create_datetime": "2026-03-31T14:00:00+07:00"
-                      }
-                    ]
-                  },
-                  "meta": {
-                    "page": 1,
-                    "per_page": 5,
-                    "total": 7,
-                    "total_page": 2
+                    "token": ""
                   }
                 }
 
@@ -584,21 +66,47 @@ paths:
     get:
       tags:
         - Lembar Kerja
-      summary: Semua Lembar Kerja
-      description: Mendapatkan daftar lembar kerja dengan filter berdasarkan jenis layanan dan pagination.
+      summary: List Lembar Kerja
+      description: Dapatkan semua data lembar kerja
       parameters:
-        - name: layanan_kode
-          in: query
-          description: Filter dengan kode layanan
-          schema:
-            type: string
         - name: page
+          required: true
           in: query
           schema:
             type: string
             default: "1"
+        - name: search
+          in: query
+          schema:
+            type: string
+        - name: district
+          in: query
+          schema:
+            type: string
+        - name: period
+          in: query
+          schema:
+            type: string
+        - name: sortBy
+          required: true
+          in: query
+          schema:
+            type: string
+            default: "newest"
+        - name: startDate
+          in: query
+          schema:
+            type: string
+        - name: endDate
+          in: query
+          schema:
+            type: string
+        - name: reporter
+          in: query
+          schema:
+            type: string
       responses:
-        '200':
+        "200":
           description: Success
           content:
             application/json:
@@ -609,43 +117,40 @@ paths:
                   "message": "Berhasil mendapatkan lembar kerja",
                   "data": [
                     {
-                      "lk_id": 10,
-                      "ajuan_id": 55,
-                      "ajuan_no_reg": "PRJ-2026-0055",
-                      "layanan_kode": "AKM",
-                      "layanan_nama": "Akta Kematian",
-                      "is_tamat": true,
-                      "pelapor_role_name": "PADUKA",
-                      "ajuan_status": "BELUM_DIVERIFIKASI",
-                      "kecamatan_name": "Sukoharjo",
-                      "kelurahan_name": "Gayam",
-                      "create_datetime": "2026-03-31T08:00:00+07:00"
+                      "id": 1,
+                      "no_regis": "REG",
+                      "kode_produk": "KK",
+                      "kode_ajuan": "KK",
+                      "jalur": "online",
+                      "pelapor": "PADUKA",
+                      "kecamatan": "Baki",
+                      "tanggal": "2026-05-27",
+                      "waktu": "12:00",
+                      "status": "Belum Diverifikasi"
                     },
                     {
-                      "lk_id": 10,
-                      "ajuan_id": 55,
-                      "ajuan_no_reg": "PRJ-2026-0055",
-                      "layanan_kode": "AKM",
-                      "layanan_nama": "Akta Kematian",
-                      "is_tamat": true,
-                      "pelapor_role_name": "PADUKA",
-                      "ajuan_status": "BELUM_DIVERIFIKASI",
-                      "kecamatan_name": "Sukoharjo",
-                      "kelurahan_name": "Gayam",
-                      "create_datetime": "2026-03-31T08:00:00+07:00"
+                      "id": 2,
+                      "no_regis": "REG",
+                      "kode_produk": "KK",
+                      "kode_ajuan": "KK",
+                      "jalur": "online",
+                      "pelapor": "PADUKA",
+                      "kecamatan": "Baki",
+                      "tanggal": "2026-05-27",
+                      "waktu": "12:00",
+                      "status": "Belum Diverifikasi"
                     },
                     {
-                      "lk_id": 10,
-                      "ajuan_id": 55,
-                      "ajuan_no_reg": "PRJ-2026-0055",
-                      "layanan_kode": "AKM",
-                      "layanan_nama": "Akta Kematian",
-                      "is_tamat": true,
-                      "pelapor_role_name": "PADUKA",
-                      "ajuan_status": "BELUM_DIVERIFIKASI",
-                      "kecamatan_name": "Sukoharjo",
-                      "kelurahan_name": "Gayam",
-                      "create_datetime": "2026-03-31T08:00:00+07:00"
+                      "id": 3,
+                      "no_regis": "REG",
+                      "kode_produk": "KK",
+                      "kode_ajuan": "KK",
+                      "jalur": "online",
+                      "pelapor": "PADUKA",
+                      "kecamatan": "Baki",
+                      "tanggal": "2026-05-27",
+                      "waktu": "12:00",
+                      "status": "Belum Diverifikasi"
                     }
                   ],
                   "meta": {
@@ -661,15 +166,15 @@ paths:
       tags:
         - Lembar Kerja
       summary: Detail Lembar Kerja
-      description: Mendapatkan detail informasi tentang lembar kerja tertentu, termasuk informasi ajuan terkait, status.
+      description: Mendapatkan detail lembar kerja berdasarkan ID.
       parameters:
         - name: lk_id
-          in: path
           required: true
+          in: path
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: Success
           content:
             application/json:
@@ -679,78 +184,200 @@ paths:
                   "code": 200,
                   "message": "Berhasil mengambil detail lembar kerja",
                   "data": {
-                    "lembar_kerja": {
-                      "lk_id": 7,
-                      "lk_status": "BELUM_DIVERIFIKASI",
-                      "lk_ajuan_is_online": 1,
-                      "lk_ajuan_is_mandiri": 0,
-                      "lk_is_produk": 0,
-                      "lk_pelapor_role_name": "PADUKA",
-                      "lk_from_layanan_kode": null,
-                      "lk_layanan_kode": "AKM",
-                      "lk_create_datetime": "2026-03-31T08:00:00+07:00",
-                      "lk_update_datetime": "2026-03-31T08:00:00+07:00"
+                    "id": 1,
+                    "no_regis": "REG-777",
+                    "nama": "Zangen Shiro",
+                    "nik": "7777774707007070",
+                    "jenis_layanan": "umum",
+                    "kecamatan": "Septentrionalis",
+                  }
+                }
+
+  /api/v1/ajuan:
+    get:
+      tags:
+        - Ajuan
+      summary: List Ajuan
+      description: Mendapatkan semua daftar ajuan.
+      parameters:
+        - name: page
+          required: true
+          in: query
+          schema:
+            type: string
+            default: "1"
+        - name: search
+          in: query
+          schema:
+            type: string
+        - name: district
+          in: query
+          schema:
+            type: string
+        - name: period
+          in: query
+          schema:
+            type: string
+        - name: sortBy
+          required: true
+          in: query
+          schema:
+            type: string
+            default: "newest"
+        - name: startDate
+          in: query
+          schema:
+            type: string
+        - name: endDate
+          in: query
+          schema:
+            type: string
+        - name: reporter
+          in: query
+          schema:
+            type: string
+        - name: status
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              example: |
+                {
+                  "status": true,
+                  "code": 200,
+                  "message": "Berhasil",
+                  "data": [
+                    {
+                      "id": 1,
+                      "no_regis": "REG",
+                      "kode_ajuan": "KK",
+                      "jenis_ajuan": "KK-NEW",
+                      "jalur": "Online",
+                      "pelapor": "PADUKA",
+                      "kecamatan": "Baki",
+                      "tanggal": "2026-05-27",
+                      "waktu": "12:00",
+                      "status": "Diproses"
                     },
-                    "ajuan": {
-                      "ajuan_id": 55,
-                      "ajuan_no_reg": "PRJ-2026-0055",
-                      "ajuan_layanan_kode": "AKM",
-                      "ajuan_jenis_ajuan_id": 2,
-                      "ajuan_status": "BELUM_DIVERIFIKASI",
-                      "ajuan_keterangan": "TAMAT",
-                      "is_tamat": true,
-                      "ajuan_is_online": 1,
-                      "ajuan_is_mandiri": 0,
-                      "ajuan_kecamatan_code": "331101",
-                      "ajuan_kecamatan_name": "Grogol",
-                      "ajuan_kelurahan_code": "3311010001",
-                      "ajuan_kelurahan_name": "Cemani",
-                      "ajuan_create_datetime": "2026-03-31T08:00:00+07:00",
-                      "ajuan_update_datetime": "2026-03-31T08:00:00+07:00"
+                    {
+                      "id": 2,
+                      "no_regis": "REG",
+                      "kode_ajuan": "KK",
+                      "jenis_ajuan": "KK-NEW",
+                      "jalur": "Online",
+                      "pelapor": "PADUKA",
+                      "kecamatan": "Baki",
+                      "tanggal": "2026-05-27",
+                      "waktu": "12:00",
+                      "status": "Diproses"
                     },
-                    "pelapor": {
-                      "id": 88,
-                      "fullname": "Sri Wahyuni",
-                      "nik": "3311034504870001",
-                      "kk": "3311034504870002",
-                      "phone": "081234567890",
-                      "level": "perantara",
-                      "role_name": "PADUKA",
-                      "kecamatan_name": "Grogol",
-                      "kelurahan_name": "Cemani"
+                    {
+                      "id": 3,
+                      "no_regis": "REG",
+                      "kode_ajuan": "KK",
+                      "jenis_ajuan": "KK-NEW",
+                      "jalur": "Online",
+                      "pelapor": "PADUKA",
+                      "kecamatan": "Baki",
+                      "tanggal": "2026-05-27",
+                      "waktu": "12:00",
+                      "status": "Diproses"
                     },
-                    "data_spesifik": {
-                      "ajakem_id": 33,
-                      "ajakem_nik": "3311031205550003",
-                      "ajakem_nama_jenazah": "Sutrisno",
-                      "ajakem_tgl_kematian": "2026-03-28T06:15:00+07:00",
-                      "ajakem_tempat_kematian": "RS Ortopedi Prof. Dr. R. Soeharso Surakarta",
-                      "ajakem_anak_ke": 2,
-                      "ajakem_nama_ibu": "Siti Aminah",
-                      "ajakem_nama_ayah": "Karto Wijoyo",
-                      "ajakem_dokumen": [
-                        "https://cdn.prasojo.go.id/dokumen/55/surat_kematian_rs.pdf",
-                        "https://cdn.prasojo.go.id/dokumen/55/kk.pdf"
-                      ]
+                    {
+                      "id": 4,
+                      "no_regis": "REG",
+                      "kode_ajuan": "KK",
+                      "jenis_ajuan": "KK-NEW",
+                      "jalur": "Online",
+                      "pelapor": "PADUKA",
+                      "kecamatan": "Baki",
+                      "tanggal": "2026-05-27",
+                      "waktu": "12:00",
+                      "status": "Diproses"
                     },
-                    "data_dukung_required": [
+                    {
+                      "id": 5,
+                      "no_regis": "REG",
+                      "kode_ajuan": "KK",
+                      "jenis_ajuan": "KK-NEW",
+                      "jalur": "Online",
+                      "pelapor": "PADUKA",
+                      "kecamatan": "Baki",
+                      "tanggal": "2026-05-27",
+                      "waktu": "12:00",
+                      "status": "Diproses"
+                    }
+                  ],
+                  "meta": {
+                    "page": 1,
+                    "per_page": 5,
+                    "total": 20,
+                    "total_page": 4
+                  }
+                }
+
+  /api/v1/ajuan/{ajuan_id}:
+    get:
+      tags:
+        - Ajuan
+      summary: Detail Ajuan
+      description: Mendapatkan detail ajuan
+      parameters:
+        - name: ajuan_id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              example: |
+                {
+                  "status": true,
+                  "code": 200,
+                  "message": "Berhasil mengambil detail ajuan",
+                  "data": {
+                    "id": 1,
+                    "no_regis": "REG-777",
+                    "nama": "Zangen Shiro",
+                    "nik": "7777774707007070",
+                    "jenis_layanan": "umum",
+                    "kecamatan": "Septentrionalis",
+                    "tanggal_ajuan": "2026-05-27, 12:03",
+                    "timeline": [
                       {
-                        "mdadu_id": 5,
-                        "mdadu_judul": "Surat Keterangan Kematian dari RS/Dokter",
-                        "mdadu_desc": "Diterbitkan oleh rumah sakit atau dokter yang menangani",
-                        "mdadu_is_required": 1
+                        "id": 1,
+                        "status": "Diajukan",
+                        "note": "Ajuan masuk",
+                        "tanggal": "2026-05-27",
+                        "waktu": "12:03"
                       },
                       {
-                        "mdadu_id": 6,
-                        "mdadu_judul": "Kartu Keluarga",
-                        "mdadu_desc": "KK yang masih berlaku",
-                        "mdadu_is_required": 1
+                        "id": 2,
+                        "status": "Diverifikasi",
+                        "note": "Telah Diverifikasi Oleh Admin",
+                        "tanggal": "2026-05-27",
+                        "waktu": "12:04"
                       },
                       {
-                        "mdadu_id": 7,
-                        "mdadu_judul": "KTP Pelapor",
-                        "mdadu_desc": "KTP pemohon/perantara yang mengajukan",
-                        "mdadu_is_required": 1
+                        "id": 3,
+                        "status": "Disetujui",
+                        "note": "Telah Disetujui Oleh Admin",
+                        "tanggal": "2026-05-27",
+                        "waktu": "12:04"
+                      },
+                      {
+                        "id": 4,
+                        "status": "Diproses",
+                        "note": "Telah Diproses Oleh Admin",
+                        "tanggal": "2026-05-27",
+                        "waktu": "12:04"
                       }
                     ]
                   }
@@ -760,28 +387,47 @@ paths:
     get:
       tags:
         - Produk
-      summary: Semua Produk
-      description: Mendapatkan daftar produk layanan yang tersedia.
+      summary: List Produk
+      description: Mendapatkan semua produk
       parameters:
-        - name: tanggal_awal
-          in: query
-          schema:
-            type: string
-        - name: tanggal_akhir
-          in: query
-          schema:
-            type: string
-        - name: layanan_kode
-          in: query
-          schema:
-            type: string
         - name: page
+          required: true
           in: query
           schema:
             type: string
             default: "1"
+        - name: search
+          in: query
+          schema:
+            type: string
+        - name: district
+          in: query
+          schema:
+            type: string
+        - name: period
+          in: query
+          schema:
+            type: string
+        - name: sortBy
+          required: true
+          in: query
+          schema:
+            type: string
+            default: "newest"
+        - name: startDate
+          in: query
+          schema:
+            type: string
+        - name: endDate
+          in: query
+          schema:
+            type: string
+        - name: productIdentityName
+          in: query
+          schema:
+            type: string
       responses:
-        '200':
+        "200":
           description: Success
           content:
             application/json:
@@ -792,34 +438,37 @@ paths:
                   "message": "Berhasil mendapatkan produk",
                   "data": [
                     {
-                      "prod_id": 20,
-                      "ajuan_no_reg": "PRJ-2026-0055",
-                      "prod_nama": "Akta Kematian",
-                      "prod_nomor": "3311-AKM-2026-001",
-                      "layanan_kode": "AKM",
-                      "prod_status": "SELESAI",
-                      "prod_url": "https://cdn.prasojo.go.id/produk/akta_55.pdf",
-                      "create_datetime": "2026-03-31T11:00:00+07:00"
+                      "id": 1,
+                      "no_regis": "REG",
+                      "kode_ajuan": "KK",
+                      "no_kk": "777777",
+                      "nama_identitas": "Alemon",
+                      "kecamatan": "Baki",
+                      "tanggal": "2026-05-27",
+                      "waktu": "12:00",
+                      "status": "Siap Didownload"
                     },
                     {
-                      "prod_id": 20,
-                      "ajuan_no_reg": "PRJ-2026-0055",
-                      "prod_nama": "Akta Kematian",
-                      "prod_nomor": "3311-AKM-2026-001",
-                      "layanan_kode": "AKM",
-                      "prod_status": "SELESAI",
-                      "prod_url": "https://cdn.prasojo.go.id/produk/akta_55.pdf",
-                      "create_datetime": "2026-03-31T11:00:00+07:00"
+                      "id": 2,
+                      "no_regis": "REG",
+                      "kode_ajuan": "KK",
+                      "no_kk": "777777",
+                      "nama_identitas": "Alemon",
+                      "kecamatan": "Baki",
+                      "tanggal": "2026-05-27",
+                      "waktu": "12:00",
+                      "status": "Siap Didownload"
                     },
                     {
-                      "prod_id": 20,
-                      "ajuan_no_reg": "PRJ-2026-0055",
-                      "prod_nama": "Akta Kematian",
-                      "prod_nomor": "3311-AKM-2026-001",
-                      "layanan_kode": "AKM",
-                      "prod_status": "SELESAI",
-                      "prod_url": "https://cdn.prasojo.go.id/produk/akta_55.pdf",
-                      "create_datetime": "2026-03-31T11:00:00+07:00"
+                      "id": 3,
+                      "no_regis": "REG",
+                      "kode_ajuan": "KK",
+                      "no_kk": "777777",
+                      "nama_identitas": "Alemon",
+                      "kecamatan": "Baki",
+                      "tanggal": "2026-05-27",
+                      "waktu": "12:00",
+                      "status": "Siap Didownload"
                     }
                   ],
                   "meta": {
@@ -835,13 +484,13 @@ paths:
       tags:
         - Produk
       summary: Detail Produk
-      description: Mendapatkan detail informasi tentang produk layanan tertentu, termasuk informasi ajuan terkait, status.
+      description: Mendapatkan detail produk berdasarkan ID
       parameters:
         - name: produk_id
           in: path
           required: true
           schema:
-            type: string
+            type: integer
       responses:
         '200':
           description: Success
@@ -853,76 +502,50 @@ paths:
                   "code": 200,
                   "message": "Berhasil mengambil detail produk",
                   "data": {
-                    "produk": {
-                      "prod_id": 9,
-                      "prod_ajuan_id": 55,
-                      "prod_ajuan_no_reg": "PRJ-2026-0055",
-                      "prod_nama": "Akta Kematian",
-                      "prod_nomor": "3311-AKM-2026-088",
-                      "prod_from_layanan_kode": null,
-                      "prod_layanan_kode": "AKM",
-                      "prod_status": "SELESAI",
-                      "prod_url": "https://cdn.prasojo.go.id/produk/akta_kematian_55.pdf",
-                      "prod_create_datetime": "2026-03-31T11:00:00+07:00",
-                      "prod_update_datetime": "2026-03-31T11:00:00+07:00"
-                    },
-                    "ajuan": {
-                      "ajuan_id": 55,
-                      "ajuan_no_reg": "PRJ-2026-0055",
-                      "ajuan_layanan_kode": "AKM",
-                      "ajuan_keterangan": "TAMAT",
-                      "is_tamat": true,
-                      "ajuan_kecamatan_name": "Grogol",
-                      "ajuan_kelurahan_name": "Cemani",
-                      "ajuan_create_datetime": "2026-03-31T08:00:00+07:00"
-                    },
-                    "pelapor": {
-                      "id": 88,
-                      "fullname": "Sri Wahyuni",
-                      "nik": "3311034504870001",
-                      "phone": "081234567890",
-                      "role_name": "PADUKA",
-                      "kecamatan_name": "Grogol",
-                      "kelurahan_name": "Cemani"
-                    },
-                    "log_status": [
+                    "id": 1,
+                    "no_regis": "REG-777",
+                    "nama": "Zangen Shiro",
+                    "nik": "7777774707007070",
+                    "jenis_layanan": "umum",
+                    "kecamatan": "Septentrionalis",
+                    "tanggal_ajuan": "2026-05-27, 12:03",
+                    "timeline": [
                       {
-                        "log_id": 1,
-                        "log_status": "BELUM_DIVERIFIKASI",
-                        "log_note": "Ajuan masuk dari PADUKA",
-                        "log_admin_id": null,
-                        "log_admin_name": null,
-                        "log_create_datetime": "2026-03-31T08:00:00+07:00"
+                        "id": 1,
+                        "status": "Diajukan",
+                        "note": "Ajuan masuk",
+                        "tanggal": "2026-05-27",
+                        "waktu": "12:04"
                       },
                       {
-                        "log_id": 2,
-                        "log_status": "PROSES_VERIFIKASI",
-                        "log_note": "Dokumen lengkap, mulai diproses",
-                        "log_admin_id": 3,
-                        "log_admin_name": "Agus Wibowo",
-                        "log_create_datetime": "2026-03-31T09:10:00+07:00"
+                        "id": 2,
+                        "status": "Diverifikasi",
+                        "note": "Telah Diverifikasi Oleh Admin",
+                        "tanggal": "2026-05-27",
+                        "waktu": "12:04"
                       },
                       {
-                        "log_id": 3,
-                        "log_status": "DISETUJUI",
-                        "log_note": "Data sesuai dengan Dukcapil, akta diterbitkan",
-                        "log_admin_id": 3,
-                        "log_admin_name": "Agus Wibowo",
-                        "log_create_datetime": "2026-03-31T10:30:00+07:00"
+                        "id": 3,
+                        "status": "Disetujui",
+                        "note": "Telah Disetujui Oleh Admin",
+                        "tanggal": "2026-05-27",
+                        "waktu": "12:04"
                       },
                       {
-                        "log_id": 4,
-                        "log_status": "SELESAI",
-                        "log_note": "Akta kematian telah diunggah, siap diambil",
-                        "log_admin_id": 3,
-                        "log_admin_name": "Agus Wibowo",
-                        "log_create_datetime": "2026-03-31T11:00:00+07:00"
+                        "id": 4,
+                        "status": "Diproses",
+                        "note": "Telah Diproses Oleh Admin",
+                        "tanggal": "2026-05-27",
+                        "waktu": "12:04"
+                      },
+                      {
+                        "id": 5,
+                        "status": "Siap Dicetak",
+                        "note": "Produk Siap Dicetak Oleh Admin",
+                        "tanggal": "2026-05-27",
+                        "waktu": "12:04"
                       }
-                    ],
-                    "durasi_proses": {
-                      "pengajuan_ke_selesai": "3 jam 0 menit",
-                      "sesuai_sop": true,
-                      "batas_sop_jam": 5
-                    }
+                    ]
                   }
                 }
+                
