@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Sub-Prasojo API
-  version: 1.1.2
+  version: 1.2.0
   description: API Design untuk Dashboard Kinerja dan TAMAT
 servers:
   - url: "http://localhost:8000"
@@ -9,30 +9,64 @@ servers:
   - url: "https://6ifb537y9e5l.mock.hoppscotch.io"
     description: Mock Server
 
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: PASETO
+
+    refreshTokenCookie:
+      type: apiKey
+      in: cookie
+      name: refresh_token
+
+security:
+  - bearerAuth: []
+
 paths:
   /api/v1/auth/register:
     post:
       tags:
         - Authentication
       summary: Register
-      description: Mendaftarkan operator baru ke dalam sistem.
+      description: Mendaftarkan user baru ke dalam sistem.
+      security: []
       requestBody:
         content:
           application/json:
             example: |
               {
-                "fullname": "",
-                "email": "",
-                "password": ""
+                "fullname": "Zangen Shiro",
+                "email": "shiro@gmail.com",
+                "password": "shiro123"
               }
       responses:
-        "200":
-          description: Success
+        "201":
+          description: Created
           content:
             application/json:
               example: |
                 {
-                  "message": "Operator registered successfully",
+                  "code": 201,
+                  "message": "Registrasi berhasil",
+                  "data": {
+                    "fullname": "Zangen Shiro",
+                    "email": "shiro@gmail.com",
+                    "updated_at": "2026-05-27 12:00:00",
+                    "created_at": "2026-05-27 12:00:00",
+                    "deleted_at": null
+                  }
+                }
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              example: |
+                {
+                  "code": 400,
+                  "message": "Registrasi gagal",
+                  "error": "Ini Error"
                 }
 
   /api/v1/auth/login:
@@ -40,15 +74,55 @@ paths:
       tags:
         - Authentication
       summary: Login
-      description: Login operator ke dalam sistem.
+      description: Login user ke dalam sistem.
+      security: []
       requestBody:
         content:
           application/json:
             example: |
               {
-                "email": "",
-                "password": ""
+                "email": "shiro@gmail.com",
+                "password": "shiro123"
               }
+      responses:
+        "200":
+          description: Success
+          headers:
+            Set-Cookie:
+              description: Refresh token cookie
+              schema:
+                type: string
+                example: refresh_token=xxxxxxx; HttpOnly; Secure
+          content:
+            application/json:
+              example: |
+                {
+                  "code": 200,
+                  "message": "Login berhasil",
+                  "data": {
+                    "access_token": "v2.xxxxxxx"
+                  }
+                }
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              example: |
+                {
+                  "code": 400,
+                  "message": "Login gagal",
+                  "error": "Ini Error"
+                }
+
+  /api/v1/auth/logout:
+    post:
+      tags:
+        - Authentication
+      summary: Logout
+      description: Logout dari aplikasi
+      security:
+        - bearerAuth: []
+          refreshTokenCookie: []
       responses:
         "200":
           description: Success
@@ -56,10 +130,57 @@ paths:
             application/json:
               example: |
                 {
-                  "message": "Login successful",
+                  "code": 200,
+                  "message": "Logout berhasil"
+                }
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              example: |
+                {
+                  "code": 400,
+                  "message": "Logout gagal",
+                  "error": "Ini Error"
+                }
+
+  /api/v1/auth/refresh:
+    post:
+      tags:
+        - Authentication
+      summary: Refresh Token
+      description: Mendapatkan access token baru
+      security:
+        - bearerAuth: []
+          refreshTokenCookie: []
+      responses:
+        "200":
+          description: Success
+          headers:
+            Set-Cookie:
+              description: Refresh token cookie
+              schema:
+                type: string
+                example: refresh_token=xxxxxxx; HttpOnly; Secure
+          content:
+            application/json:
+              example: |
+                {
+                  "code": 200,
+                  "message": "Refresh berhasil",
                   "data": {
-                    "token": ""
+                    "access_token": "v2.xxxxxxx"
                   }
+                }
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              example: |
+                {
+                  "code": 400,
+                  "message": "Refresh gagal",
+                  "error": "Ini Error"
                 }
 
   /api/v1/lembar-kerja:
