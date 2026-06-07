@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Sub-Prasojo API
-  version: 1.3.0
+  version: 1.3.1
   description: API Design untuk Dashboard Kinerja dan TAMAT
 servers:
   - url: "http://localhost:8000"
@@ -788,7 +788,7 @@ paths:
           required: true
           in: path
           schema:
-            type: string
+            type: integer
       responses:
         "200":
           description: Success
@@ -947,7 +947,7 @@ paths:
           required: true
           in: path
           schema:
-            type: string
+            type: integer
       responses:
         "200":
           description: Success
