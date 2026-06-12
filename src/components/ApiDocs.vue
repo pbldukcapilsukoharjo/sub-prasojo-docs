@@ -31,8 +31,8 @@ const config = reactive<any>({
   left: 0;
   z-index: 99;
   background-color: #000;
+  overflow-x: hidden;
 }
-
 
 .scalar-app, .scalar-api-reference {
   width: 100% !important;
