@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Sub-Prasojo API
-  version: 1.3.1
+  version: 1.4.0
   description: API Design untuk Dashboard Kinerja dan TAMAT
 servers:
   - url: "http://localhost:8000"
@@ -181,6 +181,90 @@ paths:
                   "code": 400,
                   "message": "Refresh gagal",
                   "error": "Ini Error"
+                }
+
+  /api/v1/auth/email/verify:
+    get:
+      tags:
+        - Email
+      summary: Notifikasi
+      description: Middleware untuk notifikasi verifikasi email yang belum terverifikasi
+      security: []
+      responses:
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              example: |
+                {
+                  "code": 403,
+                  "message": "Email belum diverifikasi. Silakan periksa email Anda."
+                }
+
+  /api/v1/auth/email/verify/{id}/{hash}:
+    get:
+      tags:
+        - Email
+      summary: Verifikasi
+      description: Verifikasi email berdasarkan id dan hash
+      security: []
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: hash
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        "302":
+          description: | 
+              Redirect ke halaman setelah verifikasi
+
+              Contoh:
+              - Success: https://frontend.app/verify-success
+              - Failure: https://frontend.app/verify-failure?message=error
+          headers:
+            Location:
+              schema:
+                type: string
+                format: uri
+
+  /api/v1/auth/email/resend:
+    post:
+      tags:
+        - Email
+      summary: Kirim Ulang
+      description: Mengirim ulang email verifikasi ke alamat email yang terdaftar
+      security: []
+      requestBody:
+        content:
+          application/json:
+            example: |
+              {
+                "email": "shiro@gmail.com"
+              }
+      responses:
+        "200":
+          description: Email verifikasi berhasil dikirim ulang
+          content:
+            application/json:
+              example: |
+                {
+                  "code": 200,
+                  "message": "Email verifikasi telah dikirim ulang."
+                }
+        "400":
+          description: Email tidak valid atau tidak terdaftar
+          content:
+            application/json:
+              example: |
+                {
+                  "code": 400,
+                  "message": "Error"
                 }
 
   /api/v1/dashboard:
