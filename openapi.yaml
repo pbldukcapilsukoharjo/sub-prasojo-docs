@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Sub-Prasojo API
-  version: 1.4.0
+  version: 1.5.0
   description: API Design untuk Dashboard Kinerja dan TAMAT
 servers:
   - url: "http://localhost:8000"
@@ -265,6 +265,107 @@ paths:
                 {
                   "code": 400,
                   "message": "Error"
+                }
+
+  /api/v1/auth/forgot-password:
+    post:
+      tags:
+        - Password
+      summary: Forgot Password
+      description: Mengirimkan email untuk mengubah password
+      security: []
+      requestBody:
+        content:
+          application/json:
+            example: |
+              {
+                "email": "shiro@gmail.com"
+              }
+      responses:
+        "200":
+          description: Email berhasil dikirim
+          content:
+            application/json:
+              example: |
+                {
+                  "code": 200,
+                  "message": "Email berhasil dikirim."
+                }
+        "400":
+          description: Email tidak valid atau tidak terdaftar
+          content:
+            application/json:
+              example: |
+                {
+                  "code": 400,
+                  "message": "Error"
+                }
+
+  /api/v1/auth/reset-password:
+    post:
+      tags:
+        - Password
+      summary: Reset Password
+      description: Mengubah password berdasarkan token yang diterima
+      security: []
+      requestBody:
+        content:
+          application/json:
+            example: |
+              {
+                "email": "shiro@gmail.com",
+                "token": "1234567",
+                "password": "ShiroKawaii123",
+                "password_confirmation": "ShiroKawaii123"
+              }
+      responses:
+        "200":
+          description: Password berhasil diubah
+          content:
+            application/json:
+              example: |
+                {
+                  "code": 200,
+                  "message": "Password berhasil diubah."
+                }
+        "400":
+          description: Token tidak valid
+          content:
+            application/json:
+              example: |
+                {
+                  "code": 400,
+                  "message": "Error"
+                }
+
+  /api/v1/me:
+    get:
+      tags:
+        - User
+      summary: Me
+      description: Mendapatkan data pengguna yang sedang login
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              example: |
+                {
+                  "code": 200,
+                  "message": "Data user berhasil diambil",
+                  "data": {
+                    "fullname": "Shiro",
+                    "email": "shiro@gmail.com"
+                  }
+                }
+        "401":
+          description: Tidak terautentikasi
+          content:
+            application/json:
+              example: |
+                {
+                  "code": 401,
+                  "message": "Unauthorized"
                 }
 
   /api/v1/dashboard:
