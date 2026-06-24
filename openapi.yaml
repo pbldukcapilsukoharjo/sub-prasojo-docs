@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Sub-Prasojo API
-  version: 1.5.0
+  version: 2.0.0
   description: API Design untuk Dashboard Kinerja dan TAMAT
 servers:
   - url: "http://localhost:8000"
@@ -86,7 +86,7 @@ paths:
               }
       responses:
         "200":
-          description: Success
+          description: OK
           headers:
             Set-Cookie:
               description: Refresh token cookie
@@ -125,7 +125,7 @@ paths:
           refreshTokenCookie: []
       responses:
         "200":
-          description: Success
+          description: OK
           content:
             application/json:
               example: |
@@ -155,7 +155,7 @@ paths:
           refreshTokenCookie: []
       responses:
         "200":
-          description: Success
+          description: OK
           headers:
             Set-Cookie:
               description: Refresh token cookie
@@ -346,11 +346,12 @@ paths:
       description: Mendapatkan data pengguna yang sedang login
       responses:
         "200":
-          description: Success
+          description: OK
           content:
             application/json:
               example: |
                 {
+                  "success": true,
                   "code": 200,
                   "message": "Data user berhasil diambil",
                   "data": {
@@ -359,7 +360,7 @@ paths:
                   }
                 }
         "401":
-          description: Tidak terautentikasi
+          description: Unauthorized
           content:
             application/json:
               example: |
@@ -379,20 +380,17 @@ paths:
           in: query
           schema:
             type: string
+            default: "all"
         - name: district
           in: query
           schema:
             type: string
+            default: "all"
         - name: period
           in: query
           schema:
             type: string
-        - name: sortBy
-          required: true
-          in: query
-          schema:
-            type: string
-            default: "newest"
+            default: "this_month"
         - name: startDate
           in: query
           schema:
@@ -403,465 +401,148 @@ paths:
             type: string
       responses:
         "200":
-          description: Success
+          description: OK
           content:
             application/json:
               example: |
                 {
+                  "success": true,
                   "code": 200,
                   "message": "Berhasil mendapatkan data terbaru",
                   "data": {
                     "total_pengajuan": 1230,
                     "total_selesai": 1230,
                     "total_ditolak": 1230,
-                    "label_tamat": 1230,
-                    "ajuan_bulanan": {
-                      "belum_diverifikasi": 1,
-                      "diverifikasi": 1,
-                      "diproses": 1,
-                      "disetujui": 1,
-                      "ditolak": 1,
-                      "selesai": 1
-                    },
-                    "peringkat_operator": [
+                    "rata_rata_kepuasan": 90,
+                    "ajuan_bulanan": [
                       {
-                        "id": 1,
-                        "peringkat": 1,
-                        "nama": "Numerac",
-                        "kinerja_perbulan": 123
+                        "label": "Jan",
+                        "belum_diverifikasi": 1,
+                        "diverifikasi": 1,
+                        "diproses": 1,
+                        "disetujui": 1,
+                        "ditolak": 1,
+                        "selesai": 1
                       },
                       {
-                        "id": 2,
-                        "peringkat": 2,
-                        "nama": "Dimas Ukin",
-                        "kinerja_perbulan": 122
+                        "label": "Feb",
+                        "belum_diverifikasi": 1,
+                        "diverifikasi": 1,
+                        "diproses": 1,
+                        "disetujui": 1,
+                        "ditolak": 1,
+                        "selesai": 1
                       },
                       {
-                        "id": 3,
-                        "peringkat": 3,
-                        "nama": "Nero",
-                        "kinerja_perbulan": 121
+                        "label": "Mar",
+                        "belum_diverifikasi": 1,
+                        "diverifikasi": 1,
+                        "diproses": 1,
+                        "disetujui": 1,
+                        "ditolak": 1,
+                        "selesai": 1
+                      },
+                      {
+                        "label": "Apr",
+                        "belum_diverifikasi": 1,
+                        "diverifikasi": 1,
+                        "diproses": 1,
+                        "disetujui": 1,
+                        "ditolak": 1,
+                        "selesai": 1
+                      },
+                      {
+                        "label": "Mei",
+                        "belum_diverifikasi": 1,
+                        "diverifikasi": 1,
+                        "diproses": 1,
+                        "disetujui": 1,
+                        "ditolak": 1,
+                        "selesai": 1
+                      },
+                      {
+                        "label": "Jun",
+                        "belum_diverifikasi": 1,
+                        "diverifikasi": 1,
+                        "diproses": 1,
+                        "disetujui": 1,
+                        "ditolak": 1,
+                        "selesai": 1
+                      },
+                      {
+                        "label": "Jul",
+                        "belum_diverifikasi": 1,
+                        "diverifikasi": 1,
+                        "diproses": 1,
+                        "disetujui": 1,
+                        "ditolak": 1,
+                        "selesai": 1
+                      },
+                      {
+                        "label": "Agu",
+                        "belum_diverifikasi": 1,
+                        "diverifikasi": 1,
+                        "diproses": 1,
+                        "disetujui": 1,
+                        "ditolak": 1,
+                        "selesai": 1
+                      },
+                      {
+                        "label": "Sep",
+                        "belum_diverifikasi": 1,
+                        "diverifikasi": 1,
+                        "diproses": 1,
+                        "disetujui": 1,
+                        "ditolak": 1,
+                        "selesai": 1
+                      },
+                      {
+                        "label": "Okt",
+                        "belum_diverifikasi": 1,
+                        "diverifikasi": 1,
+                        "diproses": 1,
+                        "disetujui": 1,
+                        "ditolak": 1,
+                        "selesai": 1
+                      },
+                      {
+                        "label": "Nov",
+                        "belum_diverifikasi": 1,
+                        "diverifikasi": 1,
+                        "diproses": 1,
+                        "disetujui": 1,
+                        "ditolak": 1,
+                        "selesai": 1
+                      },
+                      {
+                        "label": "Des",
+                        "belum_diverifikasi": 1,
+                        "diverifikasi": 1,
+                        "diproses": 1,
+                        "disetujui": 1,
+                        "ditolak": 1,
+                        "selesai": 1
                       }
                     ],
                     "distribusi_wilayah": [
                       {
                         "id": 1,
-                        "nama": "Kecamatan Situ",
-                        "value": 70
+                        "label": "Kecamatan Situ",
+                        "value": 60
                       },
                       {
                         "id": 2,
-                        "nama": "Kecamatan Mana",
+                        "label": "Kecamatan Mana",
                         "value": 30
+                      },
+                      {
+                        "id": 3,
+                        "label": "Kecamatan Sini",
+                        "value": 10
                       }
-                    ],
-                    "ulasan_pengguna": {
-                      "rata_rata": 4.8,
-                      "jumlah": 1280,
-                      "content": [
-                        {
-                          "id": 1,
-                          "rating": 4.9,
-                          "jenis": "TAMAT",
-                          "isi":  "pelayanan bagus, rekomendasi",
-                          "user": "Nimi",
-                          "tanggal": "2026-05-12",
-                          "waktu": "09:45"
-                        },
-                        {
-                          "id": 2,
-                          "rating": 5,
-                          "jenis": "TAMAT",
-                          "isi":  "pelayanan bagus, rekomendasi",
-                          "user": "Mini",
-                          "tanggal": "2026-05-12",
-                          "waktu": "09:45"
-                        }
-                      ]
-                    },
-                    "kepatuhan_sla": 92,
-                    "total_produk": {
-                      "diajukan_tte": 85,
-                      "tidak_diproses": 17,
-                      "siap_download": 3873,
-                      "siap_dicetak": 319,
-                      "sudah_dicetak": 50,
-                      "siap_diambil": 178
-                    },
-                    "rata_proses_selesai": {
-                      "kartu_keluarga": 4.5,
-                      "ktp_el": 8.5,
-                      "akta_kelahiran": 12.0
-                    },
-                    "ringkasan_hari_ini": {
-                      "ajuan_masuk": 128,
-                      "sla": 92,
-                      "rata_rata_menit": 15.3
-                    },
-                    "status_proses": {
-                      "diproses": 30,
-                      "belum_diverifikasi": 39,
-                      "menunggu_konfirmasi": 12
-                    },
-                    "tanggal_diambil": "2026-05-27"
+                    ]
                   }
                 }
-
-  /api/v1/dashboard/peringkat-operator:
-    get:
-      tags:
-        - Dashboard
-      summary: Detail Peringkat Operator
-      description: Detail peringkat operator
-      parameters:
-        - name: search
-          in: query
-          schema:
-            type: string
-        - name: district
-          in: query
-          schema:
-            type: string
-        - name: period
-          in: query
-          schema:
-            type: string
-        - name: sortBy
-          required: true
-          in: query
-          schema:
-            type: string
-            default: "newest"
-        - name: startDate
-          in: query
-          schema:
-            type: string
-        - name: endDate
-          in: query
-          schema:
-            type: string
-      responses:
-        "200":
-          description: Success
-          content:
-            application/json:
-              example: |
-                {
-                  "code": 200,
-                  "message": "Berhasil mendapatkan detail peringkat operator",
-                  "data": {
-                    "total_layanan": 1234,
-                    "rata_rata_durasi": 14.5,
-                    "total_layanan": 98.2,
-                    "tabel": {
-                      "operator": [
-                        {
-                          "id": 1,
-                          "peringkat": 1,
-                          "nama": "Azer",
-                          "desa": "Gentan",
-                          "kecamatan": "Baki",
-                          "jumlah_ajuan": 124
-                        },
-                        {
-                          "id": 2,
-                          "peringkat": 2,
-                          "nama": "Meza",
-                          "desa": "Gentan",
-                          "kecamatan": "Baki",
-                          "jumlah_ajuan": 123
-                        },
-                        {
-                          "id": 3,
-                          "peringkat": 3,
-                          "nama": "Erza",
-                          "desa": "Gentan",
-                          "kecamatan": "Baki",
-                          "jumlah_ajuan": 122
-                        }
-                      ],
-                      "meta": {
-                        "page": 1,
-                        "per_page": 3,
-                        "total": 7,
-                        "total_page": 3
-                      }
-                    }
-                  }
-                }
-
-  /api/v1/dashboard/distribusi-wilayah:
-    get:
-      tags:
-        - Dashboard
-      summary: Detail Distribusi Wilayah
-      description: Dapatkan distribusi wilayah
-      parameters:
-        - name: search
-          in: query
-          schema:
-            type: string
-        - name: district
-          in: query
-          schema:
-            type: string
-        - name: period
-          in: query
-          schema:
-            type: string
-        - name: sortBy
-          required: true
-          in: query
-          schema:
-            type: string
-            default: "newest"
-        - name: startDate
-          in: query
-          schema:
-            type: string
-        - name: endDate
-          in: query
-          schema:
-            type: string
-      responses:
-        "200":
-          description: Success
-          content:
-            application/json:
-              example: |
-                {
-                  "code": 200,
-                  "message": "Berhasil mendapatkan detail distribusi wilayah",
-                  "data": {
-                    "total_kecamatan": 14,
-                    "total_ajuan_dokumen": 267,
-                    "rata_rata_ajuan": 200,
-                    "tabel": {
-                      "wilayah": [
-                        {
-                          "id": 1,
-                          "desa": "Gentan",
-                          "kecamatan": "Baki",
-                          "total_ajuan": 124,
-                          "ktp_el": 42,
-                          "kia": 38,
-                          "akta_kelahiran": 44,
-                          "akta_kematian": 44,
-                          "perpindahan": 44,
-                          "kedatangan": 44,
-                          "update_data": 44,
-                          "rekam_jemput_bola": 44
-                        },
-                        {
-                          "id": 2,
-                          "desa": "Gentan",
-                          "kecamatan": "Baki",
-                          "total_ajuan": 124,
-                          "ktp_el": 42,
-                          "kia": 38,
-                          "akta_kelahiran": 44,
-                          "akta_kematian": 44,
-                          "perpindahan": 44,
-                          "kedatangan": 44,
-                          "update_data": 44,
-                          "rekam_jemput_bola": 44
-                        },
-                        {
-                          "id": 3,
-                          "desa": "Gentan",
-                          "kecamatan": "Baki",
-                          "total_ajuan": 124,
-                          "ktp_el": 42,
-                          "kia": 38,
-                          "akta_kelahiran": 44,
-                          "akta_kematian": 44,
-                          "perpindahan": 44,
-                          "kedatangan": 44,
-                          "update_data": 44,
-                          "rekam_jemput_bola": 44
-                        }
-                      ],
-                      "meta": {
-                        "page": 1,
-                        "per_page": 3,
-                        "total": 7,
-                        "total_page": 3
-                      }
-                    }
-                  }
-                }
-
-  /api/v1/dashboard/waktu-rata:
-    get:
-      tags:
-        - Dashboard
-      summary: Detail Waktu Rata
-      description: Dapatkan waktu rata-rata
-      parameters:
-        - name: search
-          in: query
-          schema:
-            type: string
-        - name: period
-          in: query
-          schema:
-            type: string
-        - name: sortBy
-          required: true
-          in: query
-          schema:
-            type: string
-            default: "newest"
-        - name: startDate
-          in: query
-          schema:
-            type: string
-        - name: endDate
-          in: query
-          schema:
-            type: string
-      responses:
-        "200":
-          description: Success
-          content:
-            application/json:
-              example: |
-                {
-                  "code": 200,
-                  "message": "Berhasil mendapatkan detail waktu rata rata",
-                  "data": {
-                    "rata_rata_waktu_proses": 8.5,
-                    "pencapaian_sla": 92,
-                    "target_sla": 6,
-                    "tabel": {
-                      "layanan": [
-                        {
-                          "id": 1,
-                          "peringkat": 1,
-                          "jenis_ajuan": "TOTAL_AJUAN",
-                          "jumlah_ajuan": 124,
-                          "rata_rata_waktu": 3,
-                          "status_sla": "ON TIME"
-                        },
-                        {
-                          "id": 2,
-                          "peringkat": 2,
-                          "jenis_ajuan": "KTP-EL",
-                          "jumlah_ajuan": 124,
-                          "rata_rata_waktu": 5,
-                          "status_sla": "WARNING"
-                        },
-                        {
-                          "id": 3,
-                          "peringkat": 3,
-                          "jenis_ajuan": "KIA",
-                          "jumlah_ajuan": 124,
-                          "rata_rata_waktu": 7,
-                          "status_sla": "OVER SLA"
-                        }
-                      ],
-                      "meta": {
-                        "page": 1,
-                        "per_page": 3,
-                        "total": 7,
-                        "total_page": 3
-                      }
-                    }
-                  }
-                }
-
-  /api/v1/dashboard/ulasan:
-    get:
-      tags:
-        - Dashboard
-      summary: Detail Ulasan
-      description: Dapatkan semua list ulasan
-      parameters:
-        - name: search
-          in: query
-          schema:
-            type: string
-        - name: sortBy
-          required: true
-          in: query
-          schema:
-            type: string
-            default: "newest"
-        - name: startDate
-          in: query
-          schema:
-            type: string
-        - name: endDate
-          in: query
-          schema:
-            type: string
-        - name: rating
-          in: query
-          schema:
-            type: string
-        - name: serviceType
-          in: query
-          schema:
-            type: string
-      responses:
-        "200":
-          description: Success
-          content:
-            application/json:
-              example: |
-                {
-                  "code": 200,
-                  "message": "Berhasil mendapatkan seluruh ulasan",
-                  "data": {
-                    "rata_rata_bintang": 4.8,
-                    "total_ulasan": 1240,
-                    "total_bintang": {
-                      "5": 800,
-                      "4": 300,
-                      "3": 90,
-                      "2": 40,
-                      "1": 10
-                    },
-                    "tabel": {
-                      "ulasan": [
-                        {
-                          "id": 1,
-                          "nama": "Anonim",
-                          "tanggal": "2026-05-27",
-                          "waktu": "09:45",
-                          "bintang": 5,
-                          "layanan": "TAMAT",
-                          "isi": "Pelayanan sangat cepat dan membantu."
-                        },
-                        {
-                          "id": 2,
-                          "nama": "Anonim",
-                          "tanggal": "2026-05-27",
-                          "waktu": "09:45",
-                          "bintang": 4.5,
-                          "layanan": "AKTA",
-                          "isi": "Pelayanan sangat cepat dan membantu."
-                        },
-                        {
-                          "id": 3,
-                          "nama": "Anonim",
-                          "tanggal": "2026-05-27",
-                          "waktu": "09:45",
-                          "bintang": 5,
-                          "layanan": "TAMAT",
-                          "isi": "Pelayanan sangat cepat dan membantu."
-                        }
-                      ],
-                      "meta": {
-                        "page": 1,
-                        "per_page": 3,
-                        "total": 7,
-                        "total_page": 3
-                      }
-                    }
-                  }
-                }
-                  
 
   /api/v1/lembar-kerja:
     get:
@@ -908,12 +589,12 @@ paths:
             type: string
       responses:
         "200":
-          description: Success
+          description: OK
           content:
             application/json:
               example: |
                 {
-                  "status": true,
+                  "success": true,
                   "code": 200,
                   "message": "Berhasil mendapatkan lembar kerja",
                   "data": [
@@ -976,12 +657,12 @@ paths:
             type: integer
       responses:
         "200":
-          description: Success
+          description: OK
           content:
             application/json:
               example: |
                 {
-                  "status": true,
+                  "success": true,
                   "code": 200,
                   "message": "Berhasil mengambil detail lembar kerja",
                   "data": {
@@ -1005,8 +686,8 @@ paths:
           required: true
           in: query
           schema:
-            type: string
-            default: "1"
+            type: integer
+            default: 1
         - name: search
           in: query
           schema:
@@ -1043,12 +724,12 @@ paths:
             type: string
       responses:
         "200":
-          description: Success
+          description: OK
           content:
             application/json:
               example: |
                 {
-                  "status": true,
+                  "success": true,
                   "code": 200,
                   "message": "Berhasil",
                   "data": [
@@ -1135,12 +816,12 @@ paths:
             type: integer
       responses:
         "200":
-          description: Success
+          description: OK
           content:
             application/json:
               example: |
                 {
-                  "status": true,
+                  "success": true,
                   "code": 200,
                   "message": "Berhasil mengambil detail ajuan",
                   "data": {
@@ -1181,6 +862,525 @@ paths:
                         "waktu": "12:04"
                       }
                     ]
+                  }
+                }
+
+  /api/v1/peringkat-operator:
+    get:
+      tags:
+        - Peringkat Operator
+      summary: List Peringkat Operator
+      description: Mendapatkan semua peringkat operator
+      parameters:
+        - name: page
+          required: true
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: search
+          in: query
+          schema:
+            type: string
+        - name: district
+          in: query
+          schema:
+            type: string
+        - name: period
+          in: query
+          schema:
+            type: string
+        - name: sortBy
+          in: query
+          schema:
+            type: string
+            default: "newest"
+        - name: startDate
+          in: query
+          schema:
+            type: string
+        - name: endDate
+          in: query
+          schema:
+            type: string
+        - name: operator
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              example: |
+                {
+                  "success": true,
+                  "code": 200,
+                  "message": "Berhasil mendapatkan data operator",
+                  "data": {
+                    "total_layanan": 1234,
+                    "rata_rata_durasi": 14.5,
+                    "total_layanan": 98.2,
+                    "peringkat_operator": {
+                      "list": [
+                        {
+                          "id": 22,
+                          "peringkat": 1,
+                          "operator": "Reza",
+                          "desa": "Gentan",
+                          "kecamatan": "Baki",
+                          "jumlah_ajuan": 124,
+                        },
+                        {
+                          "id": 23,
+                          "peringkat": 2,
+                          "operator": "Erza",
+                          "desa": "Gentan",
+                          "kecamatan": "Baki",
+                          "jumlah_ajuan": 123,
+                        },
+                        {
+                          "id": 24,
+                          "peringkat": 3,
+                          "operator": "Zera",
+                          "desa": "Gentan",
+                          "kecamatan": "Baki",
+                          "jumlah_ajuan": 122,
+                        }
+                      ],
+                      "meta": {
+                        "page": 1,
+                        "per_page": 5,
+                        "total": 20,
+                        "total_page": 4
+                      }
+                    }
+                  }
+                }
+
+  /api/v1/peringkat-operator/{op_id}:
+    get:
+      tags:
+        - Peringkat Operator
+      summary: Detail Operator
+      description: Mendapatkan detail operator berdasarkan ID
+      parameters:
+        - name: op_id
+          required: true
+          in: path
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              example: |
+                {
+                  "success": true,
+                  "code": 200,
+                  "message": "Detail operator berhasil ditemukan",
+                  "data": {
+                    "id": 99,
+                    "nama": "Cynthia Glacieterna",
+                    "total_ajuan": 122,
+                    "total_selesai": 98,
+                    "tingkat_selesai": 79,
+                    "layanan_perbulan": {
+                      "Jan": 70,
+                      "Feb": 20,
+                      "Mar": 40,
+                      "Apr": 25,
+                      "Mei": 50,
+                      "Jun": 10,
+                      "Jul": 0,
+                      "Agu": 0,
+                      "Sep": 0,
+                      "Okt": 0,
+                      "Nov": 0,
+                      "Des": 0
+                    },
+                    "riwayat_layanan": [
+                      {
+                        "id": 1
+                        "no_regis": "REG-123",
+                        "pemohon": "Aslam",
+                        "kode_ajuan": "KK-NEW",
+                        "desa": "Baki",
+                        "tanggal": "12-07-2026",
+                        "waktu": "09:15",
+                        "status": "DIVERIFIKASI"
+                      },
+                      {
+                        "id": 2
+                        "no_regis": "REG-123",
+                        "pemohon": "Aslam",
+                        "kode_ajuan": "KK-NEW",
+                        "desa": "Baki",
+                        "tanggal": "12-07-2026",
+                        "waktu": "09:15",
+                        "status": "DIVERIFIKASI"
+                      },
+                      {
+                        "id": 3
+                        "no_regis": "REG-123",
+                        "pemohon": "Aslam",
+                        "kode_ajuan": "KIA",
+                        "desa": "Baki",
+                        "tanggal": "12-07-2026",
+                        "waktu": "09:15",
+                        "status": "DIVERIFIKASI"
+                      },
+                      {
+                        "id": 4
+                        "no_regis": "REG-123",
+                        "pemohon": "Aslam",
+                        "kode_ajuan": "KTP-EL",
+                        "desa": "Baki",
+                        "tanggal": "12-07-2026",
+                        "waktu": "09:15",
+                        "status": "DIVERIFIKASI"
+                      },
+                      {
+                        "id": 5
+                        "no_regis": "REG-123",
+                        "pemohon": "Aslam",
+                        "kode_ajuan": "KK-NEW",
+                        "desa": "Baki",
+                        "tanggal": "12-07-2026",
+                        "waktu": "09:15",
+                        "status": "DIVERIFIKASI"
+                      }
+                    ]
+                  }
+                }
+
+  /api/v1/distribusi-wilayah:
+    get:
+      tags:
+        - Distribusi Wilayah
+      summary: List Distribusi Wilayah
+      description: Mendapatkan semua distribusi wilayah
+      parameters:
+        - name: page
+          required: true
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: search
+          in: query
+          schema:
+            type: string
+        - name: district
+          in: query
+          schema:
+            type: string
+        - name: period
+          in: query
+          schema:
+            type: string
+        - name: sortBy
+          in: query
+          schema:
+            type: string
+            default: "newest"
+        - name: startDate
+          in: query
+          schema:
+            type: string
+        - name: endDate
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              example: |
+                {
+                  "success": true,
+                  "code": 200,
+                  "message": "Distribusi wilayah berhasil ditemukan",
+                  "data": {
+                    "total_kecamatan": 14,
+                    "total_ajuan_dokumen": 267,
+                    "rata_rata_ajuan": 200,
+                    "daftar_ajuan": {
+                      "list": [
+                        {
+                          "id": 1,
+                          "desa": "Gentan",
+                          "kecamatan": "Baki",
+                          "total_ajuan": 124,
+                          "ktp-el": 42,
+                          "kia": 38,
+                          "akta_kelahiran": 17,
+                          "akta_kematian": 12,
+                          "perpindahan": 32,
+                          "kedatangan": 81,
+                          "update_data": 22,
+                          "rekam_jemput_bola": 1
+                        },
+                        {
+                          "id": 2,
+                          "desa": "Gentan",
+                          "kecamatan": "Baki",
+                          "total_ajuan": 124,
+                          "ktp-el": 42,
+                          "kia": 38,
+                          "akta_kelahiran": 17,
+                          "akta_kematian": 12,
+                          "perpindahan": 32,
+                          "kedatangan": 81,
+                          "update_data": 22,
+                          "rekam_jemput_bola": 1
+                        },
+                        {
+                          "id": 3,
+                          "desa": "Gentan",
+                          "kecamatan": "Baki",
+                          "total_ajuan": 124,
+                          "ktp-el": 42,
+                          "kia": 38,
+                          "akta_kelahiran": 17,
+                          "akta_kematian": 12,
+                          "perpindahan": 32,
+                          "kedatangan": 81,
+                          "update_data": 22,
+                          "rekam_jemput_bola": 1
+                        },
+                        {
+                          "id": 4,
+                          "desa": "Gentan",
+                          "kecamatan": "Baki",
+                          "total_ajuan": 124,
+                          "ktp-el": 42,
+                          "kia": 38,
+                          "akta_kelahiran": 17,
+                          "akta_kematian": 12,
+                          "perpindahan": 32,
+                          "kedatangan": 81,
+                          "update_data": 22,
+                          "rekam_jemput_bola": 1
+                        },
+                        {
+                          "id": 5,
+                          "desa": "Gentan",
+                          "kecamatan": "Baki",
+                          "total_ajuan": 124,
+                          "ktp-el": 42,
+                          "kia": 38,
+                          "akta_kelahiran": 17,
+                          "akta_kematian": 12,
+                          "perpindahan": 32,
+                          "kedatangan": 81,
+                          "update_data": 22,
+                          "rekam_jemput_bola": 1
+                        }
+                      ],
+                      "meta": {
+                        "page": 1,
+                        "per_page": 5,
+                        "total": 20,
+                        "total_page": 4
+                      }
+                    }
+                  }
+                }
+
+  /api/v1/sla:
+    get:
+      tags:
+        - SLA
+      summary: List SLA
+      description: Mendapatkan semua SLA
+      parameters:
+        - name: page
+          required: true
+          in: query
+          schema:
+            type: integer
+        - name: search
+          in: query
+          schema:
+            type: string
+        - name: district
+          in: query
+          schema:
+            type: string
+        - name: period
+          in: query
+          schema:
+            type: string
+        - name: sortBy
+          in: query
+          schema:
+            type: string
+            default: "newest"
+        - name: startDate
+          in: query
+          schema:
+            type: string
+        - name: endDate
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              example: |
+                {
+                  "success": true,
+                  "code": 200,
+                  "message": "Berhasil mendapatkan data SLA",
+                  "data": {
+                    "rata_rata_waktu_proses": 8.5,
+                    "pencapaian_sla": 92,
+                    "target_sla": 6,
+                    "daftar_rincian": {
+                      "list": [
+                        {
+                          "id": 1,
+                          "jenis_layanan": "total_ajuan",
+                          "jumlah_ajuan": 124,
+                          "rata_rata_waktu": 3
+                        },
+                        {
+                          "id": 2,
+                          "jenis_layanan": "KTP-EL",
+                          "jumlah_ajuan": 124,
+                          "rata_rata_waktu": 5
+                        },
+                        {
+                          "id": 3,
+                          "jenis_layanan": "KIA",
+                          "jumlah_ajuan": 124,
+                          "rata_rata_waktu": 7
+                        },
+                        {
+                          "id": 4,
+                          "jenis_layanan": "AKTA KELAHIRAN",
+                          "jumlah_ajuan": 124,
+                          "rata_rata_waktu": 4.5
+                        },
+                        {
+                          "id": 5,
+                          "jenis_layanan": "AKTA KEMATIAN",
+                          "jumlah_ajuan": 124,
+                          "rata_rata_waktu": 4.5
+                        }
+                      ],
+                      "meta": {
+                        "page": 1,
+                        "per_page": 5,
+                        "total": 20,
+                        "total_page": 4
+                      }
+                    }
+                  }
+                }
+
+  /api/v1/ulasan:
+    get:
+      tags:
+        - Ulasan
+      summary: List Ulasan
+      description: Mendapatkan semua ulasan
+      parameters:
+        - name: page
+          required: true
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: search
+          in: query
+          schema:
+            type: string
+        - name: sortBy
+          in: query
+          schema:
+            type: string
+            default: "newest"
+        - name: startDate
+          in: query
+          schema:
+            type: string
+        - name: endDate
+          in: query
+          schema:
+            type: string
+        - name: rating
+          in: query
+          schema:
+            type: string
+            default: "all"
+        - name: serviceType
+          in: query
+          schema:
+            type: string
+            default: "all"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              example: |
+                {
+                  "success": true,
+                  "code": 200,
+                  "message": "Berhasil mendapatkan ulasan",
+                  "data": {
+                    "rata_rata_ulasan": 4.8,
+                    "total_ulasan": 1234,
+                    "total_rating": {
+                      "5": 800,
+                      "4": 300,
+                      "3": 100,
+                      "2": 50,
+                      "1": 20
+                    },
+                    "daftar_ulasan": {
+                      "list": [
+                        {
+                          "id": 1,
+                          "nama": "Anonim",
+                          "layanan": "TAMAT",
+                          "rating": 5,
+                          "ulasan": "ulasan 1",
+                          "tanggal": "12-10-2026",
+                          "waktu": "09:45"
+                        },
+                        {
+                          "id": 2,
+                          "nama": "Anonim",
+                          "layanan": "TAMAT",
+                          "rating": 4,
+                          "ulasan": "ulasan 2",
+                          "tanggal": "12-10-2026",
+                          "waktu": "10:00"
+                        },
+                        {
+                          "id": 3,
+                          "nama": "Anonim",
+                          "layanan": "TAMAT",
+                          "rating": 3,
+                          "ulasan": "ulasan 3",
+                          "tanggal": "12-10-2026",
+                          "waktu": "10:30"
+                        }
+                      ],
+                      "meta": {
+                        "page": 1,
+                        "per_page": 5,
+                        "total": 20,
+                        "total_page": 4
+                      }
+                    }
                   }
                 }
 
@@ -1229,12 +1429,12 @@ paths:
             type: string
       responses:
         "200":
-          description: Success
+          description: OK
           content:
             application/json:
               example: |
                 {
-                  "status": true,
+                  "success": true,
                   "code": 200,
                   "message": "Berhasil mendapatkan produk",
                   "data": [
@@ -1294,12 +1494,12 @@ paths:
             type: integer
       responses:
         "200":
-          description: Success
+          description: OK
           content:
             application/json:
               example: |
                 {
-                  "status": true,
+                  "success": true,
                   "code": 200,
                   "message": "Berhasil mengambil detail produk",
                   "data": {
