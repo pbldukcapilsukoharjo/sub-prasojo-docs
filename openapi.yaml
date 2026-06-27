@@ -1,13 +1,15 @@
 openapi: 3.0.3
 info:
   title: Sub-Prasojo API
-  version: 2.0.0
+  version: 2.1.0
   description: API Design untuk Dashboard Kinerja dan TAMAT
 servers:
   - url: "http://localhost:8000"
     description: Local Server
   - url: "https://6ifb537y9e5l.mock.hoppscotch.io"
     description: Mock Server
+  - url: "https://cloud.arenakita.my.id"
+    description: Cloud Server
 
 components:
   securitySchemes:
@@ -544,109 +546,305 @@ paths:
                   }
                 }
 
-  /api/v1/lembar-kerja:
+  /api/v1/layanan:
     get:
       tags:
-        - Lembar Kerja
-      summary: List Lembar Kerja
-      description: Dapatkan semua data lembar kerja
+        - Layanan
+      summary: List Layanan
+      description: Dapatkan semua data layanan atau layanan tertentu berdasarkan filter
       parameters:
+        - name: serviceType
+          required: true
+          description: Tipe layanan yang ingin diambil
+          in: query
+          schema:
+            type: string
+            default: "all"
         - name: page
           required: true
           in: query
           schema:
-            type: string
-            default: "1"
+            type: integer
+            default: 1
         - name: search
+          description: Pencarian cepat
           in: query
           schema:
             type: string
         - name: district
+          description: Kecamatan yang ingin diambil
           in: query
           schema:
             type: string
         - name: period
+          description: Periode yang ingin diambil
           in: query
           schema:
             type: string
         - name: sortBy
+          description: Urutan hasil pencarian
           required: true
           in: query
           schema:
             type: string
             default: "newest"
         - name: startDate
+          description: Tanggal awal pencarian
           in: query
           schema:
             type: string
         - name: endDate
+          description: Tanggal akhir pencarian
           in: query
           schema:
             type: string
         - name: reporter
+          description: Nama asal layanan
+          in: query
+          schema:
+            type: string
+        - name: status
+          description: Status yang ingin diambil
+          in: query
+          schema:
+            type: string
+        - name: identityName
+          description: Nama identitas yang ingin diambil
           in: query
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    nullable: true
+                    properties:
+                      grafik_ajuan:
+                        type: object
+                        nullable: true
+                        properties:
+                          persentase_distribusi_status:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                label:
+                                  type: string
+                                persentase:
+                                  type: integer
+                          jumlah_per_jenis_layanan:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                label:
+                                  type: string
+                                jumlah:
+                                  type: integer
+                      layanan:
+                        type: object
+                        properties:
+                          list:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                tipe:
+                                  type: string
+                                no_regis:
+                                  type: string
+                                kode_ajuan:
+                                  type: string
+                                kecamatan:
+                                  type: string
+                                tanggal:
+                                  type: string
+                                waktu:
+                                  type: string
+                                status:
+                                  type: string
+                                jalur:
+                                  type: string
+                                  nullable: true
+                                pelapor:
+                                  type: string
+                                  nullable: true
+                                kode_produk:
+                                  type: string
+                                  nullable: true
+                                jenis_ajuan:
+                                  type: string
+                                  nullable: true
+                                no_kk:
+                                  type: string
+                                  nullable: true
+                                nama_identitas_produk:
+                                  type: string
+                                  nullable: true
+                          meta:
+                            type: object
+                            properties:
+                              page:
+                                type: integer
+                              per_page:
+                                type: integer
+                              total:
+                                type: integer
+                              total_page:
+                                type: integer
               example: |
                 {
                   "success": true,
                   "code": 200,
-                  "message": "Berhasil mendapatkan lembar kerja",
-                  "data": [
-                    {
-                      "id": 1,
-                      "no_regis": "REG",
-                      "kode_produk": "KK",
-                      "kode_ajuan": "KK",
-                      "jalur": "online",
-                      "pelapor": "PADUKA",
-                      "kecamatan": "Baki",
-                      "tanggal": "2026-05-27",
-                      "waktu": "12:00",
-                      "status": "Belum Diverifikasi"
+                  "message": "Berhasil mendapatkan layanan",
+                  "data": {
+                    "grafik_ajuan": {
+                      "persentase_distribusi_status": [
+                        {
+                          "label": "DIVERIFIKASI",
+                          "persentase": 20
+                        },
+                        {
+                          "label": "DISETUJUI",
+                          "persentase": 30
+                        },
+                        {
+                          "label": "DITOLAK",
+                          "persentase": 10
+                        },
+                        {
+                          "label": "DIPROSES",
+                          "persentase": 40
+                        }
+                      ],
+                      "jumlah_per_jenis_layanan": [
+                        {
+                          "label": "Kartu Keluarga",
+                          "jumlah": 123
+                        },
+                        {
+                          "label": "KTP-EL",
+                          "jumlah": 45
+                        },
+                        {
+                          "label": "KIA",
+                          "jumlah": 10
+                        },
+                        {
+                          "label": "AKTA KELAHIRAN",
+                          "jumlah": 12
+                        },
+                        {
+                          "label": "AKTA KEMATIAN",
+                          "jumlah": 12
+                        },
+                        {
+                          "label": "PERPINDAHAN",
+                          "jumlah": 23
+                        },
+                        {
+                          "label": "SURKET KTP",
+                          "jumlah": 10
+                        }
+                      ]
                     },
-                    {
-                      "id": 2,
-                      "no_regis": "REG",
-                      "kode_produk": "KK",
-                      "kode_ajuan": "KK",
-                      "jalur": "online",
-                      "pelapor": "PADUKA",
-                      "kecamatan": "Baki",
-                      "tanggal": "2026-05-27",
-                      "waktu": "12:00",
-                      "status": "Belum Diverifikasi"
-                    },
-                    {
-                      "id": 3,
-                      "no_regis": "REG",
-                      "kode_produk": "KK",
-                      "kode_ajuan": "KK",
-                      "jalur": "online",
-                      "pelapor": "PADUKA",
-                      "kecamatan": "Baki",
-                      "tanggal": "2026-05-27",
-                      "waktu": "12:00",
-                      "status": "Belum Diverifikasi"
+                    "layanan": {
+                      "list": [
+                        {
+                          "tipe": "Ajuan",
+                          "no_regis": "",
+                          "kode_ajuan": "",
+                          "kecamatan": "",
+                          "tanggal": "",
+                          "waktu": "",
+                          "status": "",
+                          "jalur": "",
+                          "pelapor": "",
+                          "kode_produk": "",
+                          "jenis_ajuan": "",
+                          "no_kk": "",
+                          "nama_identitas_produk": ""
+                        },
+                        {
+                          "tipe": "Ajuan",
+                          "no_regis": "",
+                          "kode_ajuan": "",
+                          "kecamatan": "",
+                          "tanggal": "",
+                          "waktu": "",
+                          "status": "",
+                          "jalur": "",
+                          "pelapor": "",
+                          "kode_produk": "",
+                          "jenis_ajuan": "",
+                          "no_kk": "",
+                          "nama_identitas_produk": ""
+                        },
+                        {
+                          "tipe": "Ajuan",
+                          "no_regis": "",
+                          "kode_ajuan": "",
+                          "kecamatan": "",
+                          "tanggal": "",
+                          "waktu": "",
+                          "status": "",
+                          "jalur": "",
+                          "pelapor": "",
+                          "kode_produk": "",
+                          "jenis_ajuan": "",
+                          "no_kk": "",
+                          "nama_identitas_produk": ""
+                        }
+                      ],
+                      "meta": {
+                        "page": 1,
+                        "per_page": 3,
+                        "total": 7,
+                        "total_page": 3
+                      }
                     }
-                  ],
-                  "meta": {
-                    "page": 1,
-                    "per_page": 3,
-                    "total": 7,
-                    "total_page": 3
                   }
                 }
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    nullable: true
+              example: |
+                {
+                  "success": false,
+                  "code": 404,
+                  "message": "Data tidak ditemukan",
+                  "data": null
+                }
 
-  /api/v1/lembar-kerja/{lk_id}:
+  /api/v1/layanan/lembar-kerja/{lk_id}:
     get:
       tags:
-        - Lembar Kerja
+        - Layanan
       summary: Detail Lembar Kerja
       description: Mendapatkan detail lembar kerja berdasarkan ID.
       parameters:
@@ -675,137 +873,10 @@ paths:
                   }
                 }
 
-  /api/v1/ajuan:
+  /api/v1/layanan/ajuan/{ajuan_id}:
     get:
       tags:
-        - Ajuan
-      summary: List Ajuan
-      description: Mendapatkan semua daftar ajuan.
-      parameters:
-        - name: page
-          required: true
-          in: query
-          schema:
-            type: integer
-            default: 1
-        - name: search
-          in: query
-          schema:
-            type: string
-        - name: district
-          in: query
-          schema:
-            type: string
-        - name: period
-          in: query
-          schema:
-            type: string
-        - name: sortBy
-          required: true
-          in: query
-          schema:
-            type: string
-            default: "newest"
-        - name: startDate
-          in: query
-          schema:
-            type: string
-        - name: endDate
-          in: query
-          schema:
-            type: string
-        - name: reporter
-          in: query
-          schema:
-            type: string
-        - name: status
-          in: query
-          schema:
-            type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              example: |
-                {
-                  "success": true,
-                  "code": 200,
-                  "message": "Berhasil",
-                  "data": [
-                    {
-                      "id": 1,
-                      "no_regis": "REG",
-                      "kode_ajuan": "KK",
-                      "jenis_ajuan": "KK-NEW",
-                      "jalur": "Online",
-                      "pelapor": "PADUKA",
-                      "kecamatan": "Baki",
-                      "tanggal": "2026-05-27",
-                      "waktu": "12:00",
-                      "status": "Diproses"
-                    },
-                    {
-                      "id": 2,
-                      "no_regis": "REG",
-                      "kode_ajuan": "KK",
-                      "jenis_ajuan": "KK-NEW",
-                      "jalur": "Online",
-                      "pelapor": "PADUKA",
-                      "kecamatan": "Baki",
-                      "tanggal": "2026-05-27",
-                      "waktu": "12:00",
-                      "status": "Diproses"
-                    },
-                    {
-                      "id": 3,
-                      "no_regis": "REG",
-                      "kode_ajuan": "KK",
-                      "jenis_ajuan": "KK-NEW",
-                      "jalur": "Online",
-                      "pelapor": "PADUKA",
-                      "kecamatan": "Baki",
-                      "tanggal": "2026-05-27",
-                      "waktu": "12:00",
-                      "status": "Diproses"
-                    },
-                    {
-                      "id": 4,
-                      "no_regis": "REG",
-                      "kode_ajuan": "KK",
-                      "jenis_ajuan": "KK-NEW",
-                      "jalur": "Online",
-                      "pelapor": "PADUKA",
-                      "kecamatan": "Baki",
-                      "tanggal": "2026-05-27",
-                      "waktu": "12:00",
-                      "status": "Diproses"
-                    },
-                    {
-                      "id": 5,
-                      "no_regis": "REG",
-                      "kode_ajuan": "KK",
-                      "jenis_ajuan": "KK-NEW",
-                      "jalur": "Online",
-                      "pelapor": "PADUKA",
-                      "kecamatan": "Baki",
-                      "tanggal": "2026-05-27",
-                      "waktu": "12:00",
-                      "status": "Diproses"
-                    }
-                  ],
-                  "meta": {
-                    "page": 1,
-                    "per_page": 5,
-                    "total": 20,
-                    "total_page": 4
-                  }
-                }
-
-  /api/v1/ajuan/{ajuan_id}:
-    get:
-      tags:
-        - Ajuan
+        - Layanan
       summary: Detail Ajuan
       description: Mendapatkan detail ajuan
       parameters:
@@ -1384,106 +1455,10 @@ paths:
                   }
                 }
 
-  /api/v1/produk:
+  /api/v1/layanan/produk/{produk_id}:
     get:
       tags:
-        - Produk
-      summary: List Produk
-      description: Mendapatkan semua produk
-      parameters:
-        - name: page
-          required: true
-          in: query
-          schema:
-            type: string
-            default: "1"
-        - name: search
-          in: query
-          schema:
-            type: string
-        - name: district
-          in: query
-          schema:
-            type: string
-        - name: period
-          in: query
-          schema:
-            type: string
-        - name: sortBy
-          required: true
-          in: query
-          schema:
-            type: string
-            default: "newest"
-        - name: startDate
-          in: query
-          schema:
-            type: string
-        - name: endDate
-          in: query
-          schema:
-            type: string
-        - name: productIdentityName
-          in: query
-          schema:
-            type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              example: |
-                {
-                  "success": true,
-                  "code": 200,
-                  "message": "Berhasil mendapatkan produk",
-                  "data": [
-                    {
-                      "id": 1,
-                      "no_regis": "REG",
-                      "kode_ajuan": "KK",
-                      "no_kk": "777777",
-                      "nama_identitas": "Alemon",
-                      "kecamatan": "Baki",
-                      "tanggal": "2026-05-27",
-                      "waktu": "12:00",
-                      "status": "Siap Didownload"
-                    },
-                    {
-                      "id": 2,
-                      "no_regis": "REG",
-                      "kode_ajuan": "KK",
-                      "no_kk": "777777",
-                      "nama_identitas": "Alemon",
-                      "kecamatan": "Baki",
-                      "tanggal": "2026-05-27",
-                      "waktu": "12:00",
-                      "status": "Siap Didownload"
-                    },
-                    {
-                      "id": 3,
-                      "no_regis": "REG",
-                      "kode_ajuan": "KK",
-                      "no_kk": "777777",
-                      "nama_identitas": "Alemon",
-                      "kecamatan": "Baki",
-                      "tanggal": "2026-05-27",
-                      "waktu": "12:00",
-                      "status": "Siap Didownload"
-                    }
-                  ],
-                  "meta": {
-                    "page": 1,
-                    "per_page": 3,
-                    "total": 7,
-                    "total_page": 3
-                  }
-                }
-
-  /api/v1/produk/{produk_id}:
-    get:
-      tags:
-        - Produk
+        - Layanan
       summary: Detail Produk
       description: Mendapatkan detail produk berdasarkan ID
       parameters:
