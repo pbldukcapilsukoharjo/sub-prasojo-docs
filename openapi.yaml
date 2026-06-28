@@ -544,7 +544,7 @@ paths:
       summary: List Layanan
       description: Dapatkan semua data layanan atau layanan tertentu berdasarkan filter
       parameters:
-        - name: serviceType
+        - name: service_type
           required: true
           description: Tipe layanan yang ingin diambil
           in: query
@@ -572,19 +572,19 @@ paths:
           in: query
           schema:
             type: string
-        - name: sortBy
+        - name: sort_by
           description: Urutan hasil pencarian
           required: true
           in: query
           schema:
             type: string
             default: newest
-        - name: startDate
+        - name: start_date
           description: Tanggal awal pencarian
           in: query
           schema:
             type: string
-        - name: endDate
+        - name: end_date
           description: Tanggal akhir pencarian
           in: query
           schema:
@@ -599,7 +599,7 @@ paths:
           in: query
           schema:
             type: string
-        - name: identityName
+        - name: identity_name
           description: Nama identitas yang ingin diambil
           in: query
           schema:
