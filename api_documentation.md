@@ -380,7 +380,7 @@ Jika ada validasi parameter/body yang gagal, sistem akan selalu me-return **400 
 
 ### 4.1 Operator KPI Global 🟡 [BARU] ✅ [BERFUNGSI]
 **Endpoint:** `GET /api/v1/operator/kpi-global`
-**Query Params Khusus:** Filter standar, `id_kecamatan`. (Tidak ada `id_layanan`).
+**Query Params Khusus:** Filter standar (`periode_bulan`, `start_date`, `end_date`), `id_kecamatan`, `id_operator`. (Tidak ada `id_layanan`).
 
 **Response Sukses (200 OK):**
 ```json
@@ -396,10 +396,11 @@ Jika ada validasi parameter/body yang gagal, sistem akan selalu me-return **400 
 }
 ```
 
-### 4.2 Ranking Operator 🔵 [UPDATED] ✅ [BERFUNGSI]
+### 4.2 Peringkat Operator 🔵 [UPDATED] ✅ [BERFUNGSI]
 *(Sebelumnya di `api-1.json`: `GET /api/v1/dashboard/peringkat-operator`)*
-**Endpoint:** `GET /api/v1/operator/ranking`
-**Deskripsi:** Menampilkan urutan ranking kecepatan. Mendukung `search_nama` dan filter kecamatan.
+**Endpoint:** `GET /api/v1/operator/peringkat`
+**Deskripsi:** Menampilkan urutan ranking kecepatan.
+**Query Params:** `page`, `limit`, `search`, `id_kecamatan`, `periode_bulan`, `sort`, `start_date`, `end_date`, `id_operator`.
 
 **Response Sukses (200 OK):**
 ```json
@@ -407,31 +408,40 @@ Jika ada validasi parameter/body yang gagal, sistem akan selalu me-return **400 
   "status": true,
   "code": 200,
   "message": "Berhasil",
-  "data": [
+  "data": {
+    "list": [
       {
+        "id": 22,
         "peringkat": 1,
-        "id_operator": 45,
-        "nama": "Budi Santoso",
-        "total_berkas": 1200,
-        "rata_rata_waktu_menit": 15
+        "operator": "Reza",
+        "desa": "Gentan",
+        "kecamatan": "Baki",
+        "jumlah_ajuan": 124
       }
-  ],
-  "meta": {
-    "page": 1,
-    "per_page": 10,
-    "total": 45,
-    "total_page": 5
+    ],
+    "meta": {
+      "page": 1,
+      "per_page": 10,
+      "total": 45,
+      "total_page": 5
+    }
   }
 }
 ```
 
-### 4.3 Detail Operator ❌ [TIDAK DIPAKAI]
-**Endpoint:** `GET /api/v1/operator/{id_operator}/detail`
-**Deskripsi:** Endpoint ini sudah tidak dipakai dan data/riwayat kerja digantikan melalui pencarian di endpoint master `/api/v1/pengajuan`.
+### 4.3 Detail Operator (Chart & KPI) 🟡 [BARU] ✅ [BERFUNGSI]
+**Endpoint:** `GET /api/v1/operator/{id}/kpi`
+**Deskripsi:** Mendapatkan data agregasi indikator (total ajuan, selesai) dan chart bulanan.
+**Query Params:** `tahun` (Wajib), `periode_bulan`, `id_layanan`.
 
-### 4.4 Export Ranking Operator 🟡 [BARU] ✅ [BERFUNGSI]
+### 4.4 Detail Operator (Riwayat Layanan) 🟡 [BARU] ✅ [BERFUNGSI]
+**Endpoint:** `GET /api/v1/operator/{id}/riwayat`
+**Deskripsi:** Mendapatkan tabel riwayat layanan dengan pagination.
+**Query Params:** `page`, `limit`, `tahun` (Wajib), `periode_bulan`, `id_layanan`, `search`.
+
+### 4.5 Export Ranking Operator 🟡 [BARU] ✅ [BERFUNGSI]
 **Endpoint:** `GET /api/v1/operator/export`
-**Deskripsi:** Mengekspor tabel urutan ranking operator dalam format Excel (`.xlsx`). Parameter query (seperti pencarian atau filter wilayah) sama dengan endpoint `GET /api/v1/operator/ranking` namun mengabaikan aturan paginasi.
+**Deskripsi:** Mengekspor tabel urutan ranking operator dalam format Excel (`.xlsx`). Parameter query (seperti pencarian atau filter wilayah) sama dengan endpoint `GET /api/v1/operator/peringkat` namun mengabaikan aturan paginasi.
 
 ---
 
