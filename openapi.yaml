@@ -2865,15 +2865,7 @@ paths:
           in: query
           schema:
             type: string
-        - name: pelapor
-          in: query
-          schema:
-            type: string
-        - name: start_date
-          in: query
-          schema:
-            type: string
-        - name: end_date
+        - name: nama_identitas_produk
           in: query
           schema:
             type: string
