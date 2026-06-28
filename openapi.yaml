@@ -3180,22 +3180,27 @@ paths:
       parameters:
         - name: id_kecamatan
           in: query
+          description: 'Memfilter data berdasarkan kecamatan tertentu.'
           schema:
             type: integer
         - name: periode_bulan
           in: query
+          description: 'Memfilter data berdasarkan bulan tertentu (contoh: 1 untuk Januari, 6 untuk Juni). Data akan otomatis disaring untuk tahun saat ini.'
           schema:
             type: integer
         - name: start_date
           in: query
+          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
           schema:
             type: string
         - name: end_date
           in: query
+          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
           schema:
             type: string
         - name: id_operator
           in: query
+          description: 'Memfilter data berdasarkan operator tertentu.'
           schema:
             type: integer
   /api/v1/operator/export:
@@ -3604,41 +3609,50 @@ paths:
         - name: page
           required: true
           in: query
+          description: 'Nomor halaman untuk paginasi.'
           schema:
             type: integer
             default: 1
         - name: limit
           in: query
+          description: 'Jumlah data per halaman.'
           schema:
             type: integer
             default: 10
         - name: search
           in: query
+          description: 'Pencarian spesifik data berdasarkan nama operator.'
           schema:
             type: string
         - name: id_kecamatan
           in: query
+          description: 'Memfilter data berdasarkan kecamatan tertentu.'
           schema:
             type: integer
         - name: periode_bulan
           in: query
+          description: 'Memfilter data berdasarkan bulan tertentu (contoh: 1 untuk Januari, 6 untuk Juni). Data akan otomatis disaring untuk tahun saat ini.'
           schema:
             type: integer
         - name: sort
           in: query
+          description: 'Mengurutkan data (default: newest).'
           schema:
             type: string
             default: newest
         - name: start_date
           in: query
+          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
           schema:
             type: string
         - name: end_date
           in: query
+          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
           schema:
             type: string
         - name: id_operator
           in: query
+          description: 'Memfilter data berdasarkan operator tertentu.'
           schema:
             type: integer
       responses:
