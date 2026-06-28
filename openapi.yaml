@@ -1210,7 +1210,7 @@ paths:
           schema:
             type: string
             default: newest
-          description: Urutan data (contoh: newest, oldest).
+          description: 'Urutan data (contoh: newest, oldest).'
         - name: start_date
           in: query
           schema:
@@ -1452,7 +1452,7 @@ paths:
           schema:
             type: string
             default: newest
-          description: Urutan data (contoh: newest, oldest).
+          description: 'Urutan data (contoh: newest, oldest).'
         - name: start_date
           in: query
           schema:
