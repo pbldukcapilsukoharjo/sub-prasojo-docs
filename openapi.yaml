@@ -1515,6 +1515,7 @@ paths:
                     "rata_rata_waktu_proses": 8.5,
                     "pencapaian_sla": 92,
                     "target_sla": 6,
+                    "jumlah_ajuan": 124,
                     "daftar_rincian": {
                       "list": [
                         {
@@ -3375,7 +3376,9 @@ paths:
                   "message": "Berhasil",
                   "data": {
                     "rata_rata_global_text": "3 Jam 15 Menit",
-                    "capaian_sla_persen": 88.5
+                    "capaian_sla_persen": 88.5,
+                    "target_sla": 6,
+                    "jumlah_ajuan": 124
                   }
                 }
         '400':
