@@ -117,7 +117,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -212,7 +211,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -287,7 +285,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -376,7 +373,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -454,7 +450,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -535,7 +530,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -624,11 +618,9 @@ paths:
                     type: string
                   data:
                     type: object
-                    nullable: true
                     properties:
                       grafik_ajuan:
                         type: object
-                        nullable: true
                         properties:
                           persentase_distribusi_status:
                             type: array
@@ -672,22 +664,16 @@ paths:
                                   type: string
                                 jalur:
                                   type: string
-                                  nullable: true
                                 pelapor:
                                   type: string
-                                  nullable: true
                                 kode_produk:
                                   type: string
-                                  nullable: true
                                 jenis_ajuan:
                                   type: string
-                                  nullable: true
                                 no_kk:
                                   type: string
-                                  nullable: true
                                 nama_identitas_produk:
                                   type: string
-                                  nullable: true
                           meta:
                             type: object
                             properties:
@@ -852,7 +838,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -873,7 +858,6 @@ paths:
                     type: string
                   data:
                     type: object
-                    nullable: true
                   status:
                     type: boolean
               example: |
@@ -909,7 +893,6 @@ paths:
                     type: string
                   data:
                     type: object
-                    nullable: true
                     properties:
                       id:
                         type: integer
@@ -977,7 +960,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -998,7 +980,6 @@ paths:
                     type: string
                   data:
                     type: object
-                    nullable: true
                   status:
                     type: boolean
               example: |
@@ -1034,7 +1015,6 @@ paths:
                     type: string
                   data:
                     type: object
-                    nullable: true
                     properties:
                       id:
                         type: integer
@@ -1150,7 +1130,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -1171,7 +1150,6 @@ paths:
                     type: string
                   data:
                     type: object
-                    nullable: true
                   status:
                     type: boolean
               example: |
@@ -1421,7 +1399,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -1618,7 +1595,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -1830,7 +1806,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -1864,7 +1839,6 @@ paths:
                     type: string
                   data:
                     type: object
-                    nullable: true
                     properties:
                       id:
                         type: integer
@@ -1987,7 +1961,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -2008,7 +1981,6 @@ paths:
                     type: string
                   data:
                     type: object
-                    nullable: true
                   status:
                     type: boolean
               example: |
@@ -2145,7 +2117,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -2238,7 +2209,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -2316,7 +2286,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -2588,7 +2557,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -2629,7 +2597,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": true,
@@ -2675,7 +2642,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -2818,7 +2784,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -2890,7 +2855,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -3005,7 +2969,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -3027,7 +2990,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -3124,7 +3086,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -3197,7 +3158,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -3285,7 +3245,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -3347,7 +3306,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -3474,7 +3432,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -3536,7 +3493,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -3640,7 +3596,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -3702,7 +3657,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -3881,7 +3835,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -3989,7 +3942,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -4010,7 +3962,6 @@ paths:
                     type: string
                   data:
                     type: object
-                    nullable: true
                   status:
                     type: boolean
               example: |
@@ -4137,7 +4088,6 @@ paths:
                   message:
                     type: string
                   data:
-                    nullable: true
               example: |
                 {
                   "status": false,
@@ -4158,7 +4108,6 @@ paths:
                     type: string
                   data:
                     type: object
-                    nullable: true
                   status:
                     type: boolean
               example: |
