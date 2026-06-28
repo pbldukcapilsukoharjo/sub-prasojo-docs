@@ -314,17 +314,46 @@ Jika ada validasi parameter/body yang gagal, sistem akan selalu me-return **400 
 ### 3.2 Dashboard Trend Chart 🟡 [BARU] ✅ [BERFUNGSI]
 **Endpoint:** `GET /api/v1/dashboard/chart-trend`
 **Deskripsi:** Mengambil array pergerakan data untuk *Line Chart*.
+**Query Params:** Mendukung standar rentang waktu (`periode_bulan`, `start_date`, `end_date`), `id_kecamatan`, `id_layanan`.
 
 **Response Sukses (200 OK):**
 ```json
 {
   "status": true,
   "code": 200,
-  "message": "Berhasil",
+  "message": "Berhasil mengambil Chart Trend",
   "data": [
-    { "tanggal": "2024-01-01", "total_ajuan": 120, "selesai": 100 },
-    { "tanggal": "2024-01-02", "total_ajuan": 150, "selesai": 130 }
+    {
+      "tanggal": "2026-06-25",
+      "total_ajuan": 45,
+      "belum_diverifikasi": 5,
+      "diverifikasi": 10,
+      "ditolak": 2,
+      "diproses": 8,
+      "selesai": 15,
+      "disetujui": 5
+    },
+    {
+      "tanggal": "2026-06-26",
+      "total_ajuan": 30,
+      "belum_diverifikasi": 2,
+      "diverifikasi": 5,
+      "ditolak": 1,
+      "diproses": 10,
+      "selesai": 10,
+      "disetujui": 2
+    }
   ]
+}
+```
+
+**Response Error (400 Bad Request / 500 Internal Server Error):**
+```json
+{
+  "status": false,
+  "code": 500, 
+  "message": "Pesan error internal server / Message error spesifik",
+  "data": null
 }
 ```
 
