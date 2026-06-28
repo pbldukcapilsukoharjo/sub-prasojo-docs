@@ -3779,7 +3779,7 @@ paths:
         - name: tahun
           required: true
           in: query
-          description: Memfilter data berdasarkan tahun tertentu (Format tahun: yyyy).
+          description: 'Memfilter data berdasarkan tahun tertentu (Format tahun: yyyy).'
           schema:
             type: integer
         - name: periode_bulan
@@ -3923,7 +3923,7 @@ paths:
         - name: tahun
           required: true
           in: query
-          description: Memfilter data berdasarkan tahun tertentu (Format tahun: yyyy).
+          description: 'Memfilter data berdasarkan tahun tertentu (Format tahun: yyyy).'
           schema:
             type: integer
         - name: periode_bulan
