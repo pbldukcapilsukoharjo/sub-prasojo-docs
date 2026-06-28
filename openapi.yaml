@@ -3622,7 +3622,7 @@ paths:
             default: 10
         - name: search
           in: query
-          description: 'Pencarian spesifik data berdasarkan nama operator.'
+          description: 'Pencarian spesifik data berdasarkan nama operator, kecamatan, atau desa.'
           schema:
             type: string
         - name: id_kecamatan
