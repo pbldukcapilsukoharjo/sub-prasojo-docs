@@ -1181,7 +1181,7 @@ paths:
                   "message": "Data tidak ditemukan",
                   "data": null
                 }
-  /api/v1/distribusi-wilayah:
+  /api/v1/wilayah/distribusi:
     get:
       tags:
         - Distribusi Wilayah
