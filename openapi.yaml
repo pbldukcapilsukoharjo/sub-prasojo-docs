@@ -1202,7 +1202,7 @@ paths:
           description: Pencarian berdasarkan nama kecamatan atau desa.
         - name: id_kecamatan
           in: query
-          description: 'Memfilter data berdasarkan kecamatan tertentu. Apabila filter id_kecamatan diterapkan, maka akan menampilkan data per desa.'
+          description: Filter data berdasarkan ID kecamatan. Jika filter kecamatan diterapkan, maka akan menampilkan data desa/kelurahan.
           schema:
             type: integer
         - name: sort_by
@@ -1636,13 +1636,13 @@ paths:
         - name: page
           required: false
           in: query
-          description: 'Nomor halaman untuk paginasi (default 1).'
+          description: Nomor halaman untuk paginasi (default 1).
           schema:
             type: integer
             default: 1
         - name: search
           in: query
-          description: 'Pencarian berdasarkan isi komentar atau nama.'
+          description: Pencarian berdasarkan isi komentar atau nama.
           schema:
             type: string
         - name: sort_by
@@ -1663,12 +1663,12 @@ paths:
             type: string
         - name: rating
           in: query
-          description: 'Memfilter data berdasarkan jumlah bintang (1-5).'
+          description: Memfilter data berdasarkan jumlah bintang (1-5).
           schema:
             type: integer
         - name: layanan_kode
           in: query
-          description: 'Memfilter data berdasarkan jenis layanan.'
+          description: Memfilter data berdasarkan jenis layanan.
           schema:
             type: string
       responses:
@@ -3208,7 +3208,7 @@ paths:
       parameters:
         - name: id_kecamatan
           in: query
-          description: 'Memfilter data berdasarkan kecamatan tertentu.'
+          description: Memfilter data berdasarkan kecamatan tertentu.
           schema:
             type: integer
         - name: periode_bulan
@@ -3228,7 +3228,7 @@ paths:
             type: string
         - name: id_operator
           in: query
-          description: 'Memfilter data berdasarkan operator tertentu.'
+          description: Memfilter data berdasarkan operator tertentu.
           schema:
             type: integer
   /api/v1/operator/export:
@@ -3355,6 +3355,7 @@ paths:
                   "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
+      parameters: []
   /api/v1/sla/kpi:
     get:
       tags:
@@ -3516,6 +3517,7 @@ paths:
                   "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
+      parameters: []
   /api/v1/ulasan/kpi:
     get:
       tags:
@@ -3527,7 +3529,7 @@ paths:
       parameters:
         - name: search
           in: query
-          description: 'Pencarian berdasarkan isi komentar atau nama.'
+          description: Pencarian berdasarkan isi komentar atau nama.
           schema:
             type: string
         - name: start_date
@@ -3542,12 +3544,12 @@ paths:
             type: string
         - name: rating
           in: query
-          description: 'Memfilter data berdasarkan jumlah bintang (1-5).'
+          description: Memfilter data berdasarkan jumlah bintang (1-5).
           schema:
             type: integer
         - name: layanan_kode
           in: query
-          description: 'Memfilter data berdasarkan jenis layanan.'
+          description: Memfilter data berdasarkan jenis layanan.
           schema:
             type: string
       responses:
@@ -3691,24 +3693,24 @@ paths:
         - name: page
           required: true
           in: query
-          description: 'Nomor halaman untuk paginasi.'
+          description: Nomor halaman untuk paginasi.
           schema:
             type: integer
             default: 1
         - name: limit
           in: query
-          description: 'Jumlah data per halaman.'
+          description: Jumlah data per halaman.
           schema:
             type: integer
             default: 10
         - name: search
           in: query
-          description: 'Pencarian spesifik data berdasarkan nama operator, kecamatan, atau desa.'
+          description: Pencarian spesifik data berdasarkan nama operator, kecamatan, atau desa.
           schema:
             type: string
         - name: id_kecamatan
           in: query
-          description: 'Memfilter data berdasarkan kecamatan tertentu.'
+          description: Memfilter data berdasarkan kecamatan tertentu.
           schema:
             type: integer
         - name: periode_bulan
@@ -3734,7 +3736,7 @@ paths:
             type: string
         - name: id_operator
           in: query
-          description: 'Memfilter data berdasarkan operator tertentu.'
+          description: Memfilter data berdasarkan operator tertentu.
           schema:
             type: integer
       responses:
