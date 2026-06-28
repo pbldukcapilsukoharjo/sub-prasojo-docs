@@ -3397,6 +3397,33 @@ paths:
             application/json:
               schema:
                 type: object
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  code:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: Berhasil
+                  data:
+                    type: object
+                    properties:
+                      rata_rata_global_text:
+                        type: string
+                        example: 6 Jam 0 Menit
+                      capaian_sla_persen:
+                        type: number
+                        example: 100
+                      target_sla:
+                        type: integer
+                        example: 6
+                        description: Target waktu SLA dalam jam
+                      jumlah_ajuan:
+                        type: integer
+                        example: 120
+                        description: Total keseluruhan ajuan yang dilayani sampai selesai
               example: |
                 {
                   "status": true,
