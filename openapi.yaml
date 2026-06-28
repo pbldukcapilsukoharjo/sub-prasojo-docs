@@ -1199,7 +1199,7 @@ paths:
           in: query
           schema:
             type: string
-          description: Pencarian berdasarkan kata kunci.
+          description: Pencarian berdasarkan nama kecamatan atau desa.
         - name: id_kecamatan
           in: query
           description: 'Memfilter data berdasarkan kecamatan tertentu. Apabila filter id_kecamatan diterapkan, maka akan menampilkan data per desa.'
@@ -1211,6 +1211,11 @@ paths:
             type: string
             default: newest
           description: 'Urutan data (contoh: newest, oldest).'
+        - name: periode_bulan
+          in: query
+          schema:
+            type: integer
+          description: Memfilter data berdasarkan bulan tertentu (1-12).
         - name: start_date
           in: query
           schema:
@@ -1441,7 +1446,7 @@ paths:
           in: query
           schema:
             type: string
-          description: Pencarian berdasarkan kata kunci.
+          description: Pencarian berdasarkan nama layanan.
         - name: id_kecamatan
           in: query
           schema:
@@ -1453,6 +1458,16 @@ paths:
             type: string
             default: newest
           description: 'Urutan data (contoh: newest, oldest).'
+        - name: id_layanan
+          in: query
+          schema:
+            type: integer
+          description: Memfilter data berdasarkan ID layanan.
+        - name: periode_bulan
+          in: query
+          schema:
+            type: integer
+          description: Memfilter data berdasarkan bulan tertentu (1-12).
         - name: start_date
           in: query
           schema:
@@ -3352,6 +3367,16 @@ paths:
           schema:
             type: integer
           description: Memfilter data berdasarkan ID kecamatan.
+        - name: id_layanan
+          in: query
+          schema:
+            type: integer
+          description: Memfilter data berdasarkan ID layanan.
+        - name: periode_bulan
+          in: query
+          schema:
+            type: integer
+          description: Memfilter data berdasarkan bulan tertentu (1-12).
         - name: start_date
           in: query
           schema:
