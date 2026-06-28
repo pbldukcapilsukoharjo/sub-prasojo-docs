@@ -116,7 +116,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -210,7 +210,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -284,7 +284,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -372,7 +372,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -449,7 +449,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -529,7 +529,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -558,7 +558,7 @@ paths:
             type: integer
             default: 1
         - name: search
-          description: Pencarian cepat
+          description: Pencarian berdasarkan kata kunci tertentu.
           in: query
           schema:
             type: string
@@ -580,12 +580,12 @@ paths:
             type: string
             default: newest
         - name: start_date
-          description: Tanggal awal pencarian
+          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
           in: query
           schema:
             type: string
         - name: end_date
-          description: Tanggal akhir pencarian
+          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
           in: query
           schema:
             type: string
@@ -837,7 +837,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -959,7 +959,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -1129,7 +1129,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -1164,7 +1164,10 @@ paths:
       tags:
         - Wilayah
       summary: List Distribusi Wilayah
-      description: Mendapatkan semua distribusi wilayah
+      description: |-
+        Mendapatkan semua distribusi wilayah
+
+        **Catatan:** Jika filter `kecamatan_code` (atau id_kecamatan) diterapkan, maka data yang ditampilkan adalah distribusi pada tingkat desa/kelurahan di kecamatan tersebut.
       parameters:
         - name: page
           required: false
@@ -1177,7 +1180,7 @@ paths:
           in: query
           schema:
             type: string
-          description: Pencarian berdasarkan nama kecamatan atau desa.
+          description: Pencarian berdasarkan nama kecamatan atau nama desa.
         - name: id_kecamatan
           in: query
           description: Filter data berdasarkan ID kecamatan. Jika filter kecamatan diterapkan, maka akan menampilkan data desa/kelurahan.
@@ -1398,7 +1401,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -1594,7 +1597,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -1618,7 +1621,7 @@ paths:
             default: 1
         - name: search
           in: query
-          description: Pencarian berdasarkan isi komentar atau nama.
+          description: Pencarian berdasarkan isi ulasan atau nama pelapor.
           schema:
             type: string
         - name: sort_by
@@ -1805,7 +1808,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -1960,7 +1963,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -2116,7 +2119,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -2208,7 +2211,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -2285,7 +2288,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -2556,7 +2559,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -2596,7 +2599,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": true,
@@ -2641,7 +2644,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -2783,7 +2786,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -2854,7 +2857,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -2968,7 +2971,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -2989,7 +2992,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -3085,7 +3088,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -3157,7 +3160,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -3244,7 +3247,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -3305,7 +3308,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -3431,7 +3434,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -3492,7 +3495,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -3512,7 +3515,7 @@ paths:
       parameters:
         - name: search
           in: query
-          description: Pencarian berdasarkan isi komentar atau nama.
+          description: Pencarian berdasarkan isi ulasan atau nama pelapor.
           schema:
             type: string
         - name: start_date
@@ -3595,7 +3598,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -3656,7 +3659,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -3686,7 +3689,7 @@ paths:
             default: 10
         - name: search
           in: query
-          description: Pencarian spesifik data berdasarkan nama operator, kecamatan, atau desa.
+          description: Pencarian berdasarkan nama operator atau NIK.
           schema:
             type: string
         - name: id_kecamatan
@@ -3834,7 +3837,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -3941,7 +3944,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
@@ -4014,7 +4017,7 @@ paths:
             type: integer
         - name: search
           in: query
-          description: Pencarian spesifik data berdasarkan nama pemohon atau nomor registrasi.
+          description: Pencarian berdasarkan nama operator atau NIK.
           schema:
             type: string
       responses:
@@ -4087,7 +4090,7 @@ paths:
                     type: integer
                   message:
                     type: string
-                  data:
+                  data: null
               example: |
                 {
                   "status": false,
