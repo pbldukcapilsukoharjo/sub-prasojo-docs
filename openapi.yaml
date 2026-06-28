@@ -1184,7 +1184,7 @@ paths:
   /api/v1/wilayah/distribusi:
     get:
       tags:
-        - Distribusi Wilayah
+        - Wilayah
       summary: List Distribusi Wilayah
       description: Mendapatkan semua distribusi wilayah
       parameters:
