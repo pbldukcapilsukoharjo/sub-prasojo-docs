@@ -3779,14 +3779,17 @@ paths:
         - name: tahun
           required: true
           in: query
+          description: Memfilter data berdasarkan tahun tertentu (Format tahun: yyyy).
           schema:
             type: integer
         - name: periode_bulan
           in: query
+          description: 'Memfilter data berdasarkan bulan tertentu (contoh: 1 untuk Januari, 6 untuk Juni). Data akan otomatis disaring untuk tahun saat ini.'
           schema:
             type: integer
         - name: id_layanan
           in: query
+          description: Memfilter data berdasarkan jenis layanan tertentu.
           schema:
             type: integer
       responses:
@@ -3907,29 +3910,35 @@ paths:
         - name: page
           required: true
           in: query
+          description: Nomor halaman untuk paginasi.
           schema:
             type: integer
             default: 1
         - name: limit
           in: query
+          description: Jumlah data per halaman.
           schema:
             type: integer
             default: 10
         - name: tahun
           required: true
           in: query
+          description: Memfilter data berdasarkan tahun tertentu (Format tahun: yyyy).
           schema:
             type: integer
         - name: periode_bulan
           in: query
+          description: 'Memfilter data berdasarkan bulan tertentu (contoh: 1 untuk Januari, 6 untuk Juni). Data akan otomatis disaring untuk tahun saat ini.'
           schema:
             type: integer
         - name: id_layanan
           in: query
+          description: Memfilter data berdasarkan jenis layanan tertentu.
           schema:
             type: integer
         - name: search
           in: query
+          description: Pencarian spesifik data berdasarkan nama pemohon atau nomor registrasi.
           schema:
             type: string
       responses:
