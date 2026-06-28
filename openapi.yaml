@@ -1189,7 +1189,7 @@ paths:
       description: Mendapatkan semua distribusi wilayah
       parameters:
         - name: page
-          required: true
+          required: false
           in: query
           schema:
             type: integer
@@ -1198,24 +1198,21 @@ paths:
           in: query
           schema:
             type: string
-        - name: district
+        - name: id_kecamatan
           in: query
+          description: 'Memfilter data berdasarkan kecamatan tertentu. Apabila filter id_kecamatan diterapkan, maka akan menampilkan data per desa.'
           schema:
-            type: string
-        - name: period
-          in: query
-          schema:
-            type: string
-        - name: sortBy
+            type: integer
+        - name: sort_by
           in: query
           schema:
             type: string
             default: newest
-        - name: startDate
+        - name: start_date
           in: query
           schema:
             type: string
-        - name: endDate
+        - name: end_date
           in: query
           schema:
             type: string
@@ -3279,6 +3276,29 @@ paths:
       description: Mengekspor tabel volume per kecamatan ke dalam file Excel (.xlsx).
       security:
         - bearerAuth: []
+      parameters:
+        - name: search
+          in: query
+          schema:
+            type: string
+        - name: id_kecamatan
+          in: query
+          description: 'Memfilter data berdasarkan kecamatan tertentu. Apabila filter id_kecamatan diterapkan, maka akan mengekspor data per desa.'
+          schema:
+            type: integer
+        - name: sort_by
+          in: query
+          schema:
+            type: string
+            default: newest
+        - name: start_date
+          in: query
+          schema:
+            type: string
+        - name: end_date
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: OK
