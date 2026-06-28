@@ -1220,12 +1220,12 @@ paths:
           in: query
           schema:
             type: string
-          description: Tanggal awal rentang waktu (format YYYY-MM-DD).
+          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
         - name: end_date
           in: query
           schema:
             type: string
-          description: Tanggal akhir rentang waktu (format YYYY-MM-DD).
+          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
       responses:
         '200':
           description: OK
@@ -1472,12 +1472,12 @@ paths:
           in: query
           schema:
             type: string
-          description: Tanggal awal pencarian rentang waktu (format YYYY-MM-DD).
+          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
         - name: end_date
           in: query
           schema:
             type: string
-          description: Tanggal akhir pencarian rentang waktu (format YYYY-MM-DD).
+          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
       responses:
         '200':
           description: OK
@@ -2709,10 +2709,12 @@ paths:
           in: query
           schema:
             type: string
+          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
         - name: end_date
           in: query
           schema:
             type: string
+          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
         - name: search_no_reg
           in: query
           schema:
@@ -3381,12 +3383,12 @@ paths:
           in: query
           schema:
             type: string
-          description: Tanggal awal rentang waktu (format YYYY-MM-DD).
+          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
         - name: end_date
           in: query
           schema:
             type: string
-          description: Tanggal akhir rentang waktu (format YYYY-MM-DD).
+          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
       responses:
         '200':
           description: OK
