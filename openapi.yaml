@@ -48,8 +48,31 @@ paths:
           description: Created
           content:
             application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      fullname:
+                        type: string
+                      email:
+                        type: string
+                      updated_at:
+                        type: string
+                      created_at:
+                        type: string
+                      deleted_at:
+                        type: string
               example: |
                 {
+                  "success": true,
                   "code": 201,
                   "message": "Registrasi berhasil",
                   "data": {
@@ -64,8 +87,20 @@ paths:
           description: Bad Request
           content:
             application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  error:
+                    type: string
               example: |
                 {
+                  "success": false,
                   "code": 400,
                   "message": "Registrasi gagal",
                   "error": "Ini Error"
@@ -97,8 +132,23 @@ paths:
                 example: refresh_token=xxxxxxx; HttpOnly; Secure
           content:
             application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      access_token:
+                        type: string
               example: |
                 {
+                  "success": true,
                   "code": 200,
                   "message": "Login berhasil",
                   "data": {
@@ -109,8 +159,20 @@ paths:
           description: Bad Request
           content:
             application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  error:
+                    type: string
               example: |
                 {
+                  "success": false,
                   "code": 400,
                   "message": "Login gagal",
                   "error": "Ini Error"
@@ -130,8 +192,18 @@ paths:
           description: OK
           content:
             application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
               example: |
                 {
+                  "success": true,
                   "code": 200,
                   "message": "Logout berhasil"
                 }
@@ -139,8 +211,20 @@ paths:
           description: Bad Request
           content:
             application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  error:
+                    type: string
               example: |
                 {
+                  "success": false,
                   "code": 400,
                   "message": "Logout gagal",
                   "error": "Ini Error"
@@ -166,8 +250,23 @@ paths:
                 example: refresh_token=xxxxxxx; HttpOnly; Secure
           content:
             application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      access_token:
+                        type: string
               example: |
                 {
+                  "success": true,
                   "code": 200,
                   "message": "Refresh berhasil",
                   "data": {
@@ -178,8 +277,20 @@ paths:
           description: Bad Request
           content:
             application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  error:
+                    type: string
               example: |
                 {
+                  "success": false,
                   "code": 400,
                   "message": "Refresh gagal",
                   "error": "Ini Error"
@@ -197,6 +308,13 @@ paths:
           description: Forbidden
           content:
             application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
               example: |
                 {
                   "code": 403,
@@ -254,8 +372,18 @@ paths:
           description: Email verifikasi berhasil dikirim ulang
           content:
             application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
               example: |
                 {
+                  "success": true,
                   "code": 200,
                   "message": "Email verifikasi telah dikirim ulang."
                 }
@@ -263,8 +391,18 @@ paths:
           description: Email tidak valid atau tidak terdaftar
           content:
             application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
               example: |
                 {
+                  "success": false,
                   "code": 400,
                   "message": "Error"
                 }
@@ -288,8 +426,18 @@ paths:
           description: Email berhasil dikirim
           content:
             application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
               example: |
                 {
+                  "success": true,
                   "code": 200,
                   "message": "Email berhasil dikirim."
                 }
@@ -297,8 +445,18 @@ paths:
           description: Email tidak valid atau tidak terdaftar
           content:
             application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
               example: |
                 {
+                  "success": false,
                   "code": 400,
                   "message": "Error"
                 }
@@ -325,8 +483,18 @@ paths:
           description: Password berhasil diubah
           content:
             application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
               example: |
                 {
+                  "success": true,
                   "code": 200,
                   "message": "Password berhasil diubah."
                 }
@@ -334,8 +502,18 @@ paths:
           description: Token tidak valid
           content:
             application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
               example: |
                 {
+                  "success": false,
                   "code": 400,
                   "message": "Error"
                 }
@@ -351,6 +529,22 @@ paths:
           description: OK
           content:
             application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      fullname:
+                        type: string
+                      email:
+                        type: string
               example: |
                 {
                   "success": true,
@@ -365,8 +559,18 @@ paths:
           description: Unauthorized
           content:
             application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
               example: |
                 {
+                  "success": false,
                   "code": 401,
                   "message": "Unauthorized"
                 }
@@ -406,6 +610,56 @@ paths:
           description: OK
           content:
             application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      total_pengajuan:
+                        type: integer
+                      total_selesai:
+                        type: integer
+                      total_ditolak:
+                        type: integer
+                      rata_rata_kepuasan:
+                        type: integer
+                      ajuan_bulanan:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            label:
+                              type: string
+                            belum_diverifikasi:
+                              type: integer
+                            diverifikasi:
+                              type: integer
+                            diproses:
+                              type: integer
+                            disetujui:
+                              type: integer
+                            ditolak:
+                              type: integer
+                            selesai:
+                              type: integer
+                      distribusi_wilayah:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                            label:
+                              type: string
+                            value:
+                              type: integer
               example: |
                 {
                   "success": true,
@@ -817,7 +1071,7 @@ paths:
                     }
                   }
                 }
-        404:
+        "404":
           description: Not Found
           content:
             application/json:
@@ -858,6 +1112,31 @@ paths:
           description: OK
           content:
             application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    nullable: true
+                    properties:
+                      id:
+                        type: integer
+                      no_regis:
+                        type: string
+                      nama:
+                        type: string
+                      nik:
+                        type: string
+                      jenis_layanan:
+                        type: string
+                      kecamatan:
+                        type: string
               example: |
                 {
                   "success": true,
@@ -871,6 +1150,29 @@ paths:
                     "jenis_layanan": "umum",
                     "kecamatan": "Septentrionalis",
                   }
+                }
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    nullable: true
+              example: |
+                {
+                  "success": false,
+                  "code": 404,
+                  "message": "Data tidak ditemukan",
+                  "data": null
                 }
 
   /api/v1/layanan/ajuan/{ajuan_id}:
@@ -890,6 +1192,48 @@ paths:
           description: OK
           content:
             application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    nullable: true
+                    properties:
+                      id:
+                        type: integer
+                      no_regis:
+                        type: string
+                      nama:
+                        type: string
+                      nik:
+                        type: string
+                      jenis_layanan:
+                        type: string
+                      kecamatan:
+                        type: string
+                      tanggal_ajuan:
+                        type: string
+                      timeline:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                            status:
+                              type: string
+                            note:
+                              type: string
+                            tanggal:
+                              type: string
+                            waktu:
+                              type: string
               example: |
                 {
                   "success": true,
@@ -934,6 +1278,29 @@ paths:
                       }
                     ]
                   }
+                }
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    nullable: true
+              example: |
+                {
+                  "success": false,
+                  "code": 404,
+                  "message": "Data tidak ditemukan",
+                  "data": null
                 }
 
   /api/v1/peringkat-operator:
@@ -983,6 +1350,55 @@ paths:
           description: OK
           content:
             application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      total_layanan:
+                        type: integer
+                      rata_rata_durasi:
+                        type: number
+                      total_layanan_persen:
+                        type: number
+                      peringkat_operator:
+                        type: object
+                        properties:
+                          list:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                id:
+                                  type: integer
+                                peringkat:
+                                  type: integer
+                                operator:
+                                  type: string
+                                desa:
+                                  type: string
+                                kecamatan:
+                                  type: string
+                                jumlah_ajuan:
+                                  type: integer
+                          meta:
+                            type: object
+                            properties:
+                              page:
+                                type: integer
+                              per_page:
+                                type: integer
+                              total:
+                                type: integer
+                              total_page:
+                                type: integer
               example: |
                 {
                   "success": true,
@@ -991,7 +1407,7 @@ paths:
                   "data": {
                     "total_layanan": 1234,
                     "rata_rata_durasi": 14.5,
-                    "total_layanan": 98.2,
+                    "total_layanan_persen": 98.2,
                     "peringkat_operator": {
                       "list": [
                         {
@@ -1046,6 +1462,78 @@ paths:
           description: OK
           content:
             application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    nullable: true
+                    properties:
+                      id:
+                        type: integer
+                      nama:
+                        type: string
+                      total_ajuan:
+                        type: integer
+                      total_selesai:
+                        type: integer
+                      tingkat_selesai:
+                        type: integer
+                      layanan_perbulan:
+                        type: object
+                        properties:
+                          Jan:
+                            type: integer
+                          Feb:
+                            type: integer
+                          Mar:
+                            type: integer
+                          Apr:
+                            type: integer
+                          Mei:
+                            type: integer
+                          Jun:
+                            type: integer
+                          Jul:
+                            type: integer
+                          Agu:
+                            type: integer
+                          Sep:
+                            type: integer
+                          Okt:
+                            type: integer
+                          Nov:
+                            type: integer
+                          Des:
+                            type: integer
+                      riwayat_layanan:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                            no_regis:
+                              type: string
+                            pemohon:
+                              type: string
+                            kode_ajuan:
+                              type: string
+                            desa:
+                              type: string
+                            tanggal:
+                              type: string
+                            waktu:
+                              type: string
+                            status:
+                              type: string
+                            
               example: |
                 {
                   "success": true,
@@ -1125,6 +1613,29 @@ paths:
                     ]
                   }
                 }
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    nullable: true
+              example: |
+                {
+                  "success": false,
+                  "code": 404,
+                  "message": "Data tidak ditemukan",
+                  "data": null
+                }
 
   /api/v1/distribusi-wilayah:
     get:
@@ -1169,6 +1680,67 @@ paths:
           description: OK
           content:
             application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      total_kecamatan:
+                        type: integer
+                      total_ajuan_dokumen:
+                        type: integer
+                      rata_rata_ajuan:
+                        type: integer
+                      daftar_ajuan:
+                        type: object
+                        properties:
+                          list:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                id:
+                                  type: integer
+                                desa:
+                                  type: string
+                                kecamatan:
+                                  type: string
+                                total_ajuan:
+                                  type: integer
+                                ktp-el:
+                                  type: integer
+                                kia:
+                                  type: integer
+                                akta_kelahiran:
+                                  type: integer
+                                akta_kematian:
+                                  type: integer
+                                perpindahan:
+                                  type: integer
+                                kedatangan:
+                                  type: integer
+                                update_data:
+                                  type: integer
+                                rekam_jemput_bola:
+                                  type: integer
+                          meta:
+                            type: object
+                            properties:
+                              page:
+                                type: integer
+                              per_page:
+                                type: integer
+                              total:
+                                type: integer
+                              total_page:
+                                type: integer
               example: |
                 {
                   "success": true,
@@ -1303,6 +1875,51 @@ paths:
           description: OK
           content:
             application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      rata_rata_waktu_proses:
+                        type: number
+                      pencapaian_sla:
+                        type: integer
+                      target_sla:
+                        type: integer
+                      daftar_rincian:
+                        type: object
+                        properties:
+                          list:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                id:
+                                  type: integer
+                                jenis_layanan:
+                                  type: string
+                                jumlah_ajuan:
+                                  type: integer
+                                rata_rata_waktu:
+                                  type: integer
+                          meta:
+                            type: object
+                            properties:
+                              page:
+                                type: integer
+                              per_page:
+                                type: integer
+                              total:
+                                type: integer
+                              total_page:
+                                type: integer
               example: |
                 {
                   "success": true,
@@ -1400,6 +2017,68 @@ paths:
           description: OK
           content:
             application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      rata_rata_ulasan:
+                        type: number
+                      total_ulasan:
+                        type: integer
+                      total_rating:
+                        type: object
+                        properties:
+                          5:
+                            type: integer
+                          4:
+                            type: integer
+                          3:
+                            type: integer
+                          2:
+                            type: integer
+                          1:
+                            type: integer
+                      daftar_ulasan:
+                        type: object
+                        properties:
+                          list:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                id:
+                                  type: integer
+                                nama:
+                                  type: string
+                                layanan:
+                                  type: string
+                                rating:
+                                  type: integer
+                                ulasan:
+                                  type: string
+                                tanggal:
+                                  type: string
+                                waktu:
+                                  type: string
+                          meta:
+                            type: object
+                            properties:
+                              page:
+                                type: integer
+                              per_page:
+                                type: integer
+                              total:
+                                type: integer
+                              total_page:
+                                type: integer
               example: |
                 {
                   "success": true,
@@ -1472,6 +2151,48 @@ paths:
           description: OK
           content:
             application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    nullable: true
+                    properties:
+                      id:
+                        type: integer
+                      no_regis:
+                        type: string
+                      nama:
+                        type: string
+                      nik:
+                        type: string
+                      jenis_layanan:
+                        type: string
+                      kecamatan:
+                        type: string
+                      tanggal_ajuan:
+                        type: string
+                      timeline:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                            status:
+                              type: string
+                            note:
+                              type: string
+                            tanggal:
+                              type: string
+                            waktu:
+                              type: string
               example: |
                 {
                   "success": true,
@@ -1524,4 +2245,26 @@ paths:
                     ]
                   }
                 }
-                
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    nullable: true
+              example: |
+                {
+                  "success": false,
+                  "code": 404,
+                  "message": "Data tidak ditemukan",
+                  "data": null
+                }
