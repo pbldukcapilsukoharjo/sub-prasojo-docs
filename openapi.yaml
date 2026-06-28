@@ -122,7 +122,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
   /api/v1/auth/login:
@@ -292,7 +292,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
   /api/v1/auth/refresh:
@@ -381,7 +381,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
   /api/v1/auth/forgot-password:
@@ -459,7 +459,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
   /api/v1/auth/reset-password:
@@ -540,7 +540,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
   /api/v1/layanan:
@@ -857,7 +857,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
         "404":
@@ -982,7 +982,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
         "404":
@@ -1155,7 +1155,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
         "404":
@@ -1365,7 +1365,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
   /api/v1/peringkat-operator/{op_id}:
@@ -1578,7 +1578,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
         "404":
@@ -1842,7 +1842,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
   /api/v1/sla:
@@ -2026,7 +2026,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
   /api/v1/ulasan:
@@ -2233,7 +2233,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
   /api/v1/layanan/produk/{produk_id}:
@@ -2390,7 +2390,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
         "404":
@@ -2494,7 +2494,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
   /api/v1/email/verify:
@@ -2548,7 +2548,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
         "403":
@@ -2641,7 +2641,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
   /api/v1/email/resend:
@@ -2719,7 +2719,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
   /api/v1/dashboard/kpi:
@@ -2989,7 +2989,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
   /api/v1/auth/profile:
@@ -3076,7 +3076,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
   /api/v1/pengajuan:
@@ -3218,7 +3218,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
   /api/v1/pengajuan/export:
@@ -3290,7 +3290,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
   /api/v1/dashboard/chart-trend:
@@ -3361,7 +3361,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
   /api/v1/dashboard/top-wilayah:
@@ -3432,7 +3432,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
   /api/v1/operator/kpi-global:
@@ -3504,7 +3504,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
   /api/v1/operator/export:
@@ -3566,7 +3566,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
   /api/v1/wilayah/export:
@@ -3628,7 +3628,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
   /api/v1/sla/kpi:
@@ -3699,7 +3699,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
   /api/v1/sla/export:
@@ -3762,7 +3762,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
   /api/v1/ulasan/kpi:
@@ -3839,7 +3839,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
   /api/v1/ulasan/export:
@@ -3901,6 +3901,6 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Akses ditolak. Token PASETO tidak valid atau kedaluwarsa.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
