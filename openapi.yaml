@@ -2729,27 +2729,29 @@ paths:
       summary: Dashboard
       description: Mendapatkan semua data yang diperlukan untuk dashboard
       parameters:
-        - name: serviceType
+        - name: id_kecamatan
           in: query
+          description: Memfilter data berdasarkan kecamatan tertentu.
+          schema:
+            type: integer
+        - name: id_layanan
+          in: query
+          description: Memfilter data berdasarkan jenis layanan tertentu.
+          schema:
+            type: integer
+        - name: periode_bulan
+          in: query
+          description: 'Memfilter data berdasarkan bulan tertentu (contoh: 1 untuk Januari, 6 untuk Juni). Data akan otomatis disaring untuk tahun saat ini.'
+          schema:
+            type: integer
+        - name: start_date
+          in: query
+          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
           schema:
             type: string
-            default: all
-        - name: district
+        - name: end_date
           in: query
-          schema:
-            type: string
-            default: all
-        - name: period
-          in: query
-          schema:
-            type: string
-            default: this_month
-        - name: startDate
-          in: query
-          schema:
-            type: string
-        - name: endDate
-          in: query
+          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
           schema:
             type: string
       responses:
@@ -3438,6 +3440,32 @@ paths:
       description: Mengambil top 5 wilayah penyumbang ajuan terbanyak (Bar chart).
       security:
         - bearerAuth: []
+      parameters:
+        - name: id_kecamatan
+          in: query
+          description: Memfilter data berdasarkan kecamatan tertentu.
+          schema:
+            type: integer
+        - name: id_layanan
+          in: query
+          description: Memfilter data berdasarkan jenis layanan tertentu.
+          schema:
+            type: integer
+        - name: periode_bulan
+          in: query
+          description: 'Memfilter data berdasarkan bulan tertentu (contoh: 1 untuk Januari, 6 untuk Juni). Data akan otomatis disaring untuk tahun saat ini.'
+          schema:
+            type: integer
+        - name: start_date
+          in: query
+          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
+          schema:
+            type: string
+        - name: end_date
+          in: query
+          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
+          schema:
+            type: string
       responses:
         "200":
           description: OK
