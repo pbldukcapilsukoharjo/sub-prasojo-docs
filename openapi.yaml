@@ -2665,42 +2665,52 @@ paths:
           in: query
           schema:
             type: string
+          description: Pencarian cepat (no reg / NIK pelapor / layanan / kecamatan)
         - name: kecamatan
           in: query
           schema:
             type: string
+          description: Filter kode kecamatan
         - name: pelapor
           in: query
           schema:
             type: string
+          description: Filter nama peran pelapor
         - name: start_date
           in: query
           schema:
             type: string
+          description: Tanggal awal (format dd-mm-yyyy)
         - name: end_date
           in: query
           schema:
             type: string
+          description: Tanggal akhir (format dd-mm-yyyy)
         - name: periode
           in: query
           schema:
             type: integer
+          description: Filter periode berdasarkan bulan (1-12)
         - name: layanan
           in: query
           schema:
             type: string
+          description: Filter kode layanan
         - name: sort
           in: query
           schema:
             type: string
+          description: Urutan data
         - name: per_page
           in: query
           schema:
             type: integer
+          description: Jumlah data per halaman paginasi
         - name: page
           in: query
           schema:
             type: integer
+          description: Nomor halaman paginasi
 
       responses:
         '200':
@@ -2714,13 +2724,42 @@ paths:
                   "status": true,
                   "code": 200,
                   "message": "Berhasil mengambil data",
-                  "data": [],
+                  "data": [
+                    {
+                      "ajuan_id": 1,
+                      "ajuan_no_reg": "REG-12345",
+                      "ajuan_create_datetime": "2024-01-01 10:00:00",
+                      "ajuan_status": "DIPROSES",
+                      "ajuan_pelapor_role_name": "Online",
+                      "ajuan_is_online": 1,
+                      "kecamatan": {
+                         "kecamatan_id": 1,
+                         "kecamatan_name": "Klojen"
+                      },
+                      "layanan": {
+                         "layanan_id": 1,
+                         "layanan_name": "KTP Elektronik"
+                      },
+                      "pelapor": {
+                         "user_id": 1,
+                         "user_nik": "3573010000000001",
+                         "user_nama_lengkap": "Budi Santoso"
+                      }
+                    }
+                  ],
                   "meta": {
                     "page": 1,
                     "per_page": 10,
-                    "total": 0,
-                    "total_page": 0
-                  }
+                    "total": 100,
+                    "total_page": 10
+                  },
+                  "chart_status": [
+                    {"status": "DIPROSES", "total": 50},
+                    {"status": "DITERIMA", "total": 50}
+                  ],
+                  "chart_layanan": [
+                    {"layanan": "KTP Elektronik", "total": 100}
+                  ]
                 }
         '400':
           description: Bad Request
@@ -2763,42 +2802,52 @@ paths:
           in: query
           schema:
             type: string
+          description: Pencarian cepat (no reg / NIK pelapor / layanan / kecamatan)
         - name: kecamatan
           in: query
           schema:
             type: string
+          description: Filter kode kecamatan
         - name: pelapor
           in: query
           schema:
             type: string
+          description: Filter nama peran pelapor
         - name: start_date
           in: query
           schema:
             type: string
+          description: Tanggal awal (format dd-mm-yyyy)
         - name: end_date
           in: query
           schema:
             type: string
+          description: Tanggal akhir (format dd-mm-yyyy)
         - name: periode
           in: query
           schema:
             type: integer
+          description: Filter periode berdasarkan bulan (1-12)
         - name: layanan
           in: query
           schema:
             type: string
+          description: Filter kode layanan
         - name: sort
           in: query
           schema:
             type: string
+          description: Urutan data
         - name: per_page
           in: query
           schema:
             type: integer
+          description: Jumlah data per halaman paginasi
         - name: page
           in: query
           schema:
             type: integer
+          description: Nomor halaman paginasi
 
       responses:
         '200':
@@ -2812,12 +2861,34 @@ paths:
                   "status": true,
                   "code": 200,
                   "message": "Berhasil mengambil data",
-                  "data": [],
+                  "data": [
+                    {
+                      "ajuan_id": 1,
+                      "ajuan_no_reg": "REG-12345",
+                      "ajuan_create_datetime": "2024-01-01 10:00:00",
+                      "ajuan_status": "MENUNGGU",
+                      "ajuan_pelapor_role_name": "Online",
+                      "ajuan_is_online": 1,
+                      "kecamatan": {
+                         "kecamatan_id": 1,
+                         "kecamatan_name": "Klojen"
+                      },
+                      "layanan": {
+                         "layanan_id": 1,
+                         "layanan_name": "KTP Elektronik"
+                      },
+                      "pelapor": {
+                         "user_id": 1,
+                         "user_nik": "3573010000000001",
+                         "user_nama_lengkap": "Budi Santoso"
+                      }
+                    }
+                  ],
                   "meta": {
                     "page": 1,
                     "per_page": 10,
-                    "total": 0,
-                    "total_page": 0
+                    "total": 100,
+                    "total_page": 10
                   }
                 }
         '400':
@@ -2861,34 +2932,42 @@ paths:
           in: query
           schema:
             type: string
+          description: Pencarian cepat (no reg / layanan / kecamatan)
         - name: kecamatan
           in: query
           schema:
             type: string
+          description: Filter kode kecamatan
         - name: nama_identitas_produk
           in: query
           schema:
             type: string
+          description: Pencarian berdasarkan nama identitas produk
         - name: periode
           in: query
           schema:
             type: integer
+          description: Filter periode berdasarkan bulan (1-12)
         - name: layanan
           in: query
           schema:
             type: string
+          description: Filter kode layanan
         - name: sort
           in: query
           schema:
             type: string
+          description: Urutan data
         - name: per_page
           in: query
           schema:
             type: integer
+          description: Jumlah data per halaman paginasi
         - name: page
           in: query
           schema:
             type: integer
+          description: Nomor halaman paginasi
 
       responses:
         '200':
@@ -2902,12 +2981,29 @@ paths:
                   "status": true,
                   "code": 200,
                   "message": "Berhasil mengambil data",
-                  "data": [],
+                  "data": [
+                    {
+                      "ajuan_id": 1,
+                      "ajuan_no_reg": "REG-12345",
+                      "ajuan_create_datetime": "2024-01-01 10:00:00",
+                      "ajuan_status": "SELESAI",
+                      "ajuan_is_online": 1,
+                      "nama_identitas_produk": "Kartu Keluarga a.n Budi",
+                      "kecamatan": {
+                         "kecamatan_id": 1,
+                         "kecamatan_name": "Klojen"
+                      },
+                      "layanan": {
+                         "layanan_id": 1,
+                         "layanan_name": "KTP Elektronik"
+                      }
+                    }
+                  ],
                   "meta": {
                     "page": 1,
                     "per_page": 10,
-                    "total": 0,
-                    "total_page": 0
+                    "total": 100,
+                    "total_page": 10
                   }
                 }
         '400':
