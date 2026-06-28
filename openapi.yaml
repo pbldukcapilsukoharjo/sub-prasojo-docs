@@ -1194,10 +1194,12 @@ paths:
           schema:
             type: integer
             default: 1
+          description: Nomor halaman.
         - name: search
           in: query
           schema:
             type: string
+          description: Pencarian berdasarkan kata kunci.
         - name: id_kecamatan
           in: query
           description: 'Memfilter data berdasarkan kecamatan tertentu. Apabila filter id_kecamatan diterapkan, maka akan menampilkan data per desa.'
@@ -1208,14 +1210,17 @@ paths:
           schema:
             type: string
             default: newest
+          description: Urutan data (contoh: newest, oldest).
         - name: start_date
           in: query
           schema:
             type: string
+          description: Tanggal awal rentang waktu (format YYYY-MM-DD).
         - name: end_date
           in: query
           schema:
             type: string
+          description: Tanggal akhir rentang waktu (format YYYY-MM-DD).
       responses:
         '200':
           description: OK
@@ -1431,31 +1436,33 @@ paths:
           in: query
           schema:
             type: integer
+          description: Nomor halaman.
         - name: search
           in: query
           schema:
             type: string
-        - name: district
+          description: Pencarian berdasarkan kata kunci.
+        - name: id_kecamatan
           in: query
           schema:
-            type: string
-        - name: period
-          in: query
-          schema:
-            type: string
-        - name: sortBy
+            type: integer
+          description: Memfilter data berdasarkan ID kecamatan.
+        - name: sort_by
           in: query
           schema:
             type: string
             default: newest
-        - name: startDate
+          description: Urutan data (contoh: newest, oldest).
+        - name: start_date
           in: query
           schema:
             type: string
-        - name: endDate
+          description: Tanggal awal pencarian rentang waktu (format YYYY-MM-DD).
+        - name: end_date
           in: query
           schema:
             type: string
+          description: Tanggal akhir pencarian rentang waktu (format YYYY-MM-DD).
       responses:
         '200':
           description: OK
@@ -3277,29 +3284,6 @@ paths:
       description: Mengekspor tabel volume per kecamatan ke dalam file Excel (.xlsx).
       security:
         - bearerAuth: []
-      parameters:
-        - name: search
-          in: query
-          schema:
-            type: string
-        - name: id_kecamatan
-          in: query
-          description: 'Memfilter data berdasarkan kecamatan tertentu. Apabila filter id_kecamatan diterapkan, maka akan mengekspor data per desa.'
-          schema:
-            type: integer
-        - name: sort_by
-          in: query
-          schema:
-            type: string
-            default: newest
-        - name: start_date
-          in: query
-          schema:
-            type: string
-        - name: end_date
-          in: query
-          schema:
-            type: string
       responses:
         '200':
           description: OK
@@ -3362,6 +3346,22 @@ paths:
       description: Menampilkan rata-rata proses & rasio pencapaian SLA.
       security:
         - bearerAuth: []
+      parameters:
+        - name: id_kecamatan
+          in: query
+          schema:
+            type: integer
+          description: Memfilter data berdasarkan ID kecamatan.
+        - name: start_date
+          in: query
+          schema:
+            type: string
+          description: Tanggal awal rentang waktu (format YYYY-MM-DD).
+        - name: end_date
+          in: query
+          schema:
+            type: string
+          description: Tanggal akhir rentang waktu (format YYYY-MM-DD).
       responses:
         '200':
           description: OK
