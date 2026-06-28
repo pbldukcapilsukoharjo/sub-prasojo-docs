@@ -1782,6 +1782,8 @@ paths:
             schema:
               type: object
               properties:
+                fullname:
+                  type: string
                 email:
                   type: string
                 password:
