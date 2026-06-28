@@ -1614,38 +1614,43 @@ paths:
       description: Mendapatkan semua ulasan
       parameters:
         - name: page
-          required: true
+          required: false
           in: query
+          description: 'Nomor halaman untuk paginasi (default 1).'
           schema:
             type: integer
             default: 1
         - name: search
           in: query
+          description: 'Pencarian berdasarkan isi komentar atau nama.'
           schema:
             type: string
-        - name: sortBy
+        - name: sort_by
           in: query
+          description: 'Mengurutkan data (opsi: newest, oldest, rating_asc, rating_desc).'
           schema:
             type: string
             default: newest
-        - name: startDate
+        - name: start_date
           in: query
+          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
           schema:
             type: string
-        - name: endDate
+        - name: end_date
           in: query
+          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
           schema:
             type: string
         - name: rating
           in: query
+          description: 'Memfilter data berdasarkan jumlah bintang (1-5).'
           schema:
-            type: string
-            default: all
-        - name: serviceType
+            type: integer
+        - name: layanan_kode
           in: query
+          description: 'Memfilter data berdasarkan jenis layanan.'
           schema:
             type: string
-            default: all
       responses:
         '200':
           description: OK
@@ -3469,6 +3474,32 @@ paths:
       description: Hero score ulasan dan hitungan per bintang.
       security:
         - bearerAuth: []
+      parameters:
+        - name: search
+          in: query
+          description: 'Pencarian berdasarkan isi komentar atau nama.'
+          schema:
+            type: string
+        - name: start_date
+          in: query
+          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
+          schema:
+            type: string
+        - name: end_date
+          in: query
+          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
+          schema:
+            type: string
+        - name: rating
+          in: query
+          description: 'Memfilter data berdasarkan jumlah bintang (1-5).'
+          schema:
+            type: integer
+        - name: layanan_kode
+          in: query
+          description: 'Memfilter data berdasarkan jenis layanan.'
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -3546,6 +3577,38 @@ paths:
       description: Mengunduh data ulasan dalam format Excel (.xlsx).
       security:
         - bearerAuth: []
+      parameters:
+        - name: search
+          in: query
+          description: 'Pencarian berdasarkan isi komentar atau nama.'
+          schema:
+            type: string
+        - name: sort_by
+          in: query
+          description: 'Mengurutkan data (opsi: newest, oldest, rating_asc, rating_desc).'
+          schema:
+            type: string
+            default: newest
+        - name: start_date
+          in: query
+          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
+          schema:
+            type: string
+        - name: end_date
+          in: query
+          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
+          schema:
+            type: string
+        - name: rating
+          in: query
+          description: 'Memfilter data berdasarkan jumlah bintang (1-5).'
+          schema:
+            type: integer
+        - name: layanan_kode
+          in: query
+          description: 'Memfilter data berdasarkan jenis layanan.'
+          schema:
+            type: string
       responses:
         '200':
           description: OK
