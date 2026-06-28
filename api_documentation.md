@@ -389,9 +389,10 @@ Jika ada validasi parameter/body yang gagal, sistem akan selalu me-return **400 
   "code": 200,
   "message": "Berhasil",
   "data": {
-    "total_aktif": 25,
-    "total_berkas_dikerjakan": 10500,
-    "rata_rata_kecepatan_text": "30 Menit/Berkas"
+    "total_ajuan": 1234,
+    "total_selesai": 1211,
+    "tingkat_selesai": 98.2,
+    "rata_rata_durasi": 14.5
   }
 }
 ```
