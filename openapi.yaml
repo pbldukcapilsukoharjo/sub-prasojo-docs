@@ -542,10 +542,13 @@ paths:
       tags:
         - Wilayah
       summary: List Distribusi Wilayah
-      description: |-
+      description: >-
         Mendapatkan semua distribusi wilayah
 
-        **Catatan:** Jika filter `kecamatan_code` (atau id_kecamatan) diterapkan, maka data yang ditampilkan adalah distribusi pada tingkat desa/kelurahan di kecamatan tersebut.
+
+        **Catatan:** Jika filter `kecamatan_code` (atau id_kecamatan)
+        diterapkan, maka data yang ditampilkan adalah distribusi pada tingkat
+        desa/kelurahan di kecamatan tersebut.
       parameters:
         - name: page
           required: false
@@ -558,10 +561,13 @@ paths:
           in: query
           schema:
             type: string
+          description: Pencarian cepat (no reg / NIK pelapor / layanan / kecamatan)
           description: Pencarian berdasarkan nama kecamatan atau nama desa.
         - name: id_kecamatan
           in: query
-          description: Filter data berdasarkan ID kecamatan. Jika filter kecamatan diterapkan, maka akan menampilkan data desa/kelurahan.
+          description: >-
+            Filter data berdasarkan ID kecamatan. Jika filter kecamatan
+            diterapkan, maka akan menampilkan data desa/kelurahan.
           schema:
             type: integer
         - name: sort_by
@@ -579,12 +585,18 @@ paths:
           in: query
           schema:
             type: string
-          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
+          description: Tanggal awal (format dd-mm-yyyy)
+          description: >-
+            Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal
+            harus: dd-mm-yyyy).
         - name: end_date
           in: query
           schema:
             type: string
-          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
+          description: Tanggal akhir (format dd-mm-yyyy)
+          description: >-
+            Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal
+            harus: dd-mm-yyyy).
       responses:
         '200':
           description: OK
@@ -804,6 +816,7 @@ paths:
           in: query
           schema:
             type: string
+          description: Pencarian cepat (no reg / NIK pelapor / layanan / kecamatan)
           description: Pencarian berdasarkan nama layanan.
         - name: id_kecamatan
           in: query
@@ -830,12 +843,18 @@ paths:
           in: query
           schema:
             type: string
-          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
+          description: Tanggal awal (format dd-mm-yyyy)
+          description: >-
+            Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal
+            harus: dd-mm-yyyy).
         - name: end_date
           in: query
           schema:
             type: string
-          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
+          description: Tanggal akhir (format dd-mm-yyyy)
+          description: >-
+            Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal
+            harus: dd-mm-yyyy).
       responses:
         '200':
           description: OK
@@ -1010,12 +1029,16 @@ paths:
             default: newest
         - name: start_date
           in: query
-          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
+          description: >-
+            Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal
+            harus: dd-mm-yyyy).
           schema:
             type: string
         - name: end_date
           in: query
-          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
+          description: >-
+            Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal
+            harus: dd-mm-yyyy).
           schema:
             type: string
         - name: rating
@@ -1504,31 +1527,33 @@ paths:
       summary: Dashboard
       description: Mendapatkan semua data yang diperlukan untuk dashboard
       parameters:
-        - name: id_kecamatan
-          in: query
-          description: Memfilter data berdasarkan kecamatan tertentu.
-          schema:
-            type: integer
-        - name: id_layanan
-          in: query
-          description: Memfilter data berdasarkan jenis layanan tertentu.
-          schema:
-            type: integer
-        - name: periode_bulan
-          in: query
-          description: 'Memfilter data berdasarkan bulan tertentu (contoh: 1 untuk Januari, 6 untuk Juni). Data akan otomatis disaring untuk tahun saat ini.'
-          schema:
-            type: integer
         - name: start_date
           in: query
-          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
           schema:
             type: string
+          description: Tanggal awal (format dd-mm-yyyy)
+          description: 'Filter dari tanggal (format: dd-mm-yyyy).'
         - name: end_date
           in: query
-          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
           schema:
             type: string
+          description: Tanggal akhir (format dd-mm-yyyy)
+          description: 'Filter sampai tanggal (format: dd-mm-yyyy).'
+        - name: periode_bulan
+          in: query
+          schema:
+            type: integer
+          description: Filter berdasarkan bulan (1-12).
+        - name: id_kecamatan
+          in: query
+          schema:
+            type: integer
+          description: Filter berdasarkan ID Kecamatan.
+        - name: id_layanan
+          in: query
+          schema:
+            type: string
+          description: Filter berdasarkan Kode Layanan.
       responses:
         '200':
           description: OK
@@ -1869,52 +1894,61 @@ paths:
           schema:
             type: string
           description: Pencarian cepat (no reg / NIK pelapor / layanan / kecamatan)
+          description: Pencarian cepat (no reg / NIK pelapor / layanan / kecamatan)
         - name: kecamatan
           in: query
           schema:
             type: string
           description: Filter kode kecamatan
+          description: Filter kode kecamatan
         - name: pelapor
           in: query
           schema:
             type: string
+          description: Filter nama peran pelapor (online, offline, mandiri, operator, dll)
           description: Filter nama peran pelapor
         - name: start_date
           in: query
           schema:
             type: string
           description: Tanggal awal (format dd-mm-yyyy)
+          description: Tanggal awal (format dd-mm-yyyy)
         - name: end_date
           in: query
           schema:
             type: string
+          description: Tanggal akhir (format dd-mm-yyyy)
           description: Tanggal akhir (format dd-mm-yyyy)
         - name: periode
           in: query
           schema:
             type: integer
           description: Filter periode berdasarkan bulan (1-12)
+          description: Filter periode berdasarkan bulan (1-12)
         - name: layanan
           in: query
           schema:
             type: string
+          description: Filter kode layanan (untuk filter tab bar)
           description: Filter kode layanan
         - name: sort
           in: query
           schema:
             type: string
+          description: Urutan data (terbaru atau terlama)
           description: Urutan data
         - name: per_page
           in: query
           schema:
             type: integer
+          description: Jumlah data per halaman paginasi (default 10)
           description: Jumlah data per halaman paginasi
         - name: page
           in: query
           schema:
             type: integer
           description: Nomor halaman paginasi
-
+          description: Nomor halaman paginasi
       responses:
         '200':
           description: OK
@@ -2006,52 +2040,61 @@ paths:
           schema:
             type: string
           description: Pencarian cepat (no reg / NIK pelapor / layanan / kecamatan)
+          description: Pencarian cepat (no reg / NIK pelapor / layanan / kecamatan)
         - name: kecamatan
           in: query
           schema:
             type: string
           description: Filter kode kecamatan
+          description: Filter kode kecamatan
         - name: pelapor
           in: query
           schema:
             type: string
+          description: Filter nama peran pelapor (online, offline, mandiri, operator, dll)
           description: Filter nama peran pelapor
         - name: start_date
           in: query
           schema:
             type: string
           description: Tanggal awal (format dd-mm-yyyy)
+          description: Tanggal awal (format dd-mm-yyyy)
         - name: end_date
           in: query
           schema:
             type: string
+          description: Tanggal akhir (format dd-mm-yyyy)
           description: Tanggal akhir (format dd-mm-yyyy)
         - name: periode
           in: query
           schema:
             type: integer
           description: Filter periode berdasarkan bulan (1-12)
+          description: Filter periode berdasarkan bulan (1-12)
         - name: layanan
           in: query
           schema:
             type: string
+          description: Filter kode layanan (untuk filter tab bar)
           description: Filter kode layanan
         - name: sort
           in: query
           schema:
             type: string
+          description: Urutan data (terbaru atau terlama)
           description: Urutan data
         - name: per_page
           in: query
           schema:
             type: integer
+          description: Jumlah data per halaman paginasi (default 10)
           description: Jumlah data per halaman paginasi
         - name: page
           in: query
           schema:
             type: integer
           description: Nomor halaman paginasi
-
+          description: Nomor halaman paginasi
       responses:
         '200':
           description: OK
@@ -2127,7 +2170,9 @@ paths:
       tags:
         - Pengajuan
       summary: List Produk
-      description: Menampilkan list pengajuan untuk halaman produk, dilengkapi nama identitas produk.
+      description: >-
+        Menampilkan list pengajuan untuk halaman produk, dilengkapi nama
+        identitas produk.
       security:
         - bearerAuth: []
       parameters:
@@ -2135,43 +2180,50 @@ paths:
           in: query
           schema:
             type: string
+          description: Pencarian cepat (no reg / NIK pelapor / layanan / kecamatan)
           description: Pencarian cepat (no reg / layanan / kecamatan)
         - name: kecamatan
           in: query
           schema:
             type: string
           description: Filter kode kecamatan
+          description: Filter kode kecamatan
         - name: nama_identitas_produk
           in: query
           schema:
             type: string
+          description: Pencarian berdasarkan nama identitas produk
           description: Pencarian berdasarkan nama identitas produk
         - name: periode
           in: query
           schema:
             type: integer
           description: Filter periode berdasarkan bulan (1-12)
+          description: Filter periode berdasarkan bulan (1-12)
         - name: layanan
           in: query
           schema:
             type: string
+          description: Filter kode layanan (untuk filter tab bar)
           description: Filter kode layanan
         - name: sort
           in: query
           schema:
             type: string
+          description: Urutan data (terbaru atau terlama)
           description: Urutan data
         - name: per_page
           in: query
           schema:
             type: integer
+          description: Jumlah data per halaman paginasi (default 10)
           description: Jumlah data per halaman paginasi
         - name: page
           in: query
           schema:
             type: integer
           description: Nomor halaman paginasi
-
+          description: Nomor halaman paginasi
       responses:
         '200':
           description: OK
@@ -2361,31 +2413,33 @@ paths:
       security:
         - bearerAuth: []
       parameters:
-        - name: id_kecamatan
-          in: query
-          description: Memfilter data berdasarkan kecamatan tertentu.
-          schema:
-            type: integer
-        - name: id_layanan
-          in: query
-          description: Memfilter data berdasarkan jenis layanan tertentu.
-          schema:
-            type: integer
-        - name: periode_bulan
-          in: query
-          description: 'Memfilter data berdasarkan bulan tertentu (contoh: 1 untuk Januari, 6 untuk Juni). Data akan otomatis disaring untuk tahun saat ini.'
-          schema:
-            type: integer
         - name: start_date
           in: query
-          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
           schema:
             type: string
+          description: Tanggal awal (format dd-mm-yyyy)
+          description: 'Filter dari tanggal (format: dd-mm-yyyy).'
         - name: end_date
           in: query
-          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
           schema:
             type: string
+          description: Tanggal akhir (format dd-mm-yyyy)
+          description: 'Filter sampai tanggal (format: dd-mm-yyyy).'
+        - name: periode_bulan
+          in: query
+          schema:
+            type: integer
+          description: Filter berdasarkan bulan (1-12).
+        - name: id_kecamatan
+          in: query
+          schema:
+            type: integer
+          description: Filter berdasarkan ID Kecamatan.
+        - name: id_layanan
+          in: query
+          schema:
+            type: string
+          description: Filter berdasarkan Kode Layanan.
       responses:
         '200':
           description: OK
@@ -2496,31 +2550,33 @@ paths:
       security:
         - bearerAuth: []
       parameters:
-        - name: id_kecamatan
-          in: query
-          description: Memfilter data berdasarkan kecamatan tertentu.
-          schema:
-            type: integer
-        - name: id_layanan
-          in: query
-          description: Memfilter data berdasarkan jenis layanan tertentu.
-          schema:
-            type: integer
-        - name: periode_bulan
-          in: query
-          description: 'Memfilter data berdasarkan bulan tertentu (contoh: 1 untuk Januari, 6 untuk Juni). Data akan otomatis disaring untuk tahun saat ini.'
-          schema:
-            type: integer
         - name: start_date
           in: query
-          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
           schema:
             type: string
+          description: Tanggal awal (format dd-mm-yyyy)
+          description: 'Filter dari tanggal (format: dd-mm-yyyy).'
         - name: end_date
           in: query
-          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
           schema:
             type: string
+          description: Tanggal akhir (format dd-mm-yyyy)
+          description: 'Filter sampai tanggal (format: dd-mm-yyyy).'
+        - name: periode_bulan
+          in: query
+          schema:
+            type: integer
+          description: Filter berdasarkan bulan (1-12).
+        - name: id_kecamatan
+          in: query
+          schema:
+            type: integer
+          description: Filter berdasarkan ID Kecamatan.
+        - name: id_layanan
+          in: query
+          schema:
+            type: string
+          description: Filter berdasarkan Kode Layanan.
       responses:
         '200':
           description: OK
@@ -2663,17 +2719,23 @@ paths:
             type: integer
         - name: periode_bulan
           in: query
-          description: 'Memfilter data berdasarkan bulan tertentu (contoh: 1 untuk Januari, 6 untuk Juni). Data akan otomatis disaring untuk tahun saat ini.'
+          description: >-
+            Memfilter data berdasarkan bulan tertentu (contoh: 1 untuk Januari,
+            6 untuk Juni). Data akan otomatis disaring untuk tahun saat ini.
           schema:
             type: integer
         - name: start_date
           in: query
-          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
+          description: >-
+            Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal
+            harus: dd-mm-yyyy).
           schema:
             type: string
         - name: end_date
           in: query
-          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
+          description: >-
+            Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal
+            harus: dd-mm-yyyy).
           schema:
             type: string
         - name: id_operator
@@ -2832,12 +2894,18 @@ paths:
           in: query
           schema:
             type: string
-          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
+          description: Tanggal awal (format dd-mm-yyyy)
+          description: >-
+            Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal
+            harus: dd-mm-yyyy).
         - name: end_date
           in: query
           schema:
             type: string
-          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
+          description: Tanggal akhir (format dd-mm-yyyy)
+          description: >-
+            Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal
+            harus: dd-mm-yyyy).
       responses:
         '200':
           description: OK
@@ -2934,7 +3002,9 @@ paths:
       tags:
         - SLA
       summary: Export Tabel Komparasi Layanan
-      description: Mengekspor data komparasi pemenuhan SLA layanan ke format file Excel (.xlsx).
+      description: >-
+        Mengekspor data komparasi pemenuhan SLA layanan ke format file Excel
+        (.xlsx).
       security:
         - bearerAuth: []
       responses:
@@ -3007,12 +3077,16 @@ paths:
             type: string
         - name: start_date
           in: query
-          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
+          description: >-
+            Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal
+            harus: dd-mm-yyyy).
           schema:
             type: string
         - name: end_date
           in: query
-          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
+          description: >-
+            Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal
+            harus: dd-mm-yyyy).
           schema:
             type: string
         - name: rating
@@ -3186,7 +3260,9 @@ paths:
             type: integer
         - name: periode_bulan
           in: query
-          description: 'Memfilter data berdasarkan bulan tertentu (contoh: 1 untuk Januari, 6 untuk Juni). Data akan otomatis disaring untuk tahun saat ini.'
+          description: >-
+            Memfilter data berdasarkan bulan tertentu (contoh: 1 untuk Januari,
+            6 untuk Juni). Data akan otomatis disaring untuk tahun saat ini.
           schema:
             type: integer
         - name: sort
@@ -3197,12 +3273,16 @@ paths:
             default: newest
         - name: start_date
           in: query
-          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
+          description: >-
+            Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal
+            harus: dd-mm-yyyy).
           schema:
             type: string
         - name: end_date
           in: query
-          description: 'Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal harus: dd-mm-yyyy).'
+          description: >-
+            Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal
+            harus: dd-mm-yyyy).
           schema:
             type: string
         - name: id_operator
@@ -3337,7 +3417,9 @@ paths:
       tags:
         - Operator
       summary: Detail Operator (Chart & KPI)
-      description: Mendapatkan data agregasi indikator (total ajuan, selesai) dan chart bulanan
+      description: >-
+        Mendapatkan data agregasi indikator (total ajuan, selesai) dan chart
+        bulanan
       parameters:
         - name: id
           required: true
@@ -3352,7 +3434,9 @@ paths:
             type: integer
         - name: periode_bulan
           in: query
-          description: 'Memfilter data berdasarkan bulan tertentu (contoh: 1 untuk Januari, 6 untuk Juni). Data akan otomatis disaring untuk tahun saat ini.'
+          description: >-
+            Memfilter data berdasarkan bulan tertentu (contoh: 1 untuk Januari,
+            6 untuk Juni). Data akan otomatis disaring untuk tahun saat ini.
           schema:
             type: integer
         - name: id_layanan
@@ -3494,7 +3578,9 @@ paths:
             type: integer
         - name: periode_bulan
           in: query
-          description: 'Memfilter data berdasarkan bulan tertentu (contoh: 1 untuk Januari, 6 untuk Juni). Data akan otomatis disaring untuk tahun saat ini.'
+          description: >-
+            Memfilter data berdasarkan bulan tertentu (contoh: 1 untuk Januari,
+            6 untuk Juni). Data akan otomatis disaring untuk tahun saat ini.
           schema:
             type: integer
         - name: id_layanan
@@ -3607,3 +3693,260 @@ paths:
                   "message": "Data tidak ditemukan",
                   "data": null
                 }
+  /api/v1/filter/layanan:
+    get:
+      tags:
+        - Filter
+      summary: Filter Layanan
+      description: Mendapatkan daftar layanan aktif untuk dropdown filter.
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+  /api/v1/filter/kecamatan:
+    get:
+      tags:
+        - Filter
+      summary: Filter Kecamatan
+      description: Mendapatkan daftar kecamatan untuk dropdown filter.
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+  /api/v1/filter/pelapor:
+    get:
+      tags:
+        - Filter
+      summary: Filter Pelapor
+      description: >-
+        Mendapatkan opsi role pelapor (online, offline, mandiri, operator) untuk
+        dropdown filter.
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+  /api/v1/filter/status:
+    get:
+      tags:
+        - Filter
+      summary: Filter Status Ajuan
+      description: Mendapatkan daftar status ajuan untuk dropdown filter.
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+  /api/v1/filter/jenis-ajuan:
+    get:
+      tags:
+        - Filter
+      summary: Filter Jenis Ajuan
+      description: Mendapatkan daftar jenis ajuan untuk dropdown filter.
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+  /api/v1/filter/jalur:
+    get:
+      tags:
+        - Filter
+      summary: Filter Jalur
+      description: Mendapatkan daftar jalur (Online/Offline) untuk dropdown filter.
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+  /api/v1/pengajuan/ajuan/chart:
+    get:
+      tags:
+        - Pengajuan
+      summary: Chart Data Ajuan
+      description: >-
+        Mendapatkan data grafik ajuan berdasarkan rentang tanggal/bulan beserta
+        filter lainnya.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: start_date
+          in: query
+          schema:
+            type: string
+          description: Tanggal awal (format dd-mm-yyyy)
+          description: 'Filter dari tanggal (format: dd-mm-yyyy).'
+        - name: end_date
+          in: query
+          schema:
+            type: string
+          description: Tanggal akhir (format dd-mm-yyyy)
+          description: 'Filter sampai tanggal (format: dd-mm-yyyy).'
+        - name: periode_bulan
+          in: query
+          schema:
+            type: integer
+          description: Filter berdasarkan bulan (1-12).
+        - name: id_kecamatan
+          in: query
+          schema:
+            type: integer
+          description: Filter berdasarkan ID Kecamatan.
+        - name: id_layanan
+          in: query
+          schema:
+            type: string
+          description: Filter berdasarkan Kode Layanan.
+        - name: id_jenis_ajuan
+          in: query
+          schema:
+            type: integer
+          description: Filter berdasarkan ID Jenis Ajuan.
+        - name: jalur
+          in: query
+          schema:
+            type: string
+          description: Filter berdasarkan Jalur (Online/Offline).
+        - name: id_pelapor
+          in: query
+          schema:
+            type: string
+          description: Filter berdasarkan Role Pelapor.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    type: object
