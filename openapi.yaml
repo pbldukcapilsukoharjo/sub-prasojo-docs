@@ -49,6 +49,7 @@ paths:
                 properties:
                   code:
                     type: integer
+                    example: 201
                   message:
                     type: string
                   data:
@@ -88,6 +89,7 @@ paths:
                 properties:
                   code:
                     type: integer
+                    example: 400
                   message:
                     type: string
                   error:
@@ -100,7 +102,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -114,6 +118,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 401
                   message:
                     type: string
                   data: null
@@ -155,6 +160,7 @@ paths:
                 properties:
                   code:
                     type: integer
+                    example: 200
                   message:
                     type: string
                   data:
@@ -182,6 +188,7 @@ paths:
                 properties:
                   code:
                     type: integer
+                    example: 400
                   message:
                     type: string
                   error:
@@ -194,7 +201,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -208,6 +217,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 401
                   message:
                     type: string
                   data: null
@@ -215,7 +225,7 @@ paths:
                 {
                   "status": false,
                   "code": 401,
-                  "message": "Email atau password yang Anda masukkan salah.",
+                  "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
   /api/v1/auth/logout:
@@ -237,6 +247,7 @@ paths:
                 properties:
                   code:
                     type: integer
+                    example: 200
                   message:
                     type: string
                   status:
@@ -245,7 +256,8 @@ paths:
                 {
                   "status": true,
                   "code": 200,
-                  "message": "Logout berhasil"
+                  "message": "Logout berhasil",
+                  "data": null
                 }
         '400':
           description: Bad Request
@@ -256,6 +268,7 @@ paths:
                 properties:
                   code:
                     type: integer
+                    example: 400
                   message:
                     type: string
                   error:
@@ -268,7 +281,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -282,6 +297,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 401
                   message:
                     type: string
                   data: null
@@ -317,6 +333,7 @@ paths:
                 properties:
                   code:
                     type: integer
+                    example: 200
                   message:
                     type: string
                   data:
@@ -344,6 +361,7 @@ paths:
                 properties:
                   code:
                     type: integer
+                    example: 400
                   message:
                     type: string
                   error:
@@ -356,7 +374,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -370,6 +390,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 401
                   message:
                     type: string
                   data: null
@@ -404,6 +425,7 @@ paths:
                 properties:
                   code:
                     type: integer
+                    example: 200
                   message:
                     type: string
                   status:
@@ -412,7 +434,8 @@ paths:
                 {
                   "status": true,
                   "code": 200,
-                  "message": "Email berhasil dikirim."
+                  "message": "Email berhasil dikirim.",
+                  "data": null
                 }
         '400':
           description: Email tidak valid atau tidak terdaftar
@@ -423,6 +446,7 @@ paths:
                 properties:
                   code:
                     type: integer
+                    example: 400
                   message:
                     type: string
                   status:
@@ -433,7 +457,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -447,6 +473,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 401
                   message:
                     type: string
                   data: null
@@ -484,6 +511,7 @@ paths:
                 properties:
                   code:
                     type: integer
+                    example: 200
                   message:
                     type: string
                   status:
@@ -492,7 +520,8 @@ paths:
                 {
                   "status": true,
                   "code": 200,
-                  "message": "Password berhasil diubah."
+                  "message": "Password berhasil diubah.",
+                  "data": null
                 }
         '400':
           description: Token tidak valid
@@ -503,6 +532,7 @@ paths:
                 properties:
                   code:
                     type: integer
+                    example: 400
                   message:
                     type: string
                   status:
@@ -513,7 +543,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -527,6 +559,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 401
                   message:
                     type: string
                   data: null
@@ -542,10 +575,13 @@ paths:
       tags:
         - Wilayah
       summary: List Distribusi Wilayah
-      description: |-
+      description: >-
         Mendapatkan semua distribusi wilayah
 
-        **Catatan:** Jika filter `kecamatan_code` (atau id_kecamatan) diterapkan, maka data yang ditampilkan adalah distribusi pada tingkat desa/kelurahan di kecamatan tersebut.
+
+        **Catatan:** Jika filter `kecamatan_code` (atau id_kecamatan)
+        diterapkan, maka data yang ditampilkan adalah distribusi pada tingkat
+        desa/kelurahan di kecamatan tersebut.
       parameters:
         - name: page
           required: false
@@ -553,15 +589,17 @@ paths:
           schema:
             type: integer
             default: 1
-          description: Nomor halaman paginasi
+          description: Nomor halaman.
         - name: search
           in: query
           schema:
             type: string
-          description: Pencarian cepat (no reg / NIK pelapor / layanan / kecamatan)
+          description: Pencarian berdasarkan nama kecamatan atau nama desa.
         - name: id_kecamatan
           in: query
-          description: Filter data berdasarkan ID kecamatan. Jika filter kecamatan diterapkan, maka akan menampilkan data desa/kelurahan.
+          description: >-
+            Filter data berdasarkan ID kecamatan. Jika filter kecamatan
+            diterapkan, maka akan menampilkan data desa/kelurahan.
           schema:
             type: integer
         - name: sort_by
@@ -579,12 +617,16 @@ paths:
           in: query
           schema:
             type: string
-          description: Tanggal awal (format dd-mm-yyyy)
+          description: >-
+            Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal
+            harus: dd-mm-yyyy).
         - name: end_date
           in: query
           schema:
             type: string
-          description: Tanggal akhir (format dd-mm-yyyy)
+          description: >-
+            Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal
+            harus: dd-mm-yyyy).
       responses:
         '200':
           description: OK
@@ -595,6 +637,7 @@ paths:
                 properties:
                   code:
                     type: integer
+                    example: 200
                   message:
                     type: string
                   data:
@@ -753,6 +796,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 400
                   message:
                     type: string
                   data:
@@ -763,7 +807,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -777,6 +823,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 401
                   message:
                     type: string
                   data: null
@@ -799,12 +846,12 @@ paths:
           in: query
           schema:
             type: integer
-          description: Nomor halaman paginasi
+          description: Nomor halaman.
         - name: search
           in: query
           schema:
             type: string
-          description: Pencarian cepat (no reg / NIK pelapor / layanan / kecamatan)
+          description: Pencarian berdasarkan nama layanan.
         - name: id_kecamatan
           in: query
           schema:
@@ -830,12 +877,16 @@ paths:
           in: query
           schema:
             type: string
-          description: Tanggal awal (format dd-mm-yyyy)
+          description: >-
+            Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal
+            harus: dd-mm-yyyy).
         - name: end_date
           in: query
           schema:
             type: string
-          description: Tanggal akhir (format dd-mm-yyyy)
+          description: >-
+            Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal
+            harus: dd-mm-yyyy).
       responses:
         '200':
           description: OK
@@ -846,6 +897,7 @@ paths:
                 properties:
                   code:
                     type: integer
+                    example: 200
                   message:
                     type: string
                   data:
@@ -949,6 +1001,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 400
                   message:
                     type: string
                   data:
@@ -959,7 +1012,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -973,6 +1028,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 401
                   message:
                     type: string
                   data: null
@@ -993,13 +1049,13 @@ paths:
         - name: page
           required: false
           in: query
-          description: Nomor halaman paginasi
+          description: Nomor halaman untuk paginasi (default 1).
           schema:
             type: integer
             default: 1
         - name: search
           in: query
-          description: Pencarian cepat (no reg / NIK pelapor / layanan / kecamatan)
+          description: Pencarian berdasarkan isi ulasan atau nama pelapor.
           schema:
             type: string
         - name: sort_by
@@ -1010,12 +1066,16 @@ paths:
             default: newest
         - name: start_date
           in: query
-          description: Tanggal awal (format dd-mm-yyyy)
+          description: >-
+            Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal
+            harus: dd-mm-yyyy).
           schema:
             type: string
         - name: end_date
           in: query
-          description: Tanggal akhir (format dd-mm-yyyy)
+          description: >-
+            Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal
+            harus: dd-mm-yyyy).
           schema:
             type: string
         - name: rating
@@ -1038,6 +1098,7 @@ paths:
                 properties:
                   code:
                     type: integer
+                    example: 200
                   message:
                     type: string
                   data:
@@ -1104,11 +1165,11 @@ paths:
                     "rata_rata_ulasan": 4.8,
                     "total_ulasan": 1234,
                     "total_rating": {
-                      "5": 800,
-                      "4": 300,
-                      "3": 100,
+                      "1": 20,
                       "2": 50,
-                      "1": 20
+                      "3": 100,
+                      "4": 300,
+                      "5": 800
                     },
                     "daftar_ulasan": {
                       "list": [
@@ -1160,6 +1221,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 400
                   message:
                     type: string
                   data:
@@ -1170,7 +1232,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -1184,6 +1248,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 401
                   message:
                     type: string
                   data: null
@@ -1210,6 +1275,7 @@ paths:
                 properties:
                   code:
                     type: integer
+                    example: 200
                   message:
                     type: string
                   data:
@@ -1242,6 +1308,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 400
                   message:
                     type: string
                   data:
@@ -1252,7 +1319,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -1264,6 +1333,7 @@ paths:
                 properties:
                   code:
                     type: integer
+                    example: 401
                   message:
                     type: string
                   status:
@@ -1294,6 +1364,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 400
                   message:
                     type: string
                   data:
@@ -1304,7 +1375,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -1318,6 +1391,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 401
                   message:
                     type: string
                   data: null
@@ -1337,12 +1411,15 @@ paths:
                 properties:
                   code:
                     type: integer
+                    example: 403
                   message:
                     type: string
               example: |
                 {
+                  "status": false,
                   "code": 403,
-                  "message": "Email belum diverifikasi. Silakan periksa email Anda."
+                  "message": "Akses dilarang. Anda tidak memiliki izin.",
+                  "data": null
                 }
   /api/v1/email/verify/{id}/{hash}:
     get:
@@ -1375,6 +1452,12 @@ paths:
               schema:
                 type: string
                 format: uri
+          content:
+            application/json:
+              schema:
+                type: object
+              example: |
+                {}
         '400':
           description: Bad Request
           content:
@@ -1386,6 +1469,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 400
                   message:
                     type: string
                   data:
@@ -1396,7 +1480,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -1410,6 +1496,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 401
                   message:
                     type: string
                   data: null
@@ -1444,6 +1531,7 @@ paths:
                 properties:
                   code:
                     type: integer
+                    example: 200
                   message:
                     type: string
                   status:
@@ -1452,7 +1540,8 @@ paths:
                 {
                   "status": true,
                   "code": 200,
-                  "message": "Email verifikasi telah dikirim ulang."
+                  "message": "Email verifikasi telah dikirim ulang.",
+                  "data": null
                 }
         '400':
           description: Email tidak valid atau tidak terdaftar
@@ -1463,6 +1552,7 @@ paths:
                 properties:
                   code:
                     type: integer
+                    example: 400
                   message:
                     type: string
                   status:
@@ -1473,7 +1563,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -1487,6 +1579,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 401
                   message:
                     type: string
                   data: null
@@ -1508,12 +1601,12 @@ paths:
           in: query
           schema:
             type: string
-          description: Tanggal awal (format dd-mm-yyyy)
+          description: 'Filter dari tanggal (format: dd-mm-yyyy).'
         - name: end_date
           in: query
           schema:
             type: string
-          description: Tanggal akhir (format dd-mm-yyyy)
+          description: 'Filter sampai tanggal (format: dd-mm-yyyy).'
         - name: periode_bulan
           in: query
           schema:
@@ -1539,6 +1632,7 @@ paths:
                 properties:
                   code:
                     type: integer
+                    example: 200
                   message:
                     type: string
                   data:
@@ -1734,6 +1828,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 400
                   message:
                     type: string
                   data:
@@ -1744,7 +1839,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -1758,6 +1855,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 401
                   message:
                     type: string
                   data: null
@@ -1800,6 +1898,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 200
                   message:
                     type: string
                   data: null
@@ -1821,6 +1920,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 400
                   message:
                     type: string
                   data:
@@ -1831,7 +1931,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -1845,6 +1947,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 401
                   message:
                     type: string
                   data: null
@@ -1878,7 +1981,7 @@ paths:
           in: query
           schema:
             type: string
-          description: Filter nama peran pelapor (online, offline, mandiri, operator, dll)
+          description: Filter nama peran pelapor
         - name: start_date
           in: query
           schema:
@@ -1898,17 +2001,17 @@ paths:
           in: query
           schema:
             type: string
-          description: Filter kode layanan (untuk filter tab bar)
+          description: Filter kode layanan
         - name: sort
           in: query
           schema:
             type: string
-          description: Urutan data (terbaru atau terlama)
+          description: Urutan data
         - name: per_page
           in: query
           schema:
             type: integer
-          description: Jumlah data per halaman paginasi (default 10)
+          description: Jumlah data per halaman paginasi
         - name: page
           in: query
           schema:
@@ -1921,11 +2024,11 @@ paths:
             application/json:
               schema:
                 type: object
-              example: |-
+              example: |
                 {
                   "status": true,
                   "code": 200,
-                  "message": "Berhasil mengambil data",
+                  "message": "Berhasil mengambil data lembar kerja",
                   "data": [
                     {
                       "ajuan_id": 1,
@@ -1984,7 +2087,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -2023,7 +2128,7 @@ paths:
           in: query
           schema:
             type: string
-          description: Filter nama peran pelapor (online, offline, mandiri, operator, dll)
+          description: Filter nama peran pelapor
         - name: start_date
           in: query
           schema:
@@ -2043,17 +2148,17 @@ paths:
           in: query
           schema:
             type: string
-          description: Filter kode layanan (untuk filter tab bar)
+          description: Filter kode layanan
         - name: sort
           in: query
           schema:
             type: string
-          description: Urutan data (terbaru atau terlama)
+          description: Urutan data
         - name: per_page
           in: query
           schema:
             type: integer
-          description: Jumlah data per halaman paginasi (default 10)
+          description: Jumlah data per halaman paginasi
         - name: page
           in: query
           schema:
@@ -2066,11 +2171,11 @@ paths:
             application/json:
               schema:
                 type: object
-              example: |-
+              example: |
                 {
                   "status": true,
                   "code": 200,
-                  "message": "Berhasil mengambil data",
+                  "message": "Berhasil mengambil data ajuan",
                   "data": [
                     {
                       "ajuan_id": 1,
@@ -2113,7 +2218,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -2134,7 +2241,9 @@ paths:
       tags:
         - Pengajuan
       summary: List Produk
-      description: Menampilkan list pengajuan untuk halaman produk, dilengkapi nama identitas produk.
+      description: >-
+        Menampilkan list pengajuan untuk halaman produk, dilengkapi nama
+        identitas produk.
       security:
         - bearerAuth: []
       parameters:
@@ -2142,7 +2251,7 @@ paths:
           in: query
           schema:
             type: string
-          description: Pencarian cepat (no reg / NIK pelapor / layanan / kecamatan)
+          description: Pencarian cepat (no reg / layanan / kecamatan)
         - name: kecamatan
           in: query
           schema:
@@ -2162,17 +2271,17 @@ paths:
           in: query
           schema:
             type: string
-          description: Filter kode layanan (untuk filter tab bar)
+          description: Filter kode layanan
         - name: sort
           in: query
           schema:
             type: string
-          description: Urutan data (terbaru atau terlama)
+          description: Urutan data
         - name: per_page
           in: query
           schema:
             type: integer
-          description: Jumlah data per halaman paginasi (default 10)
+          description: Jumlah data per halaman paginasi
         - name: page
           in: query
           schema:
@@ -2185,11 +2294,11 @@ paths:
             application/json:
               schema:
                 type: object
-              example: |-
+              example: |
                 {
                   "status": true,
                   "code": 200,
-                  "message": "Berhasil mengambil data",
+                  "message": "Berhasil mengambil data ajuan",
                   "data": [
                     {
                       "ajuan_id": 1,
@@ -2227,7 +2336,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -2268,7 +2379,7 @@ paths:
                 {
                   "status": true,
                   "code": 200,
-                  "message": "Berhasil",
+                  "message": "Berhasil mengambil data ajuan",
                   "data": {
                     "ajuan_id": 1,
                     "no_reg": "REG-123",
@@ -2309,10 +2420,16 @@ paths:
         '200':
           description: OK
           content:
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+            application/json:
               schema:
-                type: string
-                format: binary
+                type: object
+              example: |
+                {
+                  "status": true,
+                  "code": 200,
+                  "message": "Berhasil mengambil data ajuan",
+                  "data": null
+                }
         '400':
           description: Bad Request
           content:
@@ -2324,6 +2441,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 400
                   message:
                     type: string
                   data:
@@ -2334,7 +2452,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -2348,6 +2468,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 401
                   message:
                     type: string
                   data: null
@@ -2371,12 +2492,12 @@ paths:
           in: query
           schema:
             type: string
-          description: Tanggal awal (format dd-mm-yyyy)
+          description: 'Filter dari tanggal (format: dd-mm-yyyy).'
         - name: end_date
           in: query
           schema:
             type: string
-          description: Tanggal akhir (format dd-mm-yyyy)
+          description: 'Filter sampai tanggal (format: dd-mm-yyyy).'
         - name: periode_bulan
           in: query
           schema:
@@ -2438,6 +2559,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 400
                   message:
                     type: string
                   data:
@@ -2448,7 +2570,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -2462,6 +2586,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 401
                   message:
                     type: string
                   data: null
@@ -2483,6 +2608,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 500
                   message:
                     type: string
                   data: null
@@ -2490,8 +2616,10 @@ paths:
                 {
                   "status": false,
                   "code": 500,
-                  "message": "Pesan error internal server / Message error spesifik",
-                  "data": null
+                  "message": "Terjadi kesalahan pada server.",
+                  "data": {
+                    "error": "Pesan error internal (hanya tampil di mode debug/development)"
+                  }
                 }
   /api/v1/dashboard/top-wilayah:
     get:
@@ -2506,12 +2634,12 @@ paths:
           in: query
           schema:
             type: string
-          description: Tanggal awal (format dd-mm-yyyy)
+          description: 'Filter dari tanggal (format: dd-mm-yyyy).'
         - name: end_date
           in: query
           schema:
             type: string
-          description: Tanggal akhir (format dd-mm-yyyy)
+          description: 'Filter sampai tanggal (format: dd-mm-yyyy).'
         - name: periode_bulan
           in: query
           schema:
@@ -2538,10 +2666,18 @@ paths:
                 {
                   "status": true,
                   "code": 200,
-                  "message": "Berhasil",
+                  "message": "Berhasil mengambil data top wilayah",
                   "data": [
-                    { "id_kecamatan": 1, "nama_kecamatan": "Klojen", "total": 4500 },
-                    { "id_kecamatan": 2, "nama_kecamatan": "Lowokwaru", "total": 4000 }
+                    {
+                      "id_kecamatan": 1,
+                      "nama_kecamatan": "Klojen",
+                      "total": 4500
+                    },
+                    {
+                      "id_kecamatan": 2,
+                      "nama_kecamatan": "Lowokwaru",
+                      "total": 4000
+                    }
                   ]
                 }
         '400':
@@ -2555,6 +2691,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 400
                   message:
                     type: string
                   data:
@@ -2565,7 +2702,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -2579,6 +2718,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 401
                   message:
                     type: string
                   data: null
@@ -2604,11 +2744,11 @@ paths:
             application/json:
               schema:
                 type: object
-              example: |-
+              example: |
                 {
                   "status": true,
                   "code": 200,
-                  "message": "Berhasil",
+                  "message": "Berhasil mengambil data KPI global operator",
                   "data": {
                     "total_ajuan": 1234,
                     "total_selesai": 1211,
@@ -2627,6 +2767,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 400
                   message:
                     type: string
                   data:
@@ -2637,7 +2778,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -2651,6 +2794,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 401
                   message:
                     type: string
                   data: null
@@ -2669,17 +2813,23 @@ paths:
             type: integer
         - name: periode_bulan
           in: query
-          description: 'Memfilter data berdasarkan bulan tertentu (contoh: 1 untuk Januari, 6 untuk Juni). Data akan otomatis disaring untuk tahun saat ini.'
+          description: >-
+            Memfilter data berdasarkan bulan tertentu (contoh: 1 untuk Januari,
+            6 untuk Juni). Data akan otomatis disaring untuk tahun saat ini.
           schema:
             type: integer
         - name: start_date
           in: query
-          description: Tanggal awal (format dd-mm-yyyy)
+          description: >-
+            Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal
+            harus: dd-mm-yyyy).
           schema:
             type: string
         - name: end_date
           in: query
-          description: Tanggal akhir (format dd-mm-yyyy)
+          description: >-
+            Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal
+            harus: dd-mm-yyyy).
           schema:
             type: string
         - name: id_operator
@@ -2699,10 +2849,16 @@ paths:
         '200':
           description: OK
           content:
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+            application/json:
               schema:
-                type: string
-                format: binary
+                type: object
+              example: |
+                {
+                  "status": true,
+                  "code": 200,
+                  "message": "Berhasil mengambil data export data",
+                  "data": null
+                }
         '400':
           description: Bad Request
           content:
@@ -2714,6 +2870,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 400
                   message:
                     type: string
                   data:
@@ -2724,7 +2881,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -2738,6 +2897,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 401
                   message:
                     type: string
                   data: null
@@ -2760,10 +2920,16 @@ paths:
         '200':
           description: OK
           content:
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+            application/json:
               schema:
-                type: string
-                format: binary
+                type: object
+              example: |
+                {
+                  "status": true,
+                  "code": 200,
+                  "message": "Berhasil mengambil data export data",
+                  "data": null
+                }
         '400':
           description: Bad Request
           content:
@@ -2775,6 +2941,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 400
                   message:
                     type: string
                   data:
@@ -2785,7 +2952,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -2799,6 +2968,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 401
                   message:
                     type: string
                   data: null
@@ -2838,12 +3008,16 @@ paths:
           in: query
           schema:
             type: string
-          description: Tanggal awal (format dd-mm-yyyy)
+          description: >-
+            Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal
+            harus: dd-mm-yyyy).
         - name: end_date
           in: query
           schema:
             type: string
-          description: Tanggal akhir (format dd-mm-yyyy)
+          description: >-
+            Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal
+            harus: dd-mm-yyyy).
       responses:
         '200':
           description: OK
@@ -2882,7 +3056,7 @@ paths:
                 {
                   "status": true,
                   "code": 200,
-                  "message": "Berhasil",
+                  "message": "Berhasil mengambil data KPI SLA",
                   "data": {
                     "rata_rata_global_text": "3 Jam 15 Menit",
                     "capaian_sla_persen": 88.5,
@@ -2901,6 +3075,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 400
                   message:
                     type: string
                   data:
@@ -2911,7 +3086,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -2925,6 +3102,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 401
                   message:
                     type: string
                   data: null
@@ -2940,17 +3118,25 @@ paths:
       tags:
         - SLA
       summary: Export Tabel Komparasi Layanan
-      description: Mengekspor data komparasi pemenuhan SLA layanan ke format file Excel (.xlsx).
+      description: >-
+        Mengekspor data komparasi pemenuhan SLA layanan ke format file Excel
+        (.xlsx).
       security:
         - bearerAuth: []
       responses:
         '200':
           description: OK
           content:
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+            application/json:
               schema:
-                type: string
-                format: binary
+                type: object
+              example: |
+                {
+                  "status": true,
+                  "code": 200,
+                  "message": "Berhasil mengambil data export data",
+                  "data": null
+                }
         '400':
           description: Bad Request
           content:
@@ -2962,6 +3148,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 400
                   message:
                     type: string
                   data:
@@ -2972,7 +3159,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -2986,6 +3175,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 401
                   message:
                     type: string
                   data: null
@@ -3008,17 +3198,21 @@ paths:
       parameters:
         - name: search
           in: query
-          description: Pencarian cepat (no reg / NIK pelapor / layanan / kecamatan)
+          description: Pencarian berdasarkan isi ulasan atau nama pelapor.
           schema:
             type: string
         - name: start_date
           in: query
-          description: Tanggal awal (format dd-mm-yyyy)
+          description: >-
+            Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal
+            harus: dd-mm-yyyy).
           schema:
             type: string
         - name: end_date
           in: query
-          description: Tanggal akhir (format dd-mm-yyyy)
+          description: >-
+            Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal
+            harus: dd-mm-yyyy).
           schema:
             type: string
         - name: rating
@@ -3042,7 +3236,7 @@ paths:
                 {
                   "status": true,
                   "code": 200,
-                  "message": "Berhasil",
+                  "message": "Berhasil mengambil data KPI ulasan",
                   "data": {
                     "rata_rata_bintang": 4.5,
                     "distribusi": {
@@ -3065,6 +3259,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 400
                   message:
                     type: string
                   data:
@@ -3075,7 +3270,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -3089,6 +3286,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 401
                   message:
                     type: string
                   data: null
@@ -3111,10 +3309,16 @@ paths:
         '200':
           description: OK
           content:
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+            application/json:
               schema:
-                type: string
-                format: binary
+                type: object
+              example: |
+                {
+                  "status": true,
+                  "code": 200,
+                  "message": "Berhasil mengambil data export data",
+                  "data": null
+                }
         '400':
           description: Bad Request
           content:
@@ -3126,6 +3330,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 400
                   message:
                     type: string
                   data:
@@ -3136,7 +3341,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -3150,6 +3357,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 401
                   message:
                     type: string
                   data: null
@@ -3170,7 +3378,7 @@ paths:
         - name: page
           required: true
           in: query
-          description: Nomor halaman paginasi
+          description: Nomor halaman untuk paginasi.
           schema:
             type: integer
             default: 1
@@ -3182,7 +3390,7 @@ paths:
             default: 10
         - name: search
           in: query
-          description: Pencarian cepat (no reg / NIK pelapor / layanan / kecamatan)
+          description: Pencarian berdasarkan nama operator atau NIK.
           schema:
             type: string
         - name: id_kecamatan
@@ -3192,23 +3400,29 @@ paths:
             type: integer
         - name: periode_bulan
           in: query
-          description: 'Memfilter data berdasarkan bulan tertentu (contoh: 1 untuk Januari, 6 untuk Juni). Data akan otomatis disaring untuk tahun saat ini.'
+          description: >-
+            Memfilter data berdasarkan bulan tertentu (contoh: 1 untuk Januari,
+            6 untuk Juni). Data akan otomatis disaring untuk tahun saat ini.
           schema:
             type: integer
         - name: sort
           in: query
-          description: Urutan data (terbaru atau terlama)
+          description: 'Mengurutkan data (default: newest).'
           schema:
             type: string
             default: newest
         - name: start_date
           in: query
-          description: Tanggal awal (format dd-mm-yyyy)
+          description: >-
+            Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal
+            harus: dd-mm-yyyy).
           schema:
             type: string
         - name: end_date
           in: query
-          description: Tanggal akhir (format dd-mm-yyyy)
+          description: >-
+            Memfilter data berdasarkan rentang tanggal spesifik (Format tanggal
+            harus: dd-mm-yyyy).
           schema:
             type: string
         - name: id_operator
@@ -3226,6 +3440,7 @@ paths:
                 properties:
                   code:
                     type: integer
+                    example: 200
                   message:
                     type: string
                   status:
@@ -3261,7 +3476,7 @@ paths:
                             type: integer
                           total_page:
                             type: integer
-              example: |-
+              example: |
                 {
                   "status": true,
                   "code": 200,
@@ -3304,6 +3519,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 400
                   message:
                     type: string
                   data:
@@ -3314,7 +3530,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -3328,6 +3546,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 401
                   message:
                     type: string
                   data: null
@@ -3343,7 +3562,9 @@ paths:
       tags:
         - Operator
       summary: Detail Operator (Chart & KPI)
-      description: Mendapatkan data agregasi indikator (total ajuan, selesai) dan chart bulanan
+      description: >-
+        Mendapatkan data agregasi indikator (total ajuan, selesai) dan chart
+        bulanan
       parameters:
         - name: id
           required: true
@@ -3358,7 +3579,9 @@ paths:
             type: integer
         - name: periode_bulan
           in: query
-          description: 'Memfilter data berdasarkan bulan tertentu (contoh: 1 untuk Januari, 6 untuk Juni). Data akan otomatis disaring untuk tahun saat ini.'
+          description: >-
+            Memfilter data berdasarkan bulan tertentu (contoh: 1 untuk Januari,
+            6 untuk Juni). Data akan otomatis disaring untuk tahun saat ini.
           schema:
             type: integer
         - name: id_layanan
@@ -3373,7 +3596,7 @@ paths:
             application/json:
               schema:
                 type: object
-              example: |-
+              example: |
                 {
                   "status": true,
                   "code": 200,
@@ -3411,6 +3634,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 400
                   message:
                     type: string
                   data:
@@ -3421,7 +3645,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -3435,6 +3661,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 401
                   message:
                     type: string
                   data: null
@@ -3454,6 +3681,7 @@ paths:
                 properties:
                   code:
                     type: integer
+                    example: 404
                   message:
                     type: string
                   data:
@@ -3464,7 +3692,7 @@ paths:
                 {
                   "status": false,
                   "code": 404,
-                  "message": "Data tidak ditemukan",
+                  "message": "Data tidak ditemukan.",
                   "data": null
                 }
   /api/v1/operator/{id}/riwayat:
@@ -3482,7 +3710,7 @@ paths:
         - name: page
           required: true
           in: query
-          description: Nomor halaman paginasi
+          description: Nomor halaman untuk paginasi.
           schema:
             type: integer
             default: 1
@@ -3500,7 +3728,9 @@ paths:
             type: integer
         - name: periode_bulan
           in: query
-          description: 'Memfilter data berdasarkan bulan tertentu (contoh: 1 untuk Januari, 6 untuk Juni). Data akan otomatis disaring untuk tahun saat ini.'
+          description: >-
+            Memfilter data berdasarkan bulan tertentu (contoh: 1 untuk Januari,
+            6 untuk Juni). Data akan otomatis disaring untuk tahun saat ini.
           schema:
             type: integer
         - name: id_layanan
@@ -3510,7 +3740,7 @@ paths:
             type: integer
         - name: search
           in: query
-          description: Pencarian cepat (no reg / NIK pelapor / layanan / kecamatan)
+          description: Pencarian berdasarkan nama operator atau NIK.
           schema:
             type: string
       responses:
@@ -3520,7 +3750,7 @@ paths:
             application/json:
               schema:
                 type: object
-              example: |-
+              example: |
                 {
                   "status": true,
                   "code": 200,
@@ -3557,6 +3787,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 400
                   message:
                     type: string
                   data:
@@ -3567,7 +3798,9 @@ paths:
                   "code": 400,
                   "message": "Validasi gagal. Silakan periksa kembali input Anda.",
                   "data": {
-                    "nama_parameter": ["Pesan error spesifik dari backend (bahasa indonesia)"]
+                    "nama_parameter": [
+                      "Pesan error spesifik dari backend (bahasa indonesia)"
+                    ]
                   }
                 }
         '401':
@@ -3581,6 +3814,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 401
                   message:
                     type: string
                   data: null
@@ -3600,6 +3834,7 @@ paths:
                 properties:
                   code:
                     type: integer
+                    example: 404
                   message:
                     type: string
                   data:
@@ -3610,7 +3845,7 @@ paths:
                 {
                   "status": false,
                   "code": 404,
-                  "message": "Data tidak ditemukan",
+                  "message": "Data tidak ditemukan.",
                   "data": null
                 }
   /api/v1/filter/layanan:
@@ -3633,6 +3868,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 200
                   message:
                     type: string
                   data:
@@ -3644,6 +3880,13 @@ paths:
                           type: string
                         name:
                           type: string
+              example: |
+                {
+                  "status": true,
+                  "code": 200,
+                  "message": "Berhasil mengambil data filter layanan",
+                  "data": null
+                }
   /api/v1/filter/kecamatan:
     get:
       tags:
@@ -3664,6 +3907,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 200
                   message:
                     type: string
                   data:
@@ -3675,12 +3919,21 @@ paths:
                           type: string
                         name:
                           type: string
+              example: |
+                {
+                  "status": true,
+                  "code": 200,
+                  "message": "Berhasil mengambil data filter kecamatan",
+                  "data": null
+                }
   /api/v1/filter/pelapor:
     get:
       tags:
         - Filter
       summary: Filter Pelapor
-      description: Mendapatkan opsi role pelapor (online, offline, mandiri, operator) untuk dropdown filter.
+      description: >-
+        Mendapatkan opsi role pelapor (online, offline, mandiri, operator) untuk
+        dropdown filter.
       security:
         - bearerAuth: []
       responses:
@@ -3695,6 +3948,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 200
                   message:
                     type: string
                   data:
@@ -3706,6 +3960,13 @@ paths:
                           type: string
                         name:
                           type: string
+              example: |
+                {
+                  "status": true,
+                  "code": 200,
+                  "message": "Berhasil mengambil data filter pelapor",
+                  "data": null
+                }
   /api/v1/filter/status:
     get:
       tags:
@@ -3726,6 +3987,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 200
                   message:
                     type: string
                   data:
@@ -3737,6 +3999,13 @@ paths:
                           type: string
                         name:
                           type: string
+              example: |
+                {
+                  "status": true,
+                  "code": 200,
+                  "message": "Berhasil mengambil data filter status",
+                  "data": null
+                }
   /api/v1/filter/jenis-ajuan:
     get:
       tags:
@@ -3757,6 +4026,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 200
                   message:
                     type: string
                   data:
@@ -3768,6 +4038,13 @@ paths:
                           type: string
                         name:
                           type: string
+              example: |
+                {
+                  "status": true,
+                  "code": 200,
+                  "message": "Berhasil mengambil data ajuan",
+                  "data": null
+                }
   /api/v1/filter/jalur:
     get:
       tags:
@@ -3788,6 +4065,7 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 200
                   message:
                     type: string
                   data:
@@ -3799,12 +4077,21 @@ paths:
                           type: string
                         name:
                           type: string
+              example: |
+                {
+                  "status": true,
+                  "code": 200,
+                  "message": "Berhasil mengambil data filter jalur",
+                  "data": null
+                }
   /api/v1/pengajuan/ajuan/chart:
     get:
       tags:
         - Pengajuan
       summary: Chart Data Ajuan
-      description: Mendapatkan data grafik ajuan berdasarkan rentang tanggal/bulan beserta filter lainnya.
+      description: >-
+        Mendapatkan data grafik ajuan berdasarkan rentang tanggal/bulan beserta
+        filter lainnya.
       security:
         - bearerAuth: []
       parameters:
@@ -3812,12 +4099,12 @@ paths:
           in: query
           schema:
             type: string
-          description: Tanggal awal (format dd-mm-yyyy)
+          description: 'Filter dari tanggal (format: dd-mm-yyyy).'
         - name: end_date
           in: query
           schema:
             type: string
-          description: Tanggal akhir (format dd-mm-yyyy)
+          description: 'Filter sampai tanggal (format: dd-mm-yyyy).'
         - name: periode_bulan
           in: query
           schema:
@@ -3860,7 +4147,15 @@ paths:
                     type: boolean
                   code:
                     type: integer
+                    example: 200
                   message:
                     type: string
                   data:
                     type: object
+              example: |
+                {
+                  "status": true,
+                  "code": 200,
+                  "message": "Berhasil mengambil data chart ajuan",
+                  "data": null
+                }
