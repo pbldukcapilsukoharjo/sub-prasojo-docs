@@ -3844,13 +3844,13 @@ paths:
                           type: string
                         name:
                           type: string
-              example: |
-                {
-                  "status": true,
-                  "code": 200,
-                  "message": "Berhasil mengambil data filter layanan",
-                  "data": null
-                }
+              example:
+                status: true
+                code: 200
+                message: Berhasil mengambil data filter layanan
+                data:
+                  - id: KK
+                    name: Kartu Keluarga
   /api/v1/filter/kecamatan:
     get:
       tags:
@@ -3883,13 +3883,13 @@ paths:
                           type: string
                         name:
                           type: string
-              example: |
-                {
-                  "status": true,
-                  "code": 200,
-                  "message": "Berhasil mengambil data filter kecamatan",
-                  "data": null
-                }
+              example:
+                status: true
+                code: 200
+                message: Berhasil mengambil data filter kecamatan
+                data:
+                  - id: 33.11.06
+                    name: BENDOSARI
   /api/v1/filter/pelapor:
     get:
       tags:
@@ -3924,13 +3924,13 @@ paths:
                           type: string
                         name:
                           type: string
-              example: |
-                {
-                  "status": true,
-                  "code": 200,
-                  "message": "Berhasil mengambil data filter pelapor",
-                  "data": null
-                }
+              example:
+                status: true
+                code: 200
+                message: Berhasil mengambil data filter pelapor
+                data:
+                  - id: mandiri
+                    name: Mandiri
   /api/v1/filter/status:
     get:
       tags:
@@ -3963,13 +3963,13 @@ paths:
                           type: string
                         name:
                           type: string
-              example: |
-                {
-                  "status": true,
-                  "code": 200,
-                  "message": "Berhasil mengambil data filter status",
-                  "data": null
-                }
+              example:
+                status: true
+                code: 200
+                message: Berhasil mengambil data filter status
+                data:
+                  - id: MENUNGGU
+                    name: MENUNGGU
   /api/v1/filter/jenis-ajuan:
     get:
       tags:
@@ -4002,13 +4002,13 @@ paths:
                           type: string
                         name:
                           type: string
-              example: |
-                {
-                  "status": true,
-                  "code": 200,
-                  "message": "Berhasil mengambil data ajuan",
-                  "data": null
-                }
+              example:
+                status: true
+                code: 200
+                message: Berhasil mengambil data filter jenis ajuan
+                data:
+                  - id: 1
+                    name: Baru
   /api/v1/filter/jalur:
     get:
       tags:
@@ -4041,13 +4041,13 @@ paths:
                           type: string
                         name:
                           type: string
-              example: |
-                {
-                  "status": true,
-                  "code": 200,
-                  "message": "Berhasil mengambil data filter jalur",
-                  "data": null
-                }
+              example:
+                status: true
+                code: 200
+                message: Berhasil mengambil data filter jalur
+                data:
+                  - id: '1'
+                    name: Online
   /api/v1/pengajuan/ajuan/chart:
     get:
       tags:
