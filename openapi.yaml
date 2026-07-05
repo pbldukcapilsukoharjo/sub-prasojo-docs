@@ -8,8 +8,8 @@ servers:
     description: Local Server
   - url: https://6ifb537y9e5l.mock.hoppscotch.io
     description: Mock Server
-  - url: https://cloud.arenakita.my.id
-    description: Cloud Server
+  - url: https://api.arenakita.my.id
+    description: Production Server
 components:
   securitySchemes:
     bearerAuth:
