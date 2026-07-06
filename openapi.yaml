@@ -2150,9 +2150,9 @@ paths:
                     no_regis: KK-20250603000001
                     nama: User Santi
                     nik: "1234567890123456"
-                    jenis_layanan: KK
+                    jenis_ajuan: KK
                     kecamatan: BENDOSARI
-                    kode_ajuan: KK
+                    kode_layanan: KK
                     kode_produk: null
                     jalur: online
                     pelapor: Mandiri
