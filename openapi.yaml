@@ -2030,18 +2030,15 @@ paths:
                 message: Berhasil mengambil data lembar kerja
                 data:
                   - id: 1
-                    no_regis: KK-20250603000001
-                    nama: User Santi
-                    nik: "1234567890123456"
-                    jenis_layanan: KK
-                    kecamatan: BENDOSARI
-                    kode_ajuan: KK
-                    kode_produk: null
-                    jalur: online
-                    pelapor: Mandiri
-                    status: DITOLAK
-                    tanggal: "03 Juni 2025, 15:02"
-                    tanggal_parse: "2025-06-03, 15:02"
+                    no_reg: AKL-20260312000005
+                    kode_ajuan: 2463
+                    kode_produk: 3551
+                    layanan: AKTA KELAHIRAN
+                    jalur: Online
+                    pelapor: MAKE_BARES(MELAYANI AKTA KELAHIRAN BARENG RS)
+                    status: DIAJUKAN TTE
+                    tanggal: "2026-03-12 13:40:54"
+                    kecamatan: SUKOHARJO
                 meta:
                   page: 1
                   per_page: 10
