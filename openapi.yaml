@@ -2029,22 +2029,19 @@ paths:
                 code: 200
                 message: Berhasil mengambil data lembar kerja
                 data:
-                  - ajuan_id: 1
-                    ajuan_no_reg: KK-20250603000001
-                    ajuan_create_datetime: '2025-06-03 15:02:25'
-                    ajuan_status: DITOLAK
-                    ajuan_pelapor_role_name: Mandiri
-                    ajuan_is_online: 1
-                    kecamatan:
-                      kecamatan_code: 33.11.06
-                      kecamatan_name: BENDOSARI
-                    layanan:
-                      layanan_kode: KK
-                      layanan_name: Kartu Keluarga
-                    pelapor:
-                      user_id: 1
-                      user_nik: '1234567890123456'
-                      user_nama_lengkap: TEST
+                  - id: 1
+                    no_regis: KK-20250603000001
+                    nama: User Santi
+                    nik: "1234567890123456"
+                    jenis_layanan: KK
+                    kecamatan: BENDOSARI
+                    kode_ajuan: KK
+                    kode_produk: null
+                    jalur: online
+                    pelapor: Mandiri
+                    status: DITOLAK
+                    tanggal: "03 Juni 2025, 15:02"
+                    tanggal_parse: "2025-06-03, 15:02"
                 meta:
                   page: 1
                   per_page: 10
@@ -2157,22 +2154,19 @@ paths:
                 code: 200
                 message: Berhasil mengambil data ajuan
                 data:
-                  - ajuan_id: 1
-                    ajuan_no_reg: KK-20250603000001
-                    ajuan_create_datetime: '2025-06-03 15:02:25'
-                    ajuan_status: DITOLAK
-                    ajuan_pelapor_role_name: Mandiri
-                    ajuan_is_online: 1
-                    kecamatan:
-                      kecamatan_code: 33.11.06
-                      kecamatan_name: BENDOSARI
-                    layanan:
-                      layanan_kode: KK
-                      layanan_name: Kartu Keluarga
-                    pelapor:
-                      user_id: 1
-                      user_nik: '1234567890123456'
-                      user_nama_lengkap: TEST
+                  - id: 1
+                    no_regis: KK-20250603000001
+                    nama: User Santi
+                    nik: "1234567890123456"
+                    jenis_layanan: KK
+                    kecamatan: BENDOSARI
+                    kode_ajuan: KK
+                    kode_produk: null
+                    jalur: online
+                    pelapor: Mandiri
+                    status: DITOLAK
+                    tanggal: "03 Juni 2025, 15:02"
+                    tanggal_parse: "2025-06-03, 15:02"
                 meta:
                   page: 1
                   per_page: 10
@@ -2271,18 +2265,18 @@ paths:
                 code: 200
                 message: Berhasil mengambil data produk
                 data:
-                  - ajuan_id: 2
-                    ajuan_no_reg: KK-20250604000001
-                    ajuan_create_datetime: '2025-06-04 10:02:06'
-                    ajuan_status: SIAP DIDOWNLOAD
-                    ajuan_is_online: 1
-                    nama_identitas_produk: TEST
-                    kecamatan:
-                      kecamatan_code: 33.11.06
-                      kecamatan_name: BENDOSARI
-                    layanan:
-                      layanan_kode: KK
-                      layanan_name: Kartu Keluarga
+                  - id: 2
+                    no_regis: KK-20250604000001
+                    nama: TEST
+                    nomor: "3311060000000001"
+                    jenis_layanan: KK
+                    kecamatan: BENDOSARI
+                    kode_ajuan: KK
+                    jalur: online
+                    pelapor: Mandiri
+                    status: SIAP DIDOWNLOAD
+                    tanggal: "04 Juni 2025, 10:02"
+                    tanggal_parse: "2025-06-04, 10:02"
                 meta:
                   page: 1
                   per_page: 10
@@ -2345,19 +2339,35 @@ paths:
                   "code": 200,
                   "message": "Berhasil mengambil data ajuan",
                   "data": {
-                    "ajuan_id": 1,
-                    "no_reg": "REG-123",
-                    "status_saat_ini": "DIPROSES",
+                    "id": 1,
+                    "no_regis": "KK-20250603000001",
+                    "nama": "User Santi",
+                    "nik": "1234567890123456",
+                    "jenis_layanan": "KK",
+                    "kecamatan": "BENDOSARI",
+                    "tanggal_ajuan": "03 Juni 2025, 15:02",
+                    "tanggal_ajuan_parse": "2025-06-03, 15:02",
+                    "kode_layanan": "KK",
+                    "jenis_ajuan": "KK BARU",
+                    "jalur": "Online",
+                    "pelapor": "Mandiri",
+                    "status": "DITOLAK",
+                    "tanggal": "03 Juni 2025, 15:02",
+                    "tanggal_parse": "2025-06-03, 15:02",
                     "timeline": [
                       {
-                        "status": "MENUNGGU",
-                        "note": "Pengajuan baru masuk",
-                        "datetime": "2024-01-01 10:00:00"
+                        "id": 8,
+                        "status": "BELUM DIVERIFIKASI",
+                        "note": "",
+                        "tanggal": "04 Juni 2025, 10:59",
+                        "tanggal_parse": "2025-06-04, 10:59"
                       },
                       {
-                        "status": "DIPROSES",
-                        "note": "Berkas sedang diverifikasi oleh petugas",
-                        "datetime": "2024-01-02 11:30:00"
+                        "id": 10,
+                        "status": "DITOLAK",
+                        "note": "Ajuan layanan KARTU KELUARGA ditolak",
+                        "tanggal": "04 Juni 2025, 11:01",
+                        "tanggal_parse": "2025-06-04, 11:01"
                       }
                     ]
                   }
@@ -3851,6 +3861,10 @@ paths:
                 data:
                   - id: KK
                     name: Kartu Keluarga
+                  - id: KTP-EL
+                    name: Kartu Tanda Penduduk Elektronik
+                  - id: KIA
+                    name: Kartu Identitas Anak
   /api/v1/filter/kecamatan:
     get:
       tags:
@@ -3890,6 +3904,10 @@ paths:
                 data:
                   - id: 33.11.06
                     name: BENDOSARI
+                  - id: 33.11.07
+                    name: BULU
+                  - id: 33.11.08
+                    name: WERU
   /api/v1/filter/pelapor:
     get:
       tags:
