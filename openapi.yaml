@@ -2149,6 +2149,11 @@ paths:
           schema:
             type: string
           description: Filter kode layanan
+        - name: status
+          in: query
+          schema:
+            type: string
+          description: Filter status spesifik (contoh 'MENUNGGU', 'PROSES', 'SELESAI', 'DITOLAK')
         - name: sort
           in: query
           schema:
@@ -2224,6 +2229,80 @@ paths:
                   "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
+  /api/v1/pengajuan/produk/{produk_id}/detail:
+    get:
+      tags:
+        - Pengajuan
+      summary: Detail Produk
+      description: Mengambil detail produk secara spesifik termasuk data ajuan terkait, relasi pelapor, dan log status (timeline).
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: produk_id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID unik dari produk
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                  data:
+                    type: object
+                  status:
+                    type: boolean
+              example: |
+                {
+                  "status": true,
+                  "code": 200,
+                  "message": "Berhasil",
+                  "data": {
+                    "prod_id": 1,
+                    "prod_ajuan_no_reg": "KK-20250604000001",
+                    "prod_nama": "TEST",
+                    "prod_nomor": "33022601010100001",
+                    "prod_layanan_kode": "KK",
+                    "prod_status": "SIAP DIDOWNLOAD",
+                    "prod_url": "",
+                    "prod_create_datetime": "2025-06-04T10:02:06.000000Z",
+                    "ajuan": {
+                      "ajuan_id": 2,
+                      "ajuan_no_reg": "KK-20250604000001",
+                      "ajuan_status": "SELESAI",
+                      "ajuan_kecamatan_name": "BENDOSARI",
+                      "ajuan_pelapor_nik": "3311062901180004"
+                    },
+                    "pelapor": {
+                      "id": 1,
+                      "fullname": "Budi Santoso",
+                      "email": "budi@gmail.com"
+                    },
+                    "log_statuses": [
+                      {
+                        "log_id": 1,
+                        "log_status": "SIAP DIDOWNLOAD",
+                        "log_note": "",
+                        "log_create_datetime": "2025-06-04T10:02:06.000000Z"
+                      }
+                    ]
+                  }
+                }
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
   /api/v1/pengajuan/produk:
     get:
       tags:

@@ -264,21 +264,80 @@ Jika ada validasi parameter/body yang gagal, sistem akan selalu me-return **400 
 **Endpoint:** `GET /api/v1/lembar-kerja/{lk_id}`
 **Deskripsi:** Endpoint ini sudah tidak dipakai dan datanya digabung di `/api/v1/pengajuan`.
 
-### 2.5 List Ajuan ❌ [TIDAK DIPAKAI]
-**Endpoint:** `GET /api/v1/ajuan`
-**Deskripsi:** Endpoint ini sudah tidak dipakai dan digantikan oleh endpoint master `/api/v1/pengajuan` (dengan query parameter `status_kategori=all`).
+### 2.5 List Ajuan 🔵 [UPDATED] ✅ [BERFUNGSI]
+**Endpoint:** `GET /api/v1/pengajuan/ajuan`
+**Deskripsi:** Mengambil daftar pengajuan ajuan dengan paginasi dan filter pencarian.
 
-### 2.6 Detail Ajuan ❌ [TIDAK DIPAKAI]
-**Endpoint:** `GET /api/v1/ajuan/{ajuan_id}`
-**Deskripsi:** Endpoint ini sudah tidak dipakai dan datanya digabung di `/api/v1/pengajuan`.
+**Query Parameters:**
+| Parameter | Tipe | Wajib | Keterangan |
+| :--- | :--- | :--- | :--- |
+| `search` | `string` | Tidak | Pencarian cepat (no reg / NIK pelapor / layanan / kecamatan) |
+| `kecamatan` | `string` | Tidak | Filter kode kecamatan |
+| `pelapor` | `string` | Tidak | Filter nama peran pelapor |
+| `start_date` | `string` | Tidak | Tanggal awal (format dd-mm-yyyy) |
+| `end_date` | `string` | Tidak | Tanggal akhir (format dd-mm-yyyy) |
+| `periode` | `integer` | Tidak | Filter periode berdasarkan bulan (1-12) |
+| `layanan` | `string` | Tidak | Filter kode layanan |
+| `status` | `string` | Tidak | Filter status spesifik (contoh: 'MENUNGGU', 'PROSES', 'SELESAI', 'DITOLAK') |
+| `sort` | `string` | Tidak | Urutan data ('desc' atau 'asc') |
+| `per_page` | `integer` | Tidak | Jumlah item per halaman (default 10) |
+| `page` | `integer` | Tidak | Halaman paginasi |
 
-### 2.7 List Produk ❌ [TIDAK DIPAKAI]
-**Endpoint:** `GET /api/v1/produk`
-**Deskripsi:** Endpoint ini sudah tidak dipakai dan digantikan oleh endpoint master `/api/v1/pengajuan` (dengan query parameter `status_kategori=produk`).
+### 2.6 Detail Ajuan 🔵 [UPDATED] ✅ [BERFUNGSI]
+**Endpoint:** `GET /api/v1/pengajuan/{ajuan_id}/detail`
+**Deskripsi:** Mengambil detail timeline status dari sebuah ajuan.
 
-### 2.8 Detail Produk ❌ [TIDAK DIPAKAI]
-**Endpoint:** `GET /api/v1/produk/{produk_id}`
-**Deskripsi:** Endpoint ini sudah tidak dipakai dan datanya digabung di `/api/v1/pengajuan`.
+### 2.7 List Produk 🔵 [UPDATED] ✅ [BERFUNGSI]
+**Endpoint:** `GET /api/v1/pengajuan/produk`
+**Deskripsi:** Mengambil daftar produk layanan.
+
+### 2.8 Detail Produk 🟡 [BARU] ✅ [BERFUNGSI]
+**Endpoint:** `GET /api/v1/pengajuan/produk/{produk_id}/detail`
+**Deskripsi:** Mengambil detail produk secara spesifik termasuk data ajuan terkait, relasi pelapor, dan log status (timeline).
+
+**Path Parameters:**
+| Parameter | Tipe | Wajib | Keterangan |
+| :--- | :--- | :--- | :--- |
+| `produk_id` | `integer` | Ya | ID unik dari produk |
+
+**Response Sukses (200 OK):**
+```json
+{
+  "status": true,
+  "code": 200,
+  "message": "Berhasil",
+  "data": {
+    "prod_id": 1,
+    "prod_ajuan_no_reg": "KK-20250604000001",
+    "prod_nama": "TEST",
+    "prod_nomor": "33022601010100001",
+    "prod_layanan_kode": "KK",
+    "prod_status": "SIAP DIDOWNLOAD",
+    "prod_url": "",
+    "prod_create_datetime": "2025-06-04T10:02:06.000000Z",
+    "ajuan": {
+      "ajuan_id": 2,
+      "ajuan_no_reg": "KK-20250604000001",
+      "ajuan_status": "SELESAI",
+      "ajuan_kecamatan_name": "BENDOSARI",
+      "ajuan_pelapor_nik": "3311062901180004"
+    },
+    "pelapor": {
+      "id": 1,
+      "fullname": "Budi Santoso",
+      "email": "budi@gmail.com"
+    },
+    "log_statuses": [
+      {
+        "log_id": 1,
+        "log_status": "SIAP DIDOWNLOAD",
+        "log_note": "",
+        "log_create_datetime": "2025-06-04T10:02:06.000000Z"
+      }
+    ]
+  }
+}
+```
 
 ---
 
