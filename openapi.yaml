@@ -4283,3 +4283,69 @@ paths:
                     ]
                   }
                 }
+  /api/v1/pengajuan/produk/{produk_id}/detail:
+    get:
+      tags:
+        - Pengajuan
+      summary: Detail Produk
+      description: Mendapatkan detail produk beserta timeline statusnya.
+      parameters:
+        - name: produk_id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID produk.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example: |
+                {
+                  "status": true,
+                  "code": 200,
+                  "message": "Detail produk berhasil diambil.",
+                  "data": {
+                    "produk_id": 1690049,
+                    "produk_ajuan_id": 2169720,
+                    "produk_nama": "AKTA KEMATIAN",
+                    "produk_layanan": "KEMATIAN",
+                    "produk_status": "DITOLAK",
+                    "timeline": [
+                      {
+                        "status": "DITOLAK",
+                        "note": "Alasan penolakan",
+                        "datetime": "27-02-2025 09:22:21"
+                      },
+                      {
+                        "status": "MENUNGGU_TTE_KADIS",
+                        "note": "",
+                        "datetime": "27-02-2025 09:12:47"
+                      },
+                      {
+                        "status": "MENUNGGU_VERIFIKASI",
+                        "note": "",
+                        "datetime": "27-02-2025 09:12:44"
+                      },
+                      {
+                        "status": "MENUNGGU_PEMROSESAN",
+                        "note": "",
+                        "datetime": "27-02-2025 09:12:44"
+                      }
+                    ]
+                  }
+                }
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example: |
+                {
+                  "status": false,
+                  "code": 404,
+                  "message": "Data tidak ditemukan.",
+                  "data": null
+                }

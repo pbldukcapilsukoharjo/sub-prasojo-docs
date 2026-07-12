@@ -305,34 +305,37 @@ Jika ada validasi parameter/body yang gagal, sistem akan selalu me-return **400 
 {
   "status": true,
   "code": 200,
-  "message": "Berhasil",
+  "message": "Berhasil mengambil detail produk",
   "data": {
-    "prod_id": 1,
-    "prod_ajuan_no_reg": "KK-20250604000001",
-    "prod_nama": "TEST",
-    "prod_nomor": "33022601010100001",
-    "prod_layanan_kode": "KK",
-    "prod_status": "SIAP DIDOWNLOAD",
-    "prod_url": "",
-    "prod_create_datetime": "2025-06-04T10:02:06.000000Z",
-    "ajuan": {
-      "ajuan_id": 2,
-      "ajuan_no_reg": "KK-20250604000001",
-      "ajuan_status": "SELESAI",
-      "ajuan_kecamatan_name": "BENDOSARI",
-      "ajuan_pelapor_nik": "3311062901180004"
+    "id": 1,
+    "no_regis": "KK-20250604000001",
+    "nama": "Budi Santoso",
+    "nik": "3311062901180004",
+    "jenis_layanan": "KK",
+    "kecamatan": "BENDOSARI",
+    "tanggal_ajuan": "04 Juni 2025, 10:02",
+    "tanggal_ajuan_parse": "2025-06-04, 10:02",
+    "kode_ajuan": "KK",
+    "nomor": "33022601010100001",
+    "nama_identitas": "Budi Santoso",
+    "nama_identitas_produk": "TEST",
+    "status": "SIAP DIDOWNLOAD",
+    "tanggal": "04 Juni 2025, 10:02",
+    "tanggal_parse": "2025-06-04, 10:02",
+    "data_ajuan": {
+      "ajkk_nama_kepala_keluarga": "Budi Santoso",
+      "ajkk_no_kk": "3311060000000000"
     },
-    "pelapor": {
-      "id": 1,
-      "fullname": "Budi Santoso",
-      "email": "budi@gmail.com"
-    },
-    "log_statuses": [
+    "timeline": [
       {
-        "log_id": 1,
-        "log_status": "SIAP DIDOWNLOAD",
-        "log_note": "",
-        "log_create_datetime": "2025-06-04T10:02:06.000000Z"
+        "status": "DIPROSES",
+        "note": "",
+        "datetime": "2025-06-03 10:00:00"
+      },
+      {
+        "status": "SIAP DIDOWNLOAD",
+        "note": "",
+        "datetime": "2025-06-04 10:02:06"
       }
     ]
   }
