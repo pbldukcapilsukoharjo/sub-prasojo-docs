@@ -2267,32 +2267,35 @@ paths:
                   "code": 200,
                   "message": "Berhasil",
                   "data": {
-                    "prod_id": 1,
-                    "prod_ajuan_no_reg": "KK-20250604000001",
-                    "prod_nama": "TEST",
-                    "prod_nomor": "33022601010100001",
-                    "prod_layanan_kode": "KK",
-                    "prod_status": "SIAP DIDOWNLOAD",
-                    "prod_url": "",
-                    "prod_create_datetime": "2025-06-04T10:02:06.000000Z",
-                    "ajuan": {
-                      "ajuan_id": 2,
-                      "ajuan_no_reg": "KK-20250604000001",
-                      "ajuan_status": "SELESAI",
-                      "ajuan_kecamatan_name": "BENDOSARI",
-                      "ajuan_pelapor_nik": "3311062901180004"
+                    "id": 1,
+                    "no_regis": "KK-20250604000001",
+                    "nama": "Budi Santoso",
+                    "nik": "3311062901180004",
+                    "jenis_layanan": "KK",
+                    "kecamatan": "BENDOSARI",
+                    "tanggal_ajuan": "04 Juni 2025, 10:02",
+                    "tanggal_ajuan_parse": "2025-06-04, 10:02",
+                    "kode_ajuan": "KK",
+                    "nomor": "33022601010100001",
+                    "nama_identitas": "Budi Santoso",
+                    "nama_identitas_produk": "TEST",
+                    "status": "SIAP DIDOWNLOAD",
+                    "tanggal": "04 Juni 2025, 10:02",
+                    "tanggal_parse": "2025-06-04, 10:02",
+                    "data_ajuan": {
+                      "ajkk_nama_kepala_keluarga": "Budi Santoso",
+                      "ajkk_no_kk": "3311060000000000"
                     },
-                    "pelapor": {
-                      "id": 1,
-                      "fullname": "Budi Santoso",
-                      "email": "budi@gmail.com"
-                    },
-                    "log_statuses": [
+                    "timeline": [
                       {
-                        "log_id": 1,
-                        "log_status": "SIAP DIDOWNLOAD",
-                        "log_note": "",
-                        "log_create_datetime": "2025-06-04T10:02:06.000000Z"
+                        "status": "DIPROSES",
+                        "note": "",
+                        "datetime": "2025-06-03 10:00:00"
+                      },
+                      {
+                        "status": "SIAP DIDOWNLOAD",
+                        "note": "",
+                        "datetime": "2025-06-04 10:02:06"
                       }
                     ]
                   }
@@ -4282,70 +4285,4 @@ paths:
                       }
                     ]
                   }
-                }
-  /api/v1/pengajuan/produk/{produk_id}/detail:
-    get:
-      tags:
-        - Pengajuan
-      summary: Detail Produk
-      description: Mendapatkan detail produk beserta timeline statusnya.
-      parameters:
-        - name: produk_id
-          in: path
-          required: true
-          schema:
-            type: integer
-          description: ID produk.
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-              example: |
-                {
-                  "status": true,
-                  "code": 200,
-                  "message": "Detail produk berhasil diambil.",
-                  "data": {
-                    "produk_id": 1690049,
-                    "produk_ajuan_id": 2169720,
-                    "produk_nama": "AKTA KEMATIAN",
-                    "produk_layanan": "KEMATIAN",
-                    "produk_status": "DITOLAK",
-                    "timeline": [
-                      {
-                        "status": "DITOLAK",
-                        "note": "Alasan penolakan",
-                        "datetime": "27-02-2025 09:22:21"
-                      },
-                      {
-                        "status": "MENUNGGU_TTE_KADIS",
-                        "note": "",
-                        "datetime": "27-02-2025 09:12:47"
-                      },
-                      {
-                        "status": "MENUNGGU_VERIFIKASI",
-                        "note": "",
-                        "datetime": "27-02-2025 09:12:44"
-                      },
-                      {
-                        "status": "MENUNGGU_PEMROSESAN",
-                        "note": "",
-                        "datetime": "27-02-2025 09:12:44"
-                      }
-                    ]
-                  }
-                }
-        '404':
-          description: Not Found
-          content:
-            application/json:
-              example: |
-                {
-                  "status": false,
-                  "code": 404,
-                  "message": "Data tidak ditemukan.",
-                  "data": null
                 }
