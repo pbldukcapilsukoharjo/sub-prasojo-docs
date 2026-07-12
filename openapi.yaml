@@ -121,7 +121,9 @@ paths:
                     example: 401
                   message:
                     type: string
-                  data: null
+                  data:
+                    type: object
+                    default: null
               example: |
                 {
                   "status": false,
@@ -220,7 +222,9 @@ paths:
                     example: 401
                   message:
                     type: string
-                  data: null
+                  data:
+                    type: object
+                    default: null
               example: |
                 {
                   "status": false,
@@ -300,7 +304,9 @@ paths:
                     example: 401
                   message:
                     type: string
-                  data: null
+                  data:
+                    type: object
+                    default: null
               example: |
                 {
                   "status": false,
@@ -393,7 +399,9 @@ paths:
                     example: 401
                   message:
                     type: string
-                  data: null
+                  data:
+                    type: object
+                    default: null
               example: |
                 {
                   "status": false,
@@ -476,7 +484,9 @@ paths:
                     example: 401
                   message:
                     type: string
-                  data: null
+                  data:
+                    type: object
+                    default: null
               example: |
                 {
                   "status": false,
@@ -562,7 +572,9 @@ paths:
                     example: 401
                   message:
                     type: string
-                  data: null
+                  data:
+                    type: object
+                    default: null
               example: |
                 {
                   "status": false,
@@ -826,7 +838,9 @@ paths:
                     example: 401
                   message:
                     type: string
-                  data: null
+                  data:
+                    type: object
+                    default: null
               example: |
                 {
                   "status": false,
@@ -1031,7 +1045,9 @@ paths:
                     example: 401
                   message:
                     type: string
-                  data: null
+                  data:
+                    type: object
+                    default: null
               example: |
                 {
                   "status": false,
@@ -1251,7 +1267,9 @@ paths:
                     example: 401
                   message:
                     type: string
-                  data: null
+                  data:
+                    type: object
+                    default: null
               example: |
                 {
                   "status": false,
@@ -1394,7 +1412,9 @@ paths:
                     example: 401
                   message:
                     type: string
-                  data: null
+                  data:
+                    type: object
+                    default: null
               example: |
                 {
                   "status": false,
@@ -1499,7 +1519,9 @@ paths:
                     example: 401
                   message:
                     type: string
-                  data: null
+                  data:
+                    type: object
+                    default: null
               example: |
                 {
                   "status": false,
@@ -1582,7 +1604,9 @@ paths:
                     example: 401
                   message:
                     type: string
-                  data: null
+                  data:
+                    type: object
+                    default: null
               example: |
                 {
                   "status": false,
@@ -1858,7 +1882,9 @@ paths:
                     example: 401
                   message:
                     type: string
-                  data: null
+                  data:
+                    type: object
+                    default: null
               example: |
                 {
                   "status": false,
@@ -1901,7 +1927,9 @@ paths:
                     example: 200
                   message:
                     type: string
-                  data: null
+                  data:
+                    type: object
+                    default: null
               example: |
                 {
                   "status": true,
@@ -1950,7 +1978,9 @@ paths:
                     example: 401
                   message:
                     type: string
-                  data: null
+                  data:
+                    type: object
+                    default: null
               example: |
                 {
                   "status": false,
@@ -2437,7 +2467,9 @@ paths:
                     example: 401
                   message:
                     type: string
-                  data: null
+                  data:
+                    type: object
+                    default: null
               example: |
                 {
                   "status": false,
@@ -2555,7 +2587,9 @@ paths:
                     example: 401
                   message:
                     type: string
-                  data: null
+                  data:
+                    type: object
+                    default: null
               example: |
                 {
                   "status": false,
@@ -2577,7 +2611,9 @@ paths:
                     example: 500
                   message:
                     type: string
-                  data: null
+                  data:
+                    type: object
+                    default: null
               example: |
                 {
                   "status": false,
@@ -2687,7 +2723,9 @@ paths:
                     example: 401
                   message:
                     type: string
-                  data: null
+                  data:
+                    type: object
+                    default: null
               example: |
                 {
                   "status": false,
@@ -2763,7 +2801,9 @@ paths:
                     example: 401
                   message:
                     type: string
-                  data: null
+                  data:
+                    type: object
+                    default: null
               example: |
                 {
                   "status": false,
@@ -2866,7 +2906,9 @@ paths:
                     example: 401
                   message:
                     type: string
-                  data: null
+                  data:
+                    type: object
+                    default: null
               example: |
                 {
                   "status": false,
@@ -2937,7 +2979,9 @@ paths:
                     example: 401
                   message:
                     type: string
-                  data: null
+                  data:
+                    type: object
+                    default: null
               example: |
                 {
                   "status": false,
@@ -3071,7 +3115,9 @@ paths:
                     example: 401
                   message:
                     type: string
-                  data: null
+                  data:
+                    type: object
+                    default: null
               example: |
                 {
                   "status": false,
@@ -3144,7 +3190,9 @@ paths:
                     example: 401
                   message:
                     type: string
-                  data: null
+                  data:
+                    type: object
+                    default: null
               example: |
                 {
                   "status": false,
@@ -3255,7 +3303,9 @@ paths:
                     example: 401
                   message:
                     type: string
-                  data: null
+                  data:
+                    type: object
+                    default: null
               example: |
                 {
                   "status": false,
@@ -3326,7 +3376,9 @@ paths:
                     example: 401
                   message:
                     type: string
-                  data: null
+                  data:
+                    type: object
+                    default: null
               example: |
                 {
                   "status": false,
@@ -3515,7 +3567,9 @@ paths:
                     example: 401
                   message:
                     type: string
-                  data: null
+                  data:
+                    type: object
+                    default: null
               example: |
                 {
                   "status": false,
@@ -3630,7 +3684,9 @@ paths:
                     example: 401
                   message:
                     type: string
-                  data: null
+                  data: 
+                    type: object
+                    default: null
               example: |
                 {
                   "status": false,
@@ -3783,7 +3839,9 @@ paths:
                     example: 401
                   message:
                     type: string
-                  data: null
+                  data:
+                    type: object
+                    default: null
               example: |
                 {
                   "status": false,
