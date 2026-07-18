@@ -700,7 +700,7 @@ paths:
                 {
                   "status": true,
                   "code": 200,
-                  "message": "Berhasil",
+                  "message": "Berhasil mengambil data distribusi wilayah",
                   "data": {
                     "list": [
                       {
@@ -4383,7 +4383,7 @@ paths:
                 {
                   "status": true,
                   "code": 200,
-                  "message": "Berhasil",
+                  "message": "Berhasil mengambil data KPI wilayah",
                   "data": {
                     "jumlah_kecamatan": 12,
                     "total_ajuan": 2463,

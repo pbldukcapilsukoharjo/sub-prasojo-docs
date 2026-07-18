@@ -547,7 +547,7 @@ Jika ada validasi parameter/body yang gagal, sistem akan selalu me-return **400 
 {
   "status": true,
   "code": 200,
-  "message": "Berhasil",
+  "message": "Berhasil mengambil data distribusi wilayah",
   "data": {
     "list": [
       {
@@ -594,7 +594,7 @@ Jika ada validasi parameter/body yang gagal, sistem akan selalu me-return **400 
 {
   "status": true,
   "code": 200,
-  "message": "Berhasil",
+  "message": "Berhasil mengambil data KPI wilayah",
   "data": {
     "jumlah_kecamatan": 12,
     "total_ajuan": 2463,
