@@ -4245,17 +4245,7 @@ paths:
                     ]
                   }
                 }
-  /api/v1/operator/ranking:
-    get:
-      tags:
-        - Operator
-      summary: Operator Ranking (Alias)
-      description: Alias untuk endpoint peringkat operator. Menampilkan peringkat kinerja operator.
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: OK
+
   /api/v1/sla/target:
     put:
       tags:
