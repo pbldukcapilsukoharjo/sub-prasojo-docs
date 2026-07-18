@@ -540,7 +540,7 @@ Jika ada validasi parameter/body yang gagal, sistem akan selalu me-return **400 
 ### 5.1 Distribusi Wilayah 🔵 [UPDATED] ✅ [BERFUNGSI]
 *(Sebelumnya di `api-1.json`: `GET /api/v1/dashboard/distribusi-wilayah`)*
 **Endpoint:** `GET /api/v1/wilayah/distribusi`
-**Deskripsi:** List volume per kecamatan. (Filter standar & `id_kecamatan` spesifik, *no search*, *no layanan*).
+**Deskripsi:** List volume per wilayah. (Filter standar & `id_kecamatan` spesifik, *no search*, *no layanan*).
 
 **Response Sukses (200 OK):**
 ```json
@@ -548,20 +548,34 @@ Jika ada validasi parameter/body yang gagal, sistem akan selalu me-return **400 
   "status": true,
   "code": 200,
   "message": "Berhasil",
-  "data": [
+  "data": {
+    "list": [
       {
-        "id_kecamatan": 1,
-        "nama_kecamatan": "Klojen",
         "total_ajuan": 4500,
         "rata_rata_waktu": "2 Jam",
-        "rasio_selesai_persen": 95.5
+        "rasio_selesai_persen": 95.5,
+        "id_kecamatan": 1,
+        "nama_kecamatan": "Klojen",
+        "layanan": {
+          "KK": 1200,
+          "KTP-EL": 1500,
+          "KIA": 500,
+          "AKL": 700,
+          "AKM": 100,
+          "SKP": 400,
+          "SKD": 100,
+          "UPD": 0,
+          "RKM": 0,
+          "SKT": 0
+        }
       }
-  ],
-  "meta": {
-    "page": 1,
-    "per_page": 10,
-    "total": 5,
-    "total_page": 1
+    ],
+    "meta": {
+      "page": 1,
+      "per_page": 10,
+      "total": 5,
+      "total_page": 1
+    }
   }
 }
 ```
@@ -569,6 +583,25 @@ Jika ada validasi parameter/body yang gagal, sistem akan selalu me-return **400 
 ### 5.2 Export Distribusi Wilayah 🟡 [BARU] ✅ [BERFUNGSI]
 **Endpoint:** `GET /api/v1/wilayah/export`
 **Deskripsi:** Mengekspor tabel volume per kecamatan ke dalam file Excel (`.xlsx`). Semua parameter filter yang dikirimkan pada `GET /api/v1/wilayah/distribusi` akan berlaku untuk data yang diekspor.
+
+### 5.3 KPI Wilayah 🟡 [BARU] ✅ [BERFUNGSI]
+**Endpoint:** `GET /api/v1/wilayah/kpi`
+**Deskripsi:** Menampilkan data agregasi indikator utama (jumlah wilayah, total ajuan, dan rata-rata ajuan).
+**Query Params:** `search`, `id_kecamatan`, `sort_by`, `periode_bulan`, `start_date`, `end_date`.
+
+**Response Sukses (200 OK):**
+```json
+{
+  "status": true,
+  "code": 200,
+  "message": "Berhasil",
+  "data": {
+    "jumlah_kecamatan": 12,
+    "total_ajuan": 2463,
+    "rata_rata_ajuan": 205
+  }
+}
+```
 
 ---
 
