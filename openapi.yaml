@@ -876,6 +876,11 @@ paths:
           schema:
             type: integer
           description: Memfilter data berdasarkan ID kecamatan.
+        - name: operator_id
+          in: query
+          schema:
+            type: integer
+          description: Memfilter data berdasarkan ID operator yang memproses ajuan.
         - name: sort_by
           in: query
           schema:
@@ -3096,6 +3101,11 @@ paths:
           schema:
             type: integer
           description: Memfilter data berdasarkan ID kecamatan.
+        - name: operator_id
+          in: query
+          schema:
+            type: integer
+          description: Memfilter data berdasarkan ID operator yang memproses ajuan.
         - name: id_layanan
           in: query
           schema:
