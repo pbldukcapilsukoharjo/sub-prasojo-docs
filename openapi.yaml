@@ -4301,3 +4301,185 @@ paths:
                     ]
                   }
                 }
+  /api/v1/operator/ranking:
+    get:
+      tags:
+        - Operator
+      summary: Operator Ranking (Alias)
+      description: Alias untuk endpoint peringkat operator. Menampilkan peringkat kinerja operator.
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: OK
+  /api/v1/operators/{id}/sla-target:
+    put:
+      tags:
+        - Operator
+      summary: Update SLA Target
+      description: Memperbarui target SLA default untuk seorang operator.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID Operator
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sla_target_minutes:
+                  type: integer
+                  example: 60
+      responses:
+        '200':
+          description: Berhasil diupdate
+    patch:
+      tags:
+        - Operator
+      summary: Update SLA Target
+      description: Memperbarui target SLA default untuk seorang operator.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID Operator
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sla_target_minutes:
+                  type: integer
+                  example: 60
+      responses:
+        '200':
+          description: Berhasil diupdate
+  /api/v1/wilayah/matriks:
+    get:
+      tags:
+        - Wilayah
+      summary: Matriks Wilayah
+      description: Menampilkan data matriks wilayah.
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: OK
+  /api/v1/sla/layanan:
+    get:
+      tags:
+        - SLA
+      summary: SLA Layanan (Alias)
+      description: Alias untuk endpoint index SLA.
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: OK
+  /api/v1/sla/summaries:
+    get:
+      tags:
+        - SLA
+      summary: SLA Summaries
+      description: Menampilkan ringkasan data SLA.
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: OK
+  /api/v1/sla/recalculate:
+    post:
+      tags:
+        - SLA
+      summary: Recalculate SLA
+      description: Menghitung ulang SLA untuk data ajuan yang ada.
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: OK
+  /api/v1/operational-hours:
+    get:
+      tags:
+        - Operational Hours
+      summary: List Jam Operasional
+      description: Mengambil daftar konfigurasi jam operasional (hari kerja & jam kerja).
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: OK
+  /api/v1/operational-hours/{id}:
+    put:
+      tags:
+        - Operational Hours
+      summary: Update Jam Operasional
+      description: Memperbarui jam operasional berdasarkan ID.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                is_working_day:
+                  type: boolean
+                start_time:
+                  type: string
+                  format: time
+                  example: "08:00:00"
+                end_time:
+                  type: string
+                  format: time
+                  example: "16:00:00"
+      responses:
+        '200':
+          description: OK
+    patch:
+      tags:
+        - Operational Hours
+      summary: Update Jam Operasional
+      description: Memperbarui jam operasional berdasarkan ID.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                is_working_day:
+                  type: boolean
+                start_time:
+                  type: string
+                  format: time
+                end_time:
+                  type: string
+                  format: time
+      responses:
+        '200':
+          description: OK
