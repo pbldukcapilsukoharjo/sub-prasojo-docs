@@ -4322,59 +4322,61 @@ paths:
       responses:
         '200':
           description: OK
-  /api/v1/operators/{id}/sla-target:
+  /api/v1/operator/sla-target:
     put:
       tags:
         - Operator
-      summary: Update SLA Target
-      description: Memperbarui target SLA default untuk seorang operator.
+      summary: Update Target SLA
+      description: Memperbarui nilai dan satuan target SLA untuk operator yang sedang login.
       security:
         - bearerAuth: []
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: integer
-          description: ID Operator
       requestBody:
+        required: true
         content:
           application/json:
             schema:
               type: object
+              required:
+                - sla_target_value
+                - sla_target_unit
               properties:
-                sla_target_minutes:
+                sla_target_value:
                   type: integer
-                  example: 60
+                  example: 2
+                sla_target_unit:
+                  type: string
+                  enum: [menit, jam, hari]
+                  example: hari
       responses:
         '200':
-          description: Berhasil diupdate
+          description: Target SLA operator berhasil diperbarui
     patch:
       tags:
         - Operator
-      summary: Update SLA Target
-      description: Memperbarui target SLA default untuk seorang operator.
+      summary: Update Target SLA
+      description: Memperbarui nilai dan satuan target SLA untuk operator yang sedang login.
       security:
         - bearerAuth: []
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: integer
-          description: ID Operator
       requestBody:
+        required: true
         content:
           application/json:
             schema:
               type: object
+              required:
+                - sla_target_value
+                - sla_target_unit
               properties:
-                sla_target_minutes:
+                sla_target_value:
                   type: integer
-                  example: 60
+                  example: 2
+                sla_target_unit:
+                  type: string
+                  enum: [menit, jam, hari]
+                  example: hari
       responses:
         '200':
-          description: Berhasil diupdate
+          description: Target SLA operator berhasil diperbarui
   /api/v1/wilayah/matriks:
     get:
       tags:

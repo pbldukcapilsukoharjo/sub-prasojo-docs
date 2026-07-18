@@ -506,6 +506,33 @@ Jika ada validasi parameter/body yang gagal, sistem akan selalu me-return **400 
 **Endpoint:** `GET /api/v1/operator/export`
 **Deskripsi:** Mengekspor tabel urutan ranking operator dalam format Excel (`.xlsx`). Parameter query (seperti pencarian atau filter wilayah) sama dengan endpoint `GET /api/v1/operator/peringkat` namun mengabaikan aturan paginasi.
 
+
+### 4.6 Update Target SLA Operator 🟡 [BARU] ✅ [BERFUNGSI]
+**Endpoint:** `PUT /api/v1/operator/sla-target`
+**Deskripsi:** Memperbarui nilai dan satuan target SLA untuk operator yang sedang login.
+**Headers:** `Authorization: Bearer {PASETO_TOKEN}`
+
+**Body Parameters (JSON):**
+| Parameter | Tipe | Wajib | Keterangan |
+| :--- | :--- | :--- | :--- |
+| `sla_target_value` | `integer` | Ya | Nilai target SLA (contoh: 2) |
+| `sla_target_unit` | `string` | Ya | Satuan target SLA (`menit`, `jam`, `hari`) |
+
+**Response Sukses (200 OK):**
+```json
+{
+  "status": true,
+  "code": 200,
+  "message": "Target SLA operator berhasil diperbarui",
+  "data": {
+    "id": "uuid",
+    "fullname": "Nama Operator",
+    "sla_target_value": 2,
+    "sla_target_unit": "hari"
+  }
+}
+```
+
 ---
 
 ## 5. Modul Monitoring Wilayah
