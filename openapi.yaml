@@ -4322,10 +4322,10 @@ paths:
       responses:
         '200':
           description: OK
-  /api/v1/operator/sla-target:
+  /api/v1/sla/target:
     put:
       tags:
-        - Operator
+        - SLA
       summary: Update Target SLA
       description: Memperbarui nilai dan satuan target SLA untuk operator yang sedang login.
       security:
@@ -4352,7 +4352,7 @@ paths:
           description: Target SLA operator berhasil diperbarui
     patch:
       tags:
-        - Operator
+        - SLA
       summary: Update Target SLA
       description: Memperbarui nilai dan satuan target SLA untuk operator yang sedang login.
       security:

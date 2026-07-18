@@ -508,7 +508,7 @@ Jika ada validasi parameter/body yang gagal, sistem akan selalu me-return **400 
 
 
 ### 4.6 Update Target SLA Operator 🟡 [BARU] ✅ [BERFUNGSI]
-**Endpoint:** `PUT /api/v1/operator/sla-target`
+**Endpoint:** `PUT /api/v1/sla/target` atau `PATCH /api/v1/sla/target`
 **Deskripsi:** Memperbarui nilai dan satuan target SLA untuk operator yang sedang login.
 **Headers:** `Authorization: Bearer {PASETO_TOKEN}`
 
