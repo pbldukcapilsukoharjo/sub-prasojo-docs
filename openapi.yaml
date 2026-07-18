@@ -3292,7 +3292,7 @@ paths:
                   "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
                 }
-      parameters: []
+      parameters:
         - name: max_sla_minutes
           in: query
           schema:
