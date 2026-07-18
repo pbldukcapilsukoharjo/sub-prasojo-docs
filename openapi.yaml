@@ -4376,28 +4376,7 @@ paths:
       responses:
         '200':
           description: OK
-  /api/v1/sla/layanan:
-    get:
-      tags:
-        - SLA
-      summary: SLA Layanan (Alias)
-      description: Alias untuk endpoint index SLA.
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: OK
-  /api/v1/sla/summaries:
-    get:
-      tags:
-        - SLA
-      summary: SLA Summaries
-      description: Menampilkan ringkasan data SLA.
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: OK
+
   /api/v1/sla/recalculate:
     post:
       tags:
