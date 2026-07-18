@@ -547,9 +547,12 @@ Jika ada validasi parameter/body yang gagal, sistem akan selalu me-return **400 
 
 ## 6. Modul SLA Monitoring
 
+*(Semua endpoint SLA mendukung filter standar dan `max_sla_minutes` untuk membuang pencilan)*
+
 ### 6.1 KPI SLA 🟡 [BARU] ✅ [BERFUNGSI]
 **Endpoint:** `GET /api/v1/sla/kpi`
 **Deskripsi:** Menampilkan rata-rata proses & rasio pencapaian SLA.
+**Query Params:** `start_date`, `end_date`, `id_kecamatan`, `id_layanan`, `max_sla_minutes`
 
 **Response Sukses (200 OK):**
 ```json
@@ -567,6 +570,7 @@ Jika ada validasi parameter/body yang gagal, sistem akan selalu me-return **400 
 ### 6.2 Tabel Komparasi Layanan 🔵 [UPDATED] ✅ [BERFUNGSI]
 *(Sebelumnya di `api-1.json`: `GET /api/v1/dashboard/waktu-rata`)*
 **Endpoint:** `GET /api/v1/sla/layanan`
+**Query Params:** `start_date`, `end_date`, `id_kecamatan`, `id_layanan`, `max_sla_minutes`
 
 **Response Sukses (200 OK):**
 ```json
@@ -594,7 +598,7 @@ Jika ada validasi parameter/body yang gagal, sistem akan selalu me-return **400 
 
 ### 6.3 Export Tabel Komparasi Layanan 🟡 [BARU] ✅ [BERFUNGSI]
 **Endpoint:** `GET /api/v1/sla/export`
-**Deskripsi:** Mengekspor data komparasi pemenuhan SLA layanan ke format file Excel (`.xlsx`). Parameter disesuaikan dengan yang aktif pada tabel data SLA.
+**Deskripsi:** Mengekspor data komparasi pemenuhan SLA layanan ke format file Excel (`.xlsx`). Parameter disesuaikan dengan yang aktif pada tabel data SLA (termasuk `max_sla_minutes`).
 
 ---
 

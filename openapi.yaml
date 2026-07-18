@@ -855,6 +855,11 @@ paths:
       summary: List SLA
       description: Mendapatkan semua SLA
       parameters:
+        - name: max_sla_minutes
+          in: query
+          schema:
+            type: integer
+          description: Filter untuk membuang pencilan/outlier (SLA > max_sla_minutes menit diabaikan)
         - name: page
           required: true
           in: query
@@ -3081,6 +3086,11 @@ paths:
       security:
         - bearerAuth: []
       parameters:
+        - name: max_sla_minutes
+          in: query
+          schema:
+            type: integer
+          description: Filter untuk membuang pencilan/outlier (SLA > max_sla_minutes menit diabaikan)
         - name: id_kecamatan
           in: query
           schema:
@@ -3283,6 +3293,11 @@ paths:
                   "data": null
                 }
       parameters: []
+        - name: max_sla_minutes
+          in: query
+          schema:
+            type: integer
+          description: Filter untuk membuang pencilan/outlier (SLA > max_sla_minutes menit diabaikan)
   /api/v1/ulasan/kpi:
     get:
       tags:
