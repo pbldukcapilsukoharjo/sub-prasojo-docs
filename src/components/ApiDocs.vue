@@ -50,6 +50,44 @@ const config = reactive<any>({
       } catch {
         // body wasn't JSON or didn't have the expected shape – ignore
       }
+    } else if (response.status === 401) {
+      // Token expired! Try to refresh automatically
+      try {
+        const baseUrl = url.split('/api/v1/')[0]
+        const refreshUrl = `${baseUrl}/api/v1/auth/refresh`
+        const refreshRes = await globalThis.fetch(refreshUrl, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json'
+          },
+          // Cookie refresh_token will be sent automatically by browser if credentials 'include'
+          credentials: 'include'
+        })
+        
+        if (refreshRes.ok) {
+           const refreshBody = await refreshRes.json()
+           const newToken: string | undefined = refreshBody?.data?.access_token
+           if (newToken) {
+             localStorage.setItem(TOKEN_KEY, newToken)
+             config.authentication = {
+               preferredSecurityScheme: 'bearerAuth',
+               securitySchemes: {
+                 bearerAuth: { token: newToken },
+               },
+             }
+             
+             // Retry the original request with the new token
+             const newInit = { ...init }
+             const headers = new Headers(newInit.headers || {})
+             headers.set('Authorization', `Bearer ${newToken}`)
+             newInit.headers = headers
+             
+             return globalThis.fetch(input, newInit)
+           }
+        }
+      } catch (e) {
+        // Failed to refresh, just return the 401
+      }
     }
 
     return response
