@@ -629,29 +629,54 @@ Jika ada validasi parameter/body yang gagal, sistem akan selalu me-return **400 
 
 ### 6.2 Tabel Komparasi Layanan 🔵 [UPDATED] ✅ [BERFUNGSI]
 *(Sebelumnya di `api-1.json`: `GET /api/v1/dashboard/waktu-rata`)*
-**Endpoint:** `GET /api/v1/sla/layanan`
-**Query Params:** `start_date`, `end_date`, `id_kecamatan`, `id_layanan`, `max_sla_minutes`
+**Endpoint:** `GET /api/v1/sla`
+**Query Params:** `start_date`, `end_date`, `id_kecamatan`, `id_layanan`, `max_sla_minutes`, `page`, `search`, `operator_id`, `sort_by`, `periode_bulan`
 
 **Response Sukses (200 OK):**
 ```json
 {
-  "status": true,
+  "success": true,
   "code": 200,
-  "message": "Berhasil",
+  "message": "Berhasil mendapatkan data SLA",
   "data": [
       {
-        "layanan_kode": "KTP-EL",
-        "nama_layanan": "KTP Elektronik",
-        "target_sla": "24 Jam",
-        "aktual_rata_rata": "18 Jam",
-        "status_sla": "MEMENUHI"
+        "id": 5,
+        "jenis_layanan": "AKTA KELAHIRAN",
+        "jumlah_ajuan": 405,
+        "rata_rata_waktu": "109 Jam 0 Menit"
       }
   ],
   "meta": {
     "page": 1,
-    "per_page": 10,
-    "total": 15,
+    "per_page": 5,
+    "total": 10,
     "total_page": 2
+  }
+}
+```
+
+**Response Error (400 Bad Request):**
+```json
+{
+  "status": false,
+  "code": 400,
+  "message": "Validasi gagal. Silakan periksa kembali input Anda.",
+  "data": {
+    "page": [
+      "Page harus berupa angka."
+    ]
+  }
+}
+```
+
+**Response Error (500 Internal Server Error):**
+```json
+{
+  "status": false,
+  "code": 500,
+  "message": "Gagal mendapatkan data SLA",
+  "data": {
+    "error": "Pesan error teknis (internal server error)"
   }
 }
 ```

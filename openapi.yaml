@@ -859,93 +859,55 @@ paths:
                   message:
                     type: string
                   data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        jenis_layanan:
+                          type: string
+                        jumlah_ajuan:
+                          type: integer
+                        rata_rata_waktu:
+                          type: string
+                  meta:
                     type: object
                     properties:
-                      rata_rata_waktu_proses:
-                        type: number
-                      pencapaian_sla:
+                      page:
                         type: integer
-                      target_sla:
+                      per_page:
                         type: integer
-                      daftar_rincian:
-                        type: object
-                        properties:
-                          list:
-                            type: array
-                            items:
-                              type: object
-                              properties:
-                                id:
-                                  type: integer
-                                jenis_layanan:
-                                  type: string
-                                jumlah_ajuan:
-                                  type: integer
-                                rata_rata_waktu:
-                                  type: integer
-                          meta:
-                            type: object
-                            properties:
-                              page:
-                                type: integer
-                              per_page:
-                                type: integer
-                              total:
-                                type: integer
-                              total_page:
-                                type: integer
-                  status:
+                      total:
+                        type: integer
+                      total_page:
+                        type: integer
+                  success:
                     type: boolean
               example: |
                 {
-                  "status": true,
+                  "success": true,
                   "code": 200,
                   "message": "Berhasil mendapatkan data SLA",
-                  "data": {
-                    "rata_rata_waktu_proses": 8.5,
-                    "pencapaian_sla": 92,
-                    "target_sla": 6,
-                    "jumlah_ajuan": 124,
-                    "daftar_rincian": {
-                      "list": [
-                        {
-                          "id": 1,
-                          "jenis_layanan": "total_ajuan",
-                          "jumlah_ajuan": 124,
-                          "rata_rata_waktu": 3
-                        },
-                        {
-                          "id": 2,
-                          "jenis_layanan": "KTP-EL",
-                          "jumlah_ajuan": 124,
-                          "rata_rata_waktu": 5
-                        },
-                        {
-                          "id": 3,
-                          "jenis_layanan": "KIA",
-                          "jumlah_ajuan": 124,
-                          "rata_rata_waktu": 7
-                        },
-                        {
-                          "id": 4,
-                          "jenis_layanan": "AKTA KELAHIRAN",
-                          "jumlah_ajuan": 124,
-                          "rata_rata_waktu": 4.5
-                        },
-                        {
-                          "id": 5,
-                          "jenis_layanan": "AKTA KEMATIAN",
-                          "jumlah_ajuan": 124,
-                          "rata_rata_waktu": 4.5
-                        }
-                      ],
-                      "meta": {
-                        "page": 1,
-                        "per_page": 5,
-                        "total": 20,
-                        "total_page": 4
-                      }
+                  "data": [
+                    {
+                      "id": 5,
+                      "jenis_layanan": "AKTA KELAHIRAN",
+                      "jumlah_ajuan": 405,
+                      "rata_rata_waktu": "109 Jam 0 Menit"
+                    },
+                    {
+                      "id": 3,
+                      "jenis_layanan": "KTP-EL",
+                      "jumlah_ajuan": 40,
+                      "rata_rata_waktu": "64 Jam 54 Menit"
                     }
+                  ],
+                  "meta": {
+                    "page": 1,
+                    "per_page": 5,
+                    "total": 10,
+                    "total_page": 2
                   }
                 }
         '400':
@@ -998,6 +960,34 @@ paths:
                   "code": 401,
                   "message": "Akses ditolak. Sesi Anda tidak valid atau telah berakhir.",
                   "data": null
+                }
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                  code:
+                    type: integer
+                    example: 500
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      error:
+                        type: string
+              example: |
+                {
+                  "status": false,
+                  "code": 500,
+                  "message": "Gagal mendapatkan data SLA",
+                  "data": {
+                    "error": "Pesan error teknis (internal server error)"
+                  }
                 }
   /api/v1/ulasan:
     get:
