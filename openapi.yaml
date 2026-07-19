@@ -793,7 +793,8 @@ paths:
           in: query
           schema:
             type: integer
-          description: Filter untuk membuang pencilan/outlier (SLA > max_sla_minutes menit diabaikan)
+          description: Filter untuk membuang pencilan/outlier (SLA > max_sla_minutes menit
+            diabaikan)
         - name: page
           required: true
           in: query
@@ -2087,7 +2088,8 @@ paths:
           in: query
           schema:
             type: string
-          description: Filter status spesifik (contoh 'MENUNGGU', 'PROSES', 'SELESAI', 'DITOLAK')
+          description: Filter status spesifik (contoh 'MENUNGGU', 'PROSES', 'SELESAI',
+            'DITOLAK')
         - name: sort
           in: query
           schema:
@@ -2168,7 +2170,8 @@ paths:
       tags:
         - Pengajuan
       summary: Detail Produk
-      description: Mengambil detail produk secara spesifik termasuk data ajuan terkait, relasi pelapor, dan log status (timeline).
+      description: Mengambil detail produk secara spesifik termasuk data ajuan
+        terkait, relasi pelapor, dan log status (timeline).
       security:
         - bearerAuth: []
       parameters:
@@ -3019,7 +3022,8 @@ paths:
           in: query
           schema:
             type: integer
-          description: Filter untuk membuang pencilan/outlier (SLA > max_sla_minutes menit diabaikan)
+          description: Filter untuk membuang pencilan/outlier (SLA > max_sla_minutes menit
+            diabaikan)
         - name: id_kecamatan
           in: query
           schema:
@@ -3231,7 +3235,8 @@ paths:
           in: query
           schema:
             type: integer
-          description: Filter untuk membuang pencilan/outlier (SLA > max_sla_minutes menit diabaikan)
+          description: Filter untuk membuang pencilan/outlier (SLA > max_sla_minutes menit
+            diabaikan)
   /api/v1/ulasan/kpi:
     get:
       tags:
@@ -3715,7 +3720,7 @@ paths:
                     example: 401
                   message:
                     type: string
-                  data: 
+                  data:
                     type: object
                     default: null
               example: |
@@ -4259,11 +4264,21 @@ paths:
                   example: 2
                 sla_target_unit:
                   type: string
-                  enum: [menit, jam, hari]
+                  enum: [ menit, jam, hari ]
                   example: hari
       responses:
         '200':
           description: Target SLA operator berhasil diperbarui
+          content:
+            application/json:
+              example:
+                status: success
+                message: Target SLA operator berhasil diperbarui.
+                data:
+                  id: 9b1c7c94-0d92-416b-9c2f-e8b8c5a5b5e3
+                  name: Nama Lengkap Operator
+                  sla_target_value: 2
+                  sla_target_unit: hari
     patch:
       tags:
         - SLA
@@ -4286,11 +4301,21 @@ paths:
                   example: 2
                 sla_target_unit:
                   type: string
-                  enum: [menit, jam, hari]
+                  enum: [ menit, jam, hari ]
                   example: hari
       responses:
         '200':
           description: Target SLA operator berhasil diperbarui
+          content:
+            application/json:
+              example:
+                status: success
+                message: Target SLA operator berhasil diperbarui.
+                data:
+                  id: 9b1c7c94-0d92-416b-9c2f-e8b8c5a5b5e3
+                  name: Nama Lengkap Operator
+                  sla_target_value: 2
+                  sla_target_unit: hari
   /api/v1/wilayah/kpi:
     get:
       tags:
@@ -4308,8 +4333,9 @@ paths:
         - name: id_kecamatan
           in: query
           description: >-
-            Filter data berdasarkan ID kecamatan. Jika filter kecamatan diterapkan,
-            maka akan menampilkan jumlah kelurahan/desa. Jika tidak, menampilkan jumlah kecamatan.
+            Filter data berdasarkan ID kecamatan. Jika filter kecamatan
+            diterapkan, maka akan menampilkan jumlah kelurahan/desa. Jika tidak,
+            menampilkan jumlah kecamatan.
           schema:
             type: integer
         - name: sort_by
@@ -4326,12 +4352,14 @@ paths:
           in: query
           schema:
             type: string
-          description: Memfilter data berdasarkan rentang tanggal spesifik (Format dd-mm-yyyy).
+          description: Memfilter data berdasarkan rentang tanggal spesifik (Format
+            dd-mm-yyyy).
         - name: end_date
           in: query
           schema:
             type: string
-          description: Memfilter data berdasarkan rentang tanggal spesifik (Format dd-mm-yyyy).
+          description: Memfilter data berdasarkan rentang tanggal spesifik (Format
+            dd-mm-yyyy).
       responses:
         '200':
           description: OK
@@ -4382,6 +4410,13 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              example:
+                status: success
+                message: Proses kalkulasi ulang SLA berhasil dijalankan.
+                data:
+                  output: "Kalkulasi SLA selesai. Total ajuan diproses: 150."
   /api/v1/operational-hours:
     get:
       tags:
@@ -4393,6 +4428,27 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              example:
+                status: success
+                data:
+                  - id: 1
+                    hari_kode: 1
+                    hari_nama: Senin
+                    jam_buka: 08:00:00
+                    jam_tutup: 16:00:00
+                    is_libur: false
+                    created_at: 2024-01-01T00:00:00.000000Z
+                    updated_at: 2024-01-01T00:00:00.000000Z
+                  - id: 2
+                    hari_kode: 2
+                    hari_nama: Selasa
+                    jam_buka: 08:00:00
+                    jam_tutup: 16:00:00
+                    is_libur: false
+                    created_at: 2024-01-01T00:00:00.000000Z
+                    updated_at: 2024-01-01T00:00:00.000000Z
   /api/v1/operational-hours/{id}:
     put:
       tags:
@@ -4426,6 +4482,20 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              example:
+                status: success
+                message: Jam operasional berhasil diperbarui.
+                data:
+                  id: 1
+                  hari_kode: 1
+                  hari_nama: Senin
+                  jam_buka: 08:00:00
+                  jam_tutup: 15:00:00
+                  is_libur: false
+                  created_at: 2024-01-01T00:00:00.000000Z
+                  updated_at: 2024-07-20T08:30:00.000000Z
     patch:
       tags:
         - Operational Hours
@@ -4456,3 +4526,17 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              example:
+                status: success
+                message: Jam operasional berhasil diperbarui.
+                data:
+                  id: 1
+                  hari_kode: 1
+                  hari_nama: Senin
+                  jam_buka: 08:00:00
+                  jam_tutup: 15:00:00
+                  is_libur: false
+                  created_at: 2024-01-01T00:00:00.000000Z
+                  updated_at: 2024-07-20T08:30:00.000000Z
